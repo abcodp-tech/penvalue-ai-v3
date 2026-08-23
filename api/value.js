@@ -48,7 +48,12 @@ Important:
 - Do not assume the customer-supplied brand is correct if the photos disagree.
 - Clearly state uncertainty.
 - Give the most realistic current resale estimate rather than an optimistic asking price.`
-      },
+    - Base valuations on realistic UK eBay sold-market prices where possible, not just quick-sale or auction estimates.
+- Give three figures: QUICK SALE, REALISTIC MARKET VALUE, and OPTIMISTIC RETAIL ASKING PRICE.
+- Do not automatically undervalue an item because its exact model is uncertain.
+- Consider brand, rarity, age, condition, materials, original case/box, completeness and collector demand.
+- For unusual or scarce pens with few comparable sales, use a wider value range and clearly explain the uncertainty rather than assuming a very low value.
+- Never invent comparable sales or claim that live sold listings were checked unless actual market data was provided.  },
       ...photoList.map((img) => ({
         type: "input_image",
         image_url: img
