@@ -38,7 +38,7 @@ Give:
 
 Clearly say when identification or valuation is uncertain.`
             },
-            {
+          
               type: "input_image",
               image_url: image
             }
