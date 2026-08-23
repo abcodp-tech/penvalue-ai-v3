@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PenValue — Fountain Pen Valuation</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f0e8;color:#211d18;font-family:Inter,system-ui,sans-serif}
+header{background:#211d18;color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:23px;font-weight:900}.logo b{color:#d7ad73}.tag{font-size:12px;opacity:.75}
+main{max-width:920px;margin:auto;padding:24px 16px 50px}.hero{text-align:center;padding:12px 0 24px}.hero h1{font-size:38px;margin:5px 0 10px;letter-spacing:-1.5px}.hero p{color:#70675d;max-width:620px;margin:auto}
+.tabs{display:flex;gap:8px;margin-bottom:16px}.tabs button{flex:1}.tabs button.active{background:#211d18;color:white}
+.card{background:#fffdf8;border:1px solid #ddd3c5;border-radius:18px;padding:20px;box-shadow:0 8px 28px #3b2b180c;margin-bottom:16px}
+button{border:0;border-radius:11px;padding:12px 16px;font-weight:800;background:#755337;color:white;cursor:pointer}button.light{background:#ebe3d7;color:#211d18}
+.drop{border:2px dashed #c9bba8;border-radius:15px;padding:22px;text-align:center;background:#fbf8f2;cursor:pointer}.drop input{display:none}
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.photos img{width:100%;height:110px;object-fit:cover;border-radius:10px;border:1px solid #ddd3c5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:12px;font-weight:800;color:#70675d}input,select,textarea{width:100%;margin-top:5px;padding:11px;border:1px solid #d8cebf;border-radius:10px;font:inherit;background:white}
+.full{grid-column:1/-1}.note{font-size:12px;color:#756c62;line-height:1.5}.success{background:#e8f1e9;border:1px solid #bfd1c1;border-radius:12px;padding:14px;display:none}
+.queue{display:grid;gap:10px}.job{border:1px solid #ddd3c5;border-radius:13px;padding:14px;background:white;display:flex;justify-content:space-between;gap:12px;align-items:center}.job small{color:#756c62}.status{font-size:11px;font-weight:900;padding:6px 8px;border-radius:99px;background:#eee5d8}
+.result{display:none;background:#f1eadf;border-radius:14px;padding:16px}.price{font-size:38px;font-weight:900}.muted{color:#756c62}
+footer{text-align:center;color:#756c62;font-size:12px;padding:20px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.photos{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:31px}.job{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="logo">Pen<b>Value</b></div><div class="tag">Private valuation service</div></header>
+<main>
+<section class="hero"><h1>Get your fountain pen valued</h1><p>Send us clear photos and a few details. Your valuer can review the pen, estimate its market value and send you a valuation.</p></section>
+
+<div class="tabs">
+<button id="customerTab" class="active" onclick="show('customer')">Customer</button>
+<button id="valuerTab" class="light" onclick="show('valuer')">Valuer dashboard</button>
+</div>
+
+<section id="customer">
+<div class="card">
+<h2>Submit your pen</h2>
+<p class="note">For the best valuation, photograph the whole pen, cap, nib and any barrel/imprint markings.</p>
+<label class="drop">📷 Add up to 4 photos
+<input id="files" type="file" accept="image/*" multiple>
+<div class="photos" id="photos"></div>
+</label>
+<div class="grid" style="margin-top:14px">
+<div><label>Your name</label><input id="name" placeholder="Your name"></div>
+<div><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div>
+<div><label>Brand</label><input id="brand" placeholder="If known"></div>
+<div><label>Model</label><input id="model" placeholder="If known"></div>
+<div><label>Where did you get it?</label><input id="source" placeholder="Inherited, eBay, Vinted, etc."></div>
+<div><label>What do you want to know?</label><select id="question"><option>What is it worth?</option><option>Should I sell it?</option><option>Is it rare?</option><option>Is it worth repairing?</option></select></div>
+<div class="full"><label>Anything else?</label><textarea id="notes" rows="3" placeholder="Condition, marks, box/papers, writing performance..."></textarea></div>
+</div>
+<button style="margin-top:14px" onclick="submitPen()">Submit for valuation</button>
+<div class="success" id="success" style="margin-top:14px"></div>
+</div>
+</section>
+
+<section id="valuer" style="display:none">
+<div class="card">
+<h2>Valuation inbox</h2><p class="note">This prototype stores submissions in this browser only. A production version would send them securely to your database and notify you by email.</p>
+<div class="queue" id="queue"></div>
+</div>
+<div class="card" id="work" style="display:none">
+<h2>Complete valuation</h2>
+<div id="customerInfo" class="note"></div>
+<div class="grid" style="margin-top:12px">
+<div><label>Low value (£)</label><input id="low" type="number"></div>
+<div><label>Likely value (£)</label><input id="mid" type="number"></div>
+<div><label>High value (£)</label><input id="high" type="number"></div>
+<div><label>Confidence</label><select id="confidence"><option>High</option><option>Medium</option><option>Low</option></select></div>
+<div class="full"><label>Valuation explanation</label><textarea id="explanation" rows="5" placeholder="Explain brand, model, nib, condition, rarity and market demand..."></textarea></div>
+</div>
+<button onclick="sendValuation()" style="margin-top:12px">Send valuation to customer</button>
+<div class="result" id="sent" style="margin-top:12px"></div>
+</div>
+</section>
+</main>
+<footer>PenValue prototype — indicative valuations only. Production version should add secure storage, payments, AI identification and live sold-price research.</footer>
+<script>
+let photos=[], submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'), current=null;
+const files=document.getElementById('files');
+files.onchange=()=>{photos=[...files.files].slice(0,4);document.getElementById('photos').innerHTML='';photos.forEach(f=>{let i=document.createElement('img');i.src=URL.createObjectURL(f);document.getElementById('photos').appendChild(i)})};
+function show(which){document.getElementById('customer').style.display=which==='customer'?'block':'none';document.getElementById('valuer').style.display=which==='valuer'?'block':'none';document.getElementById('customerTab').className=which==='customer'?'active':'';document.getElementById('valuerTab').className=which==='valuer'?'active':'light';if(which==='valuer')renderQueue()}
+function submitPen(){
+let n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim();
+if(!n||!e||photos.length===0){alert('Please add your name, email and at least one photo.');return}
+let s={id:'PV-'+Date.now().toString().slice(-6),name:n,email:e,brand:document.getElementById('brand').value,model:document.getElementById('model').value,source:document.getElementById('source').value,question:document.getElementById('question').value,notes:document.getElementById('notes').value,photos:photos.length,status:'Awaiting valuation',created:new Date().toLocaleString()};
+submissions.unshift(s);localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));document.getElementById('success').style.display='block';document.getElementById('success').innerHTML='<b>Submitted!</b><br>Your valuation reference is <b>'+s.id+'</b>. In the full app, the customer would now receive an email confirmation.';
+document.getElementById('name').value='';document.getElementById('email').value='';photos=[];document.getElementById('photos').innerHTML='';
+}
+function renderQueue(){let q=document.getElementById('queue');q.innerHTML='';if(!submissions.length){q.innerHTML='<p class="muted">No submissions yet. Submit one from the Customer tab.</p>';return}submissions.forEach((s,idx)=>{let d=document.createElement('div');d.className='job';d.innerHTML='<div><b>'+s.id+' — '+(s.brand||'Unknown brand')+' '+(s.model||'')+'</b><br><small>'+s.name+' • '+s.email+' • '+s.created+' • '+s.photos+' photos</small></div><div><span class="status">'+s.status+'</span> <button onclick="openJob('+idx+')">Value</button></div>';q.appendChild(d)})}
+function openJob(idx){current=idx;let s=submissions[idx];document.getElementById('work').style.display='block';document.getElementById('customerInfo').innerHTML='<b>'+s.id+'</b><br>'+s.name+' ('+s.email+')<br>Brand: '+(s.brand||'Unknown')+' | Model: '+(s.model||'Unknown')+'<br>Question: '+s.question+'<br>Notes: '+(s.notes||'None');window.scrollTo({top:document.getElementById('work').offsetTop-20,behavior:'smooth'})}
+function sendValuation(){if(current===null)return;let s=submissions[current];s.low=+document.getElementById('low').value;s.mid=+document.getElementById('mid').value;s.high=+document.getElementById('high').value;s.confidence=document.getElementById('confidence').value;s.explanation=document.getElementById('explanation').value;s.status='Valuation complete';localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));document.getElementById('sent').style.display='block';document.getElementById('sent').innerHTML='<b>Valuation completed.</b> Estimated value: £'+s.mid+' (range £'+s.low+'–£'+s.high+'). In production this would email the customer a branded valuation report.';renderQueue()}
+</script>
+</body></html>
