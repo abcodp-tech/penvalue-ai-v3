@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { image, brand, model, notes } = req.body;
+    const { image, images, brand, model, notes } = req.body;
 
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
