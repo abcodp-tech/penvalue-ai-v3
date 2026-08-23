@@ -68,7 +68,7 @@ return res.status(200).json({
   valuation
 });
 
-    });
+    
 
   } catch (error) {
     return res.status(500).json({
