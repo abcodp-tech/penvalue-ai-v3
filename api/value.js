@@ -39,8 +39,14 @@ Give:
 Clearly say when identification or valuation is uncertain.`
             },
           
-              type: "input_image",
-              image_url: image
+              ...(images || [image])
+  .filter(Boolean)
+  .slice(0, 8)
+  .map(img => ({
+    type: "input_image",
+    image_url: img
+  }))
+              
             }
           ]
         }]
