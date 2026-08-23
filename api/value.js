@@ -55,8 +55,19 @@ Clearly say when identification or valuation is uncertain.`
       });
     }
 
-    return res.status(200).json({
-      valuation: data.output_text
+    const valuation =
+  data.output_text ||
+  data.output
+    ?.flatMap(item => item.content || [])
+    .filter(part => part.type === "output_text")
+    .map(part => part.text)
+    .join("\n") ||
+  "";
+
+return res.status(200).json({
+  valuation
+});
+
     });
 
   } catch (error) {
