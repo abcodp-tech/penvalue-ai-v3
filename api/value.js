@@ -47,11 +47,11 @@ Clearly say when identification or valuation is uncertain.`
     image_url: img
   }))
               
-            }
-          ]
-        }]
-      })
-    });
+          
+        
+        
+      
+    
 
     const data = await response.json();
 
