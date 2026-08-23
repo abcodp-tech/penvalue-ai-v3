@@ -210,6 +210,58 @@ document.getElementById('sent').innerHTML='<b>Valuation completed.</b> Estimated
 
 renderQueue()
 }
+  async function smallPhoto(file){
+  const img=await createImageBitmap(file);
+  const max=1200;
+  const scale=Math.min(1,max/Math.max(img.width,img.height));
+  const c=document.createElement("canvas");
+  c.width=Math.round(img.width*scale);
+  c.height=Math.round(img.height*scale);
+  c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+  return c.toDataURL("image/jpeg",0.8);
+}
+
+async function submitPen(){
+  const n=document.getElementById("name").value.trim();
+  const e=document.getElementById("email").value.trim();
+  const box=document.getElementById("success");
+
+  if(!n||!e||photos.length===0){
+    alert("Please add your name, email and at least one photo.");
+    return;
+  }
+
+  box.style.display="block";
+  box.innerHTML="<b>AI is valuing your pen…</b><br>This may take a few seconds.";
+
+  try{
+    const image=await smallPhoto(photos[0]);
+
+    const r=await fetch("/api/value",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        image:image,
+        brand:document.getElementById("brand").value,
+        model:document.getElementById("model").value,
+        notes:document.getElementById("notes").value
+      })
+    });
+
+    const data=await r.json();
+
+    if(!r.ok) throw new Error(data.error||"Valuation failed");
+
+    box.innerHTML="<b>AI valuation</b><br><br>";
+    const result=document.createElement("div");
+    result.style.whiteSpace="pre-wrap";
+    result.textContent=data.valuation||"No valuation returned.";
+    box.appendChild(result);
+
+  }catch(err){
+    box.innerHTML="<b>Something went wrong.</b><br>"+err.message;
+  }
+}
 </script>
 
 </body>
