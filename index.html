@@ -241,7 +241,7 @@ async function submitPen(){
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
-        image:image,
+        images:images,
         brand:document.getElementById("brand").value,
         model:document.getElementById("model").value,
         notes:document.getElementById("notes").value
