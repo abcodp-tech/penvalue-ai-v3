@@ -235,7 +235,7 @@ async function submitPen(){
   box.innerHTML="<b>AI is valuing your pen…</b><br>This may take a few seconds.";
 
   try{
-    const image=await smallPhoto(photos[0]);
+    const images=await Promise.all(photos.map(smallPhoto));
 
     const r=await fetch("/api/value",{
       method:"POST",
