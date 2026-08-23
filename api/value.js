@@ -47,7 +47,9 @@ Clearly say when identification or valuation is uncertain.`
     image_url: img
   }))
               
-          
+    ]
+}]
+});    
         
         
       
