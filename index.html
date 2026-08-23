@@ -255,7 +255,7 @@ async function submitPen(){
     box.innerHTML="<b>AI valuation</b><br><br>";
     const result=document.createElement("div");
     result.style.whiteSpace="pre-wrap";
-    result.textContent=data.valuation||"No valuation returned.";
+    result.innerHTML=(data.valuation||"No valuation returned.").replace(/^### (.*)$/gm,'<h3>$1</h3>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
     box.appendChild(result);
 
   }catch(err){
