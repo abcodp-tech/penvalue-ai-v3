@@ -106,7 +106,7 @@ let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions'
 const files=document.getElementById('files');
 
 files.onchange=()=>{
-photos=[...files.files].slice(0,4);
+photos=[...files.files].slice(0,8);
 document.getElementById('photos').innerHTML='';
 photos.forEach(f=>{
 let i=document.createElement('img');
