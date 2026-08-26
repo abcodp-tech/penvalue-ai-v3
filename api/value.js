@@ -48,7 +48,7 @@ Important:
 - Do not assume the customer-supplied brand is correct if the photos disagree.
 - Clearly state uncertainty.
 - Give the most realistic current resale estimate rather than an optimistic asking price.`
-    - Base valuations on realistic UK eBay sold-market prices where possible, not just quick-sale or auction estimates.
+    
 
 
       ...photoList.map((img) => ({
