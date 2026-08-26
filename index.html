@@ -123,7 +123,7 @@ document.getElementById('valuerTab').className=which==='valuer'?'active':'light'
 if(which==='valuer')renderQueue()
 }
 
-function saveToDashboard(){
+function saveToDashboard(aiValuation){
 let n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim();
 
 if(!n||!e||photos.length===0){
