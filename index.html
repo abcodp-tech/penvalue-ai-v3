@@ -252,7 +252,7 @@ async function submitPen(){
     const data=await r.json();
 
     if(!r.ok) throw new Error(data.error||"Valuation failed");
-saveToDashboard();
+saveToDashboard(data.valuation);
     box.innerHTML="<b>AI valuation</b><br><br>";
     const result=document.createElement("div");
     result.style.whiteSpace="pre-wrap";
