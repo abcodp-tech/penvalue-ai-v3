@@ -192,24 +192,51 @@ behavior:'smooth'
 }
 
 function sendValuation(){
-if(current===null)return;
+async function sendValuation(){
+  if(current===null)return;
 
-let s=submissions[current];
+  let s=submissions[current];
 
-s.low=+document.getElementById('low').value;
-s.mid=+document.getElementById('mid').value;
-s.high=+document.getElementById('high').value;
-s.confidence=document.getElementById('confidence').value;
-s.explanation=document.getElementById('explanation').value;
-s.status='Valuation complete';
+  s.low=+document.getElementById('low').value;
+  s.mid=+document.getElementById('mid').value;
+  s.high=+document.getElementById('high').value;
+  s.confidence=document.getElementById('confidence').value;
+  s.explanation=document.getElementById('explanation').value;
+  s.status='Valuation complete';
 
-localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
+  localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
 
-document.getElementById('sent').style.display='block';
+  const sent=document.getElementById('sent');
+  sent.style.display='block';
+  sent.textContent='Sending valuation email...';
 
-document.getElementById('sent').innerHTML='<b>Valuation completed.</b> Estimated value: £'+s.mid+' (range £'+s.low+'–£'+s.high+'). In production this would email the customer a branded valuation report.';
+  try{
+    const response=await fetch('/api/send',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        email:s.email||s.customerEmail,
+        brand:s.brand||'Fountain pen',
+        model:s.model||'',
+        low:s.low,
+        likely:s.mid,
+        high:s.high,
+        confidence:s.confidence,
+        explanation:s.explanation
+      })
+    });
 
-renderQueue()
+    const result=await response.json();
+
+    if(!response.ok)throw new Error(result.error||'Email failed');
+
+    sent.textContent='Valuation completed and emailed to the customer.';
+  }catch(error){
+    sent.textContent='Valuation saved, but the email could not be sent: '+error.message;
+  }
+
+  renderQueue();
+}
 }
   async function smallPhoto(file){
   const img=await createImageBitmap(file);
