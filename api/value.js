@@ -69,7 +69,7 @@ Important:
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
         },
         body: JSON.stringify({
-          model: "gpt-5.4",
+          model: "gpt-5.6",
           input: [
             {
               role: "user",
