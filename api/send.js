@@ -53,6 +53,7 @@ export default async function handler(req, res) {
             <p><strong>Estimated range:</strong> £${escapeHtml(low)}–£${escapeHtml(high)}</p>
             <p><strong>Likely value:</strong> £${escapeHtml(likely)}</p>
             <p><strong>Confidence:</strong> ${escapeHtml(confidence)}</p>
+            <p style="padding:12px;background:#f6eee7;border-radius:8px"><strong>Important:</strong> The value may change when nib material or markings cannot be confirmed. A clear close-up of marks such as 18K, 750, 14K or 585 will improve accuracy.</p>
             <hr>
             <p>${safeExplanation}</p>
             <hr>
