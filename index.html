@@ -257,7 +257,7 @@ async function submitPen(){
     result.style.whiteSpace="pre-wrap";
     result.innerHTML=(data.valuation||"No valuation returned.").replace(/^### (.*)$/gm,'<h3>$1</h3>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
     box.appendChild(result);
-
+saveToDashboard();
   }catch(err){
     box.innerHTML="<b>Something went wrong.</b><br>"+err.message;
   }
