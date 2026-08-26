@@ -184,7 +184,7 @@ let s=submissions[idx];
 document.getElementById('work').style.display='block';
 
 document.getElementById('customerInfo').innerHTML='<b>'+s.id+'</b><br>'+s.name+' ('+s.email+')<br>Brand: '+(s.brand||'Unknown')+' | Model: '+(s.model||'Unknown')+'<br>Question: '+s.question+'<br>Notes: '+(s.notes||'None');
-
+document.getElementById('explanation').value=s.aiValuation||s.explanation||'';
 window.scrollTo({
 top:document.getElementById('work').offsetTop-20,
 behavior:'smooth'
