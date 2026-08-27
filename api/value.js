@@ -89,7 +89,7 @@ Brand supplied: ${brand || "Unknown"}
 Model supplied: ${model || "Unknown"}
 Notes: ${notes || "None"}
 Reference listing supplied: ${referenceUrl || "None"}
-VERIFIED MODEL REFERENCE — WATERMAN REFLEX:
+If a reference listing is supplied, open and examine it. Treat it only as a comparison clue. Do not trust its title, model name, condition or price automatically. Compare its photographs and description against the locked visual fingerprint. Clearly state whether its price is sold, completed, asking or unknown. VERIFIED MODEL REFERENCE — WATERMAN REFLEX:
 A specialist identification reference describes the Waterman Reflex as having:
 - production primarily during the 1990s, including approximately 1995–1999
 - a long tapering barrel with a blunt end
