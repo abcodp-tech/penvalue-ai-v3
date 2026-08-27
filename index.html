@@ -294,6 +294,9 @@ saveToDashboard(data.valuation);
     const result=document.createElement("div");
     result.style.whiteSpace="pre-wrap";
     result.innerHTML=(data.valuation||"No valuation returned.").replace(/^### (.*)$/gm,'<h3>$1</h3>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+    result.innerHTML=result.innerHTML
+.replace(/#### ([^<]+)/g,'<h4>$1</h4>')
+.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#f0a46f;text-decoration:underline">$1</a>'                                                                                                                                                                                              );
     box.appendChild(result);
 
   }catch(err){
