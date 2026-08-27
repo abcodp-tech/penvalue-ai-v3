@@ -31,7 +31,14 @@ Identify and value this fountain pen from the photo and details.
 Brand supplied: ${brand || "Unknown"}
 Model supplied: ${model || "Unknown"}
 Notes: ${notes || "None"}
-
+Before answering, search the web for reliable evidence.
+- Research the likely model using specialist fountain-pen references and manufacturer information.
+- Research recent sold or completed prices where accessible, plus reputable specialist-dealer prices.
+- Clearly separate sold-price evidence from current asking prices.
+- Never treat one asking price as the market value.
+- Compare several relevant examples and adjust for condition, nib material, box and accessories.
+- Include the source names and clickable links used.
+- If reliable sold evidence cannot be found, clearly say so.
 Give:
 1. Likely brand and model
 2. Approximate age
