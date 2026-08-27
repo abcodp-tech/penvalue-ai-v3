@@ -91,11 +91,7 @@ Notes: ${notes || "None"}
 Reference listing supplied: ${referenceUrl || "None"}
 If a reference listing is supplied, examine it only as possible supporting evidence. Never assume it matches the photographed pen. Compare the brand, logo, clip, nib, cap, barrel, markings and filling system. Reject the reference when those features conflict. Do not compare unrelated brands or models.
 
-If the locked fingerprint contains several of these distinctive features, you must include Waterman Reflex in the comparison.
 
-If the long tapering body, flat hexagonal top, oversized curved spade clip and semi-hooded nib all match without an important conflict, rank Waterman Reflex above candidates supported only by general colour, brand or faceting.
-
-Do not identify it as Reflex if important visible features conflict with this reference.
 
 RESEARCH PROCESS:
 First search the distinctive visual features and confirmed markings without assuming a model.
