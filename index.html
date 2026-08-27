@@ -182,7 +182,7 @@ submissions.forEach((s,idx)=>{
 let d=document.createElement('div');
 d.className='job';
 
-d.innerHTML='<div><b>'+s.id+' — '+(s.brand||'Unknown brand')+' '+(s.model||'')+'</b><br><small>'+s.name+' • '+s.email+' • '+s.created+' • '+s.photos+' photos</small></div><div><span class="status">'+s.status+'</span> <button onclick="openJob('+idx+')">Value</button></div>';
+d.innerHTML='<div><b>'+s.id+' — '+(s.brand||'Unknown brand')+(((s.model||'').startsWith('http')||!s.model)?'':' — '+s.model)+'</b><br><small>'+s.name+' • '+s.email+' • '+s.created+' • '+s.photos+' photos</small></div><div><span class="status">'+s.status+'</span> <button onclick="openJob('+idx+')">Value</button></div>';
 
 q.appendChild(d)
 })
