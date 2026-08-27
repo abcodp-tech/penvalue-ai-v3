@@ -88,7 +88,7 @@ CUSTOMER DETAILS:
 Brand supplied: ${brand || "Unknown"}
 Model supplied: ${model || "Unknown"}
 Notes: ${notes || "None"}
-
+Reference listing supplied: ${referenceUrl || "None"}
 VERIFIED MODEL REFERENCE — WATERMAN REFLEX:
 A specialist identification reference describes the Waterman Reflex as having:
 - production primarily during the 1990s, including approximately 1995–1999
