@@ -299,7 +299,14 @@ saveToDashboard(data.valuation);
     result.innerHTML=result.innerHTML
 .replace(/#### ([^<]+)/g,'<h4>$1</h4>')
 .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#f0a46f;text-decoration:underline">$1</a>'                                                                                                                                                                                              );
-    box.appendChild(result);
+    box.appendChild(result);const copyButton=document.createElement("button");
+copyButton.textContent="Copy full valuation";
+copyButton.style.marginTop="14px";
+copyButton.onclick=async()=>{
+  await navigator.clipboard.writeText(data.valuation||"");
+  copyButton.textContent="Copied ✓";
+};
+box.appendChild(copyButton);
 
   }catch(err){
     box.innerHTML="<b>Something went wrong.</b><br>"+err.message;
