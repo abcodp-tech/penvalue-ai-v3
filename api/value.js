@@ -50,6 +50,13 @@ Important accuracy rules:
 - If condition cannot be confirmed from the photos, say it is uncertain.
 - Do not call a nib solid gold unless a clear gold hallmark such as 14K, 18K, 585 or 750 is visible.
 - When the same photos and details are supplied again, keep the identification and valuation range as consistent as possible.
+Model comparison rules:
+- First inspect the cap and barrel shape, clip shape, cap band, finial logo, nib shape, feed, section, filling system and every visible marking.
+- For each possible model, state which visible features match and which features do not match.
+- Do not suggest a model merely because the brand, colour and approximate age are similar.
+- Remove any candidate whose nib style, clip, finial or body shape conflicts with the photos.
+- Rank no more than 3 candidates from strongest to weakest.
+- State the single most useful missing photo or marking needed to confirm the model.
 Clearly say when identification or valuation is uncertain.`
                 },
                 ...(images || [image])
