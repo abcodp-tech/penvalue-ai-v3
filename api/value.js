@@ -154,7 +154,7 @@ Return these sections:
 8. Optimized Vinted title and honest description
 9. Sources
 
-Be concise. Do not claim solid gold without a visible hallmark. Clearly label uncertainty.`
+For both marketplace listings, only state an exact model as fact when the evidence confirms it. Otherwise use the brand and visible pen type, and describe the model as unconfirmed in the description. Be concise. Do not claim solid gold without a visible hallmark. Clearly label uncertainty.`
         }]
       }]
     }, headers);
