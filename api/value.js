@@ -89,6 +89,29 @@ Brand supplied: ${brand || "Unknown"}
 Model supplied: ${model || "Unknown"}
 Notes: ${notes || "None"}
 
+VERIFIED MODEL REFERENCE — WATERMAN REFLEX:
+A specialist identification reference describes the Waterman Reflex as having:
+- production primarily during the 1990s, including approximately 1995–1999
+- a long tapering barrel with a blunt end
+- a cap tapering slightly to a flat hexagonal top
+- a Waterman logo moulded into the top face
+- a very large, broad, curved washer-mounted spade-shaped clip
+- open-nib and later semi-hooded-nib versions
+- stainless-steel nibs, gold plated on gold-trim versions
+- cartridge/converter filling
+- plastic, metal/plastic and all-metal versions
+- WATERMAN and FRANCE nib markings
+
+Reference:
+https://www.penhero.com/PenGallery/Waterman/WatermanReflexdaVinci.htm
+
+If the locked fingerprint contains several of these distinctive features, you must include Waterman Reflex in the comparison.
+
+If the long tapering body, flat hexagonal top, oversized curved spade clip and semi-hooded nib all match without an important conflict, rank Waterman Reflex above candidates supported only by general colour, brand or faceting.
+
+Do not identify it as Reflex if important visible features conflict with this reference.
+
+RESEARCH PROCESS:
 First search the distinctive visual features and confirmed markings without assuming a model.
 
 Build a fresh candidate list from reliable manufacturer pages, catalogues and specialist fountain-pen references.
@@ -107,11 +130,14 @@ Test every candidate against:
 
 Reject any candidate with a conflicting nib design, clip shape, finial or body profile. Similar colour and brand are not enough.
 
+Prioritize specialist identification sources that describe the actual model features. General brand-history pages cannot confirm an exact model.
+
 Do not let a marketplace listing title override the photographed features.
 
 If the evidence does not support one model, state that the exact model is unconfirmed instead of forcing a guess.
 
-For prices, prioritize genuinely sold or completed examples of the confirmed or strongest matching model.
+VALUATION PROCESS:
+Prioritize genuinely sold or completed examples of the confirmed or strongest matching model.
 
 Clearly separate sold prices from current asking and dealer prices. Never use a different high-value model as a comparable.
 
