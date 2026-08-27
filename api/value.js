@@ -150,7 +150,7 @@ Return these sections:
 4. Condition observations
 5. Why it has this value, with sold evidence separate from asking evidence
 6. The single most useful missing photo, followed by other helpful details
-7. Optimized eBay title and honest description
+7. 7. Optimized eBay title of no more than 80 characters, followed by an honest description
 8. Optimized Vinted title and honest description
 9. Sources
 
