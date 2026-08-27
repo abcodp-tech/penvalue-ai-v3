@@ -89,21 +89,7 @@ Brand supplied: ${brand || "Unknown"}
 Model supplied: ${model || "Unknown"}
 Notes: ${notes || "None"}
 Reference listing supplied: ${referenceUrl || "None"}
-If a reference listing is supplied, open and examine it. Treat it only as a comparison clue. Do not trust its title, model name, condition or price automatically. Compare its photographs and description against the locked visual fingerprint. Clearly state whether its price is sold, completed, asking or unknown. VERIFIED MODEL REFERENCE — WATERMAN REFLEX:
-A specialist identification reference describes the Waterman Reflex as having:
-- production primarily during the 1990s, including approximately 1995–1999
-- a long tapering barrel with a blunt end
-- a cap tapering slightly to a flat hexagonal top
-- a Waterman logo moulded into the top face
-- a very large, broad, curved washer-mounted spade-shaped clip
-- open-nib and later semi-hooded-nib versions
-- stainless-steel nibs, gold plated on gold-trim versions
-- cartridge/converter filling
-- plastic, metal/plastic and all-metal versions
-- WATERMAN and FRANCE nib markings
-
-Reference:
-https://www.penhero.com/PenGallery/Waterman/WatermanReflexdaVinci.htm
+If a reference listing is supplied, examine it only as possible supporting evidence. Never assume it matches the photographed pen. Compare the brand, logo, clip, nib, cap, barrel, markings and filling system. Reject the reference when those features conflict. Do not compare unrelated brands or models.
 
 If the locked fingerprint contains several of these distinctive features, you must include Waterman Reflex in the comparison.
 
