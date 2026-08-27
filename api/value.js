@@ -39,7 +39,17 @@ Give:
 6. What additional photos/details would improve confidence
 7. An optimized eBay title and description
 8. An optimized Vinted title and description
-
+Important accuracy rules:
+- Separate confirmed facts from visual guesses.
+- Only name an exact model when markings or distinctive features clearly confirm it.
+- Otherwise state: "Exact model not confirmed" and give up to 3 possible models.
+- Give a confidence level: Low, Moderate or High.
+- Use conservative, repeatable GBP price ranges rounded to the nearest £5.
+- Do not claim to have checked live listings or sold prices.
+- Do not describe reflections, shadows, dried ink or unclear areas as damage.
+- If condition cannot be confirmed from the photos, say it is uncertain.
+- Do not call a nib solid gold unless a clear gold hallmark such as 14K, 18K, 585 or 750 is visible.
+- When the same photos and details are supplied again, keep the identification and valuation range as consistent as possible.
 Clearly say when identification or valuation is uncertain.`
                 },
                 ...(images || [image])
