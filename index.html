@@ -189,17 +189,33 @@ q.appendChild(d)
 }
 
 function openJob(idx){
-current=idx;
-let s=submissions[idx];
+  current=idx;
+  const s=submissions[idx];
+  const text=s.aiValuation||s.valuation||s.explanation||'';
 
-document.getElementById('work').style.display='block';
+  document.getElementById('work').style.display='block';
 
-document.getElementById('customerInfo').innerHTML='<b>'+s.id+'</b><br>'+s.name+' ('+s.email+')<br>Brand: '+(s.brand||'Unknown')+' | Model: '+(s.model||'Unknown')+'<br>Question: '+s.question+'<br>Notes: '+(s.notes||'None');
-document.getElementById('explanation').value=(s.valuation||'').replace(/\*\*/g,'').replace(/^#{1,4}\s*/gm,'').replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,'$1: $2');
-window.scrollTo({
-top:document.getElementById('work').offsetTop-20,
-behavior:'smooth'
-})
+  document.getElementById('customerInfo').innerHTML=
+    '<b>'+s.id+'</b><br>'+s.name+' ('+s.email+')<br>'+
+    'Brand: '+(s.brand||'Unknown')+' | Model: '+(s.model||'Unknown')+
+    '<br>Question: '+s.question+'<br>Notes: '+(s.notes||'None');
+
+  const low=text.match(/Low:\s*£?\s*(\d+)/i);
+  const likely=text.match(/Likely:\s*£?\s*(\d+)/i);
+  const high=text.match(/High:\s*£?\s*(\d+)/i);
+
+  document.getElementById('low').value=low?low[1]:(s.low||'');
+  document.getElementById('mid').value=likely?likely[1]:(s.mid||'');
+  document.getElementById('high').value=high?high[1]:(s.high||'');
+
+  document.getElementById('explanation').value=text
+    .replace(/\*\*/g,'')
+    .replace(/^#{1,4}\s*/gm,'');
+
+  window.scrollTo({
+    top:document.getElementById('work').offsetTop-20,
+    behavior:'smooth'
+  });
 }
 
 
