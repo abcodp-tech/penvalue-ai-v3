@@ -271,7 +271,7 @@ async function submitPen(){
   }
 
   box.style.display="block";
-  box.innerHTML="<b>AI is valuing your pen…</b><br>This may take a few seconds.";
+  box.innerHTML="<b>AI is examining your photos and researching market evidence…</b><br>This can take up to 2 minutes. Please keep this page open.";
 
   try{
     const images=await Promise.all(photos.map(smallPhoto));
