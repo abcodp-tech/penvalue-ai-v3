@@ -291,6 +291,23 @@ async function submitPen(){
     const data=await r.json();
 
     if(!r.ok) throw new Error(data.error||"Valuation failed");
+    const aiText=data.valuation||"";
+const brandMatch=aiText.match(/Likely brand:\s*\**([^.\n*]+)/i);
+const modelMatch=aiText.match(/1\.\s*\**([^—\n*]+)/);
+
+if(!document.getElementById("brand").value && brandMatch){
+  document.getElementById("brand").value=brandMatch[1].trim();
+}
+
+if(!document.getElementById("model").value && modelMatch){
+  let detectedModel=modelMatch[1].trim();
+  const detectedBrand=document.getElementById("brand").value;
+  if(detectedBrand){
+    detectedModel=detectedModel.replace(new RegExp("^"+detectedBrand+"\\s+","i"),"");
+  }
+  detectedModel=detectedModel.replace(/,.*/,"").trim();
+  document.getElementById("model").value=detectedModel;
+}
 saveToDashboard(data.valuation);
     box.innerHTML="<b>AI valuation</b><br><br>";
     const result=document.createElement("div");
