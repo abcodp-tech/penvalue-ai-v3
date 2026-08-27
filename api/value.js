@@ -57,10 +57,12 @@ Create a LOCKED VISUAL FINGERPRINT containing:
 3. Nib shape, exposure or hooding, colour, visible inscriptions, feed and section.
 4. Filling system, dimensions, box and accessories if visible.
 5. Condition facts, separating visible damage from reflections, ink or uncertainty.
-6. Up to three model candidates. For each, list matching and conflicting visible features.
-7. Identification confidence: Low, Moderate or High.
+6. A concise, searchable description combining the most distinctive visible features.
+7. Photo-quality limitations and which details cannot be confirmed.
 
-Do not browse, value the pen, invent unreadable markings, or call the nib solid gold unless 14K, 18K, 585 or 750 is clearly visible. The fingerprint must describe what the photos show even if the supplied brand or model is wrong.`
+Do not browse, value the pen, suggest any model names, invent unreadable markings, or call the nib solid gold unless 14K, 18K, 585 or 750 is clearly visible.
+
+Do not repeat a model name supplied by the user. The fingerprint must contain neutral visual facts only.`
         }, ...photos.map(photo => ({
           type: "input_image",
           image_url: photo
@@ -87,11 +89,31 @@ Brand supplied: ${brand || "Unknown"}
 Model supplied: ${model || "Unknown"}
 Notes: ${notes || "None"}
 
-Search reliable manufacturer pages, specialist pen references and market evidence.
+First search the distinctive visual features and confirmed markings without assuming a model.
 
-Test every candidate against the locked nib layout, clip, finial, cap, barrel, filling system and markings. Reject candidates with important conflicts. Do not let a listing title override the photographed features.
+Build a fresh candidate list from reliable manufacturer pages, catalogues and specialist fountain-pen references.
 
-For prices, prioritize genuinely sold or completed examples of the confirmed or strongest matching model. Clearly separate sold prices from asking and dealer prices. Never use a different high-value model as a comparable.
+Compare at least five plausible models internally before selecting no more than three ranked candidates.
+
+Test every candidate against:
+- nib layout and shape
+- clip shape
+- cap and barrel profile
+- finial shape and logo
+- cap band
+- section and feed
+- filling system
+- every confirmed marking
+
+Reject any candidate with a conflicting nib design, clip shape, finial or body profile. Similar colour and brand are not enough.
+
+Do not let a marketplace listing title override the photographed features.
+
+If the evidence does not support one model, state that the exact model is unconfirmed instead of forcing a guess.
+
+For prices, prioritize genuinely sold or completed examples of the confirmed or strongest matching model.
+
+Clearly separate sold prices from current asking and dealer prices. Never use a different high-value model as a comparable.
 
 If exact sold evidence is unavailable, say so and use a conservative range. Give source names as Markdown links.
 
