@@ -15,7 +15,9 @@ export default async function handler(req, res) {
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
         },
         body: JSON.stringify({
-          model: "gpt-5.4",
+          model: "gpt-5.4",tools: [{ type: "web_search" }],
+tool_choice: "required",
+include: ["web_search_call.action.sources"],
           input: [
             {
               role: "user",
