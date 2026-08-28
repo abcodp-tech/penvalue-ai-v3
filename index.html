@@ -308,7 +308,7 @@ async function submitPen(){
 
     if(!r.ok) throw new Error(data.error||"Valuation failed");
     const aiText=data.valuation||"";
-const brandMatch=aiText.match(/:Identified brand\s*\**([^.\n*]+)/i);
+const brandMatch=aiText.match(/Identified brand\s*\**([^.\n*]+)/i);
 const modelMatch=aiText.match(/1\.\s*\**([^—\n*]+)/);
 
 if(!document.getElementById("brand").value && brandMatch){
