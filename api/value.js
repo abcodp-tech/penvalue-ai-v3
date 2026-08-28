@@ -127,6 +127,7 @@ If exact sold evidence is unavailable, say so and use a conservative range. Give
 
 Return these sections:
 1. Likely brand and model — confirmed facts, exact-model status, ranked candidates, matches, conflicts and confidence
+For section 1, begin with exactly three separate lines: Identified brand: [brand], Identified model: [model or Unconfirmed], Identification confidence: [High, Medium or Low].
 2. Approximate age
 3. Low, likely and high value in GBP, rounded to £5
 For section 3, use exactly three separate lines: Low: £[number], Likely: £[number], High: £[number].
