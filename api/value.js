@@ -129,6 +129,7 @@ Return these sections:
 1. Likely brand and model — confirmed facts, exact-model status, ranked candidates, matches, conflicts and confidence
 2. Approximate age
 3. Low, likely and high value in GBP, rounded to £5
+For section 3, use exactly three separate lines: Low: £[number], Likely: £[number], High: £[number].
 4. Condition observations
 5. Why it has this value, with sold evidence separate from asking evidence
 6. The single most useful missing photo, followed by other helpful details
