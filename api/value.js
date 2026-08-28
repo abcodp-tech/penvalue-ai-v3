@@ -143,7 +143,27 @@ For both marketplace listings, only state an exact model as fact when the eviden
         }]
       }]
     }, headers);
+    const sql = neon(process.env.DATABASE_URL);
 
+    await sql`
+      INSERT INTO valuations (
+        brand,
+        model,
+        explanation,
+        full_result
+      )
+      VALUES (
+        ${brand || null},
+        ${model || null},
+        ${valuation},
+        ${JSON.stringify({
+          fingerprint,
+          valuation,
+          notes: notes || null,
+          photoCount: photos.length
+        })}::jsonb
+      )
+    `;
     return res.status(200).json({ valuation });
   } catch (error) {
     return res.status(500).json({
