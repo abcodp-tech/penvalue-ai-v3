@@ -112,7 +112,8 @@ footer{text-align:center;color:#756c62;font-size:12px;padding:20px}
 <footer>PenValue prototype — indicative valuations only. Production version should add secure storage, payments, AI identification and live sold-price research.</footer>
 
 <script>
-let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
+document.querySelector("footer").textContent="PenValue AI provides indicative valuations based on submitted photographs and available market evidence.";
+  let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
 
 const files=document.getElementById('files');
 
