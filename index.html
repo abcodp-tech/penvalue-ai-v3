@@ -310,7 +310,7 @@ async function submitPen(){
     const aiText=data.valuation||"";
 const brandMatch=aiText.match(/Identified brand:\s*\**([^.\n*]+)/i);
 const modelMatch=aiText.match(/Identified model:\s*\**([^—\n*]+)/);
-
+const confidenceMatch=aiText.match(/Identification confidence:\s*\**(High|Medium|Low)/i);
 if(!document.getElementById("brand").value && brandMatch){
   document.getElementById("brand").value=brandMatch[1].trim();
 }
