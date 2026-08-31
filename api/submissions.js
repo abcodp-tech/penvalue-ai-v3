@@ -84,6 +84,7 @@ if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
         ON CONFLICT (id) DO UPDATE SET
           brand = EXCLUDED.brand,
           model = EXCLUDED.model,
+          photo_data = EXCLUDED.photo_data,
           ai_valuation = EXCLUDED.ai_valuation,
           status = EXCLUDED.status
         RETURNING *
