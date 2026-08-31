@@ -22,6 +22,21 @@ export default async function handler(req, res) {
     `;
 
     if (req.method === "GET") {
+      const expectedToken = crypto
+  .createHash("sha256")
+  .update(process.env.VALUER_PASSWORD || "")
+  .digest("hex");
+
+const authCookie = (req.headers.cookie || "")
+  .split(";")
+  .map(item => item.trim())
+  .find(item => item.startsWith("penvalue_auth="));
+
+const receivedToken = authCookie?.split("=")[1] || "";
+
+if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
+  return res.status(401).json({ error: "Password required" });
+}
       const rows = await sql`
         SELECT * FROM submissions
         ORDER BY created_at DESC
