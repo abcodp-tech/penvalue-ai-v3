@@ -78,7 +78,7 @@ if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
           ${id}, ${name}, ${email}, ${brand || null},
           ${model || null}, ${source || null},
           ${question || null}, ${notes || null},
-          ${Number(photoCount) || 0}, ${aiValuation || null},
+                ${Number(photoCount) || 0}, ${JSON.stringify(photoData || [])}::jsonb, ${aiValuation || null},
           ${status || "Awaiting valuation"}
         )
         ON CONFLICT (id) DO UPDATE SET
