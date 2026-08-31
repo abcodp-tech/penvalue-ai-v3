@@ -439,7 +439,7 @@ if(!document.getElementById("model").value && modelMatch){
   document.getElementById("model").value=detectedModel;
 }
 if(confidenceMatch)document.getElementById("confidence").value=confidenceMatch[1][0].toUpperCase()+confidenceMatch[1].slice(1).toLowerCase();
-    saveToDashboard(data.valuation);
+    saveToDashboard(data.valuation, images);
     box.innerHTML="<b>AI valuation</b><br><br>";
     const result=document.createElement("div");
     result.style.whiteSpace="pre-wrap";
