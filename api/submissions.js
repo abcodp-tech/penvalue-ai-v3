@@ -72,7 +72,7 @@ if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
       const rows = await sql`
         INSERT INTO submissions (
           id, name, email, brand, model, source,
-          question, notes, photo_count, ai_valuation, status
+                question, notes, photo_count, photo_data, ai_valuation, status
         )
         VALUES (
           ${id}, ${name}, ${email}, ${brand || null},
