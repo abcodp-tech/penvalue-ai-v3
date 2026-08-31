@@ -127,12 +127,59 @@ document.getElementById('photos').appendChild(i)
 })
 };
 
-function show(which){
-document.getElementById('customer').style.display=which==='customer'?'block':'none';
-document.getElementById('valuer').style.display=which==='valuer'?'block':'none';
-document.getElementById('customerTab').className=which==='customer'?'active':'';
-document.getElementById('valuerTab').className=which==='valuer'?'active':'light';
-if(which==='valuer')renderQueue()
+function askForValuerPassword(){
+  return new Promise(resolve=>{
+    const overlay=document.createElement('div');
+    overlay.style='position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:24px;z-index:9999';
+
+    overlay.innerHTML=`
+      <div style="background:#211d18;border:1px solid #6b5a45;border-radius:20px;padding:26px;width:100%;max-width:420px">
+        <h2 style="margin-top:0">Valuer login</h2>
+        <p class="note">Enter your private password.</p>
+        <input id="valuerPasswordInput" type="password" placeholder="Password" autocomplete="current-password">
+        <button id="unlockValuer" style="margin-top:14px;width:100%">Unlock dashboard</button>
+        <button id="cancelValuer" class="light" style="margin-top:10px;width:100%">Cancel</button>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const input=overlay.querySelector('#valuerPasswordInput');
+    const unlock=overlay.querySelector('#unlockValuer');
+    const cancel=overlay.querySelector('#cancelValuer');
+
+    input.focus();
+    unlock.onclick=()=>{const value=input.value;overlay.remove();resolve(value)};
+    cancel.onclick=()=>{overlay.remove();resolve(null)};
+    input.onkeydown=e=>{if(e.key==='Enter')unlock.click()};
+  });
+}
+
+async function show(which){
+  if(which==='valuer' && sessionStorage.getItem('valuerUnlocked')!=='yes'){
+    const password=await askForValuerPassword();
+    if(password===null)return;
+
+    const response=await fetch('/api/login',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({password})
+    });
+
+    if(!response.ok){
+      alert('Incorrect password');
+      return;
+    }
+
+    sessionStorage.setItem('valuerUnlocked','yes');
+  }
+
+  document.getElementById('customer').style.display=which==='customer'?'block':'none';
+  document.getElementById('valuer').style.display=which==='valuer'?'block':'none';
+  document.getElementById('customerTab').className=which==='customer'?'':'light';
+  document.getElementById('valuerTab').className=which==='valuer'?'':'light';
+
+  if(which==='valuer')await renderQueue();
 }
 
 function saveToDashboard(aiValuation){
