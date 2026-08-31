@@ -190,6 +190,31 @@ document.getElementById('photos').innerHTML='';
 
 async function renderQueue(){
 let q=document.getElementById('queue');
+
+  try{
+  const response=await fetch('/api/submissions');
+  const data=await response.json();
+
+  if(response.ok){
+    submissions=(data.submissions||[]).map(row=>({
+      id:row.id,
+      name:row.name,
+      email:row.email,
+      brand:row.brand,
+      model:row.model,
+      source:row.source,
+      question:row.question,
+      notes:row.notes,
+      photos:row.photo_count,
+      aiValuation:row.ai_valuation,
+      status:row.status,
+      created:new Date(row.created_at).toLocaleString()
+    }));
+    localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
+  }
+}catch(error){
+  console.error('Database loading failed:',error);
+}
 q.innerHTML='';
 
 if(!submissions.length){
