@@ -277,6 +277,24 @@ async function sendValuation(){
 
   localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
 
+  await fetch('/api/submissions',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({
+    id:s.id,
+    name:s.name,
+    email:s.email,
+    brand:s.brand,
+    model:s.model,
+    source:s.source,
+    question:s.question,
+    notes:s.notes,
+    photoCount:s.photos,
+    aiValuation:s.aiValuation,
+    status:s.status
+  })
+});
+
   const sent=document.getElementById('sent');
   sent.style.display='block';
   sent.textContent='Sending valuation email...';
