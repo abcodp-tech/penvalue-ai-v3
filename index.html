@@ -295,7 +295,7 @@ function openJob(idx){
     '<br>Question: '+s.question+'<br>Notes: '+(s.notes||'None');
 
   const low=text.match(/Low:\s*£?\s*(\d+)/i);
-      const gallery=(s.photoData||[]).map(src=>'<a href="'+src+'" target="_blank"><img src="'+src+'" alt="Customer pen photo"></a>').join('');
+        const gallery=(s.photoData||[]).map(src=>'<img src="'+src+'" alt="Customer pen photo" onclick="this.requestFullscreen()" style="cursor:zoom-in">').join('');
   document.getElementById('customerInfo').innerHTML+=gallery?'<div class="photos">'+gallery+'</div>':'<p class="note">No saved photos are available for this older submission.</p>';
   const likely=text.match(/Likely:\s*£?\s*(\d+)/i);
   const high=text.match(/High:\s*£?\s*(\d+)/i);
