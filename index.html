@@ -161,6 +161,24 @@ created:new Date().toLocaleString()
 submissions.unshift(s);
 localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
 
+  fetch('/api/submissions',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({
+    id:s.id,
+    name:s.name,
+    email:s.email,
+    brand:s.brand,
+    model:s.model,
+    source:s.source,
+    question:s.question,
+    notes:s.notes,
+    photoCount:s.photos,
+    aiValuation:s.aiValuation,
+    status:s.status
+  })
+}).catch(error=>console.error('Database save failed:',error));
+
 document.getElementById('success').style.display='block';
 document.getElementById('success').innerHTML='<b>Submitted!</b><br>Your valuation reference is <b>'+s.id+'</b>. In the full app, the customer would now receive an email confirmation.';
 
