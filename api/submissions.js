@@ -58,6 +58,7 @@ if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
         question,
         notes,
         photoCount,
+                photoData,
         aiValuation,
         status
       } = req.body || {};
