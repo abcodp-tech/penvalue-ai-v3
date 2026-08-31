@@ -255,6 +255,7 @@ let q=document.getElementById('queue');
       question:row.question,
       notes:row.notes,
       photos:row.photo_count,
+      photoData:row.photo_data || [],
       aiValuation:row.ai_valuation,
       status:row.status,
       created:new Date(row.created_at).toLocaleString()
