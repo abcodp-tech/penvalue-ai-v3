@@ -20,7 +20,10 @@ export default async function handler(req, res) {
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
-
+    await sql`
+      ALTER TABLE submissions
+      ADD COLUMN IF NOT EXISTS photo_data JSONB DEFAULT '[]'::jsonb
+    `;
     if (req.method === "GET") {
       const expectedToken = crypto
   .createHash("sha256")
