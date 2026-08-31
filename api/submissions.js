@@ -1,0 +1,82 @@
+import { neon } from "@neondatabase/serverless";
+
+export default async function handler(req, res) {
+  const sql = neon(process.env.DATABASE_URL);
+
+  try {
+    await sql`
+      CREATE TABLE IF NOT EXISTS submissions (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        brand TEXT,
+        model TEXT,
+        source TEXT,
+        question TEXT,
+        notes TEXT,
+        photo_count INTEGER DEFAULT 0,
+        ai_valuation TEXT,
+        status TEXT DEFAULT 'Awaiting valuation',
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `;
+
+    if (req.method === "GET") {
+      const rows = await sql`
+        SELECT * FROM submissions
+        ORDER BY created_at DESC
+      `;
+      return res.status(200).json({ submissions: rows });
+    }
+
+    if (req.method === "POST") {
+      const {
+        id,
+        name,
+        email,
+        brand,
+        model,
+        source,
+        question,
+        notes,
+        photoCount,
+        aiValuation,
+        status
+      } = req.body || {};
+
+      if (!id || !name || !email) {
+        return res.status(400).json({
+          error: "ID, name and email are required"
+        });
+      }
+
+      const rows = await sql`
+        INSERT INTO submissions (
+          id, name, email, brand, model, source,
+          question, notes, photo_count, ai_valuation, status
+        )
+        VALUES (
+          ${id}, ${name}, ${email}, ${brand || null},
+          ${model || null}, ${source || null},
+          ${question || null}, ${notes || null},
+          ${Number(photoCount) || 0}, ${aiValuation || null},
+          ${status || "Awaiting valuation"}
+        )
+        ON CONFLICT (id) DO UPDATE SET
+          brand = EXCLUDED.brand,
+          model = EXCLUDED.model,
+          ai_valuation = EXCLUDED.ai_valuation,
+          status = EXCLUDED.status
+        RETURNING *
+      `;
+
+      return res.status(200).json({ submission: rows[0] });
+    }
+
+    return res.status(405).json({ error: "Method not allowed" });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message || "Database error"
+    });
+  }
+}
