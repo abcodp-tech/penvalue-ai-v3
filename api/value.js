@@ -144,6 +144,12 @@ For section 5, use the heading "Why this valuation" and explain it using four sh
 - Value reductions: condition problems, uncertainty or missing parts that reduce its value.
 - Market evidence: explain how sold and comparable listings support the price range.
 Finish with one short plain-English summary suitable for a customer. Clearly separate confirmed facts from uncertain details, and never invent evidence.
+FINAL CUSTOMER OUTPUT RULES — these override any earlier formatting instructions:
+Return only sections 1 to 9 listed above.
+Never show the research process, search queries, candidate lists, rankings, rejected candidates or internal reasoning.
+Keep section 1 under 120 words: state the best identification, confidence and key visible evidence. Mention no more than two alternatives, and only when necessary.
+Keep each remaining section concise and keep the entire report under 900 words.
+Put source links only in section 9. Do not repeat instructions or describe how the research was performed.
 For both marketplace listings, only state an exact model as fact when the evidence confirms it. Otherwise use the brand and visible pen type, and describe the model as unconfirmed in the description. Be concise. Do not claim solid gold without a visible hallmark. Clearly label uncertainty.`
         }]
       }]
