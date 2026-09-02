@@ -60,7 +60,12 @@ Create a LOCKED VISUAL FINGERPRINT containing:
 5. Condition facts, separating visible damage from reflections, ink or uncertainty.
 6. A concise, searchable description combining the most distinctive visible features.
 7. Photo-quality limitations and which details cannot be confirmed.
-
+For difficult model identification, record each of these separately:
+- Exact nib geometry, length, shoulders, surface shape, colour and every readable marking; state clearly if the nib is blank.
+- Number and position of decorative rings around the cap, barrel and section.
+- Clip length, width, shape, branding and exact position of any white dot.
+- Matte, gloss or textured finish, plus cap-top and barrel-end shape.
+Never identify a model from a white dot, slim body or gold-coloured nib alone. If a marking is unreadable, say unreadable rather than guessing.
 Do not browse, value the pen, suggest any model names, invent unreadable markings, or call the nib solid gold unless 14K, 18K, 585 or 750 is clearly visible.
 
 Do not repeat a model name supplied by the user. The fingerprint must contain neutral visual facts only.`
