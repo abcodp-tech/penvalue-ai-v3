@@ -116,7 +116,10 @@ Test every candidate against:
 - section and feed
 - filling system
 - every confirmed marking
-
+For visually similar models, compare the evidence privately and require at least three model-specific features to agree with no major contradiction.
+Give extra weight to blank versus engraved nibs, exposed versus conical or recessed nibs, the number and position of rings, clip proportions and white-dot position.
+For slim Sheaffers, explicitly compare TRZ 60/70, Fashion, Agio, Lady Sheaffer and Slim Targa whenever plausible.
+Do not identify a pen as Lady Sheaffer from slim size or a white dot alone; its documented nib type and clip design must also match.
 Reject any candidate with a conflicting nib design, clip shape, finial or body profile. Similar colour and brand are not enough.
 
 Prioritize specialist identification sources that describe the actual model features. General brand-history pages cannot confirm an exact model.
