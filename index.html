@@ -263,7 +263,7 @@ let q=document.getElementById('queue');
       status:row.status,
       created:new Date(row.created_at).toLocaleString()
     }));
-    localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
+    saveLocalSubmissions();
   }
 }catch(error){
   console.error('Database loading failed:',error);
