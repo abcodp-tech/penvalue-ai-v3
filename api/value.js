@@ -138,7 +138,12 @@ For section 3, use exactly three separate lines: Low: £[number], Likely: £[num
 7. 7. Optimized eBay title of no more than 80 characters, followed by an honest description
 8. Optimized Vinted title and honest description
 9. Sources
-
+For section 5, use the heading "Why this valuation" and explain it using four short bullet points:
+- Identification evidence: the visible details supporting the brand and model.
+- Value positives: features that increase its value.
+- Value reductions: condition problems, uncertainty or missing parts that reduce its value.
+- Market evidence: explain how sold and comparable listings support the price range.
+Finish with one short plain-English summary suitable for a customer. Clearly separate confirmed facts from uncertain details, and never invent evidence.
 For both marketplace listings, only state an exact model as fact when the evidence confirms it. Otherwise use the brand and visible pen type, and describe the model as unconfirmed in the description. Be concise. Do not claim solid gold without a visible hallmark. Clearly label uncertainty.`
         }]
       }]
