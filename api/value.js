@@ -136,7 +136,7 @@ Clearly separate sold prices from current asking and dealer prices. Never use a 
 If exact sold evidence is unavailable, say so and use a conservative range. Give source names as Markdown links.
 
 Return these sections:
-1. Likely brand and model — confirmed facts, exact-model status, ranked candidates, matches, conflicts and confidence
+1. Identification
 For section 1, begin with exactly three separate lines: Identified brand: [brand], Identified model: [model or Unconfirmed], Identification confidence: [High, Medium or Low].
 2. Approximate age
 3. Low, likely and high value in GBP, rounded to £5
