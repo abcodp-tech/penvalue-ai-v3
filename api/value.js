@@ -66,7 +66,8 @@ Do not browse, value the pen, suggest any model names, invent unreadable marking
 Do not repeat a model name supplied by the user. The fingerprint must contain neutral visual facts only.`
         }, ...photos.map(photo => ({
           type: "input_image",
-          image_url: photo
+          image_url: photo,
+          detail: "high"
         }))]
       }]
     }, headers);
