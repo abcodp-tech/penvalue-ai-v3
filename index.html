@@ -210,7 +210,7 @@ created:new Date().toLocaleString()
 };
 
 submissions.unshift(s);
-localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
+saveLocalSubmissions();
 
   fetch('/api/submissions',{
   method:'POST',
