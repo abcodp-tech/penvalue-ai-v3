@@ -330,7 +330,7 @@ async function sendValuation(){
   s.explanation=document.getElementById('explanation').value;
   s.status='Valuation complete';
 
-  localStorage.setItem('penvalue_submissions',JSON.stringify(submissions));
+  saveLocalSubmissions();
 
   await fetch('/api/submissions',{
   method:'POST',
