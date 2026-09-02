@@ -46,21 +46,31 @@ export default async function handler(req, res) {
         to: [email],
         subject: `Your PenValue AI valuation – ${penName}`,
         html: `
-          <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;color:#2b2118">
-            <h1 style="color:#7a451b">PenValue AI</h1>
-            <h2>Your fountain pen valuation</h2>
-            <p><strong>Item:</strong> ${escapeHtml(penName)}</p>
-            <p><strong>Estimated range:</strong> £${escapeHtml(low)}–£${escapeHtml(high)}</p>
-            <p><strong>Likely value:</strong> £${escapeHtml(likely)}</p>
-            <p><strong>Confidence:</strong> ${escapeHtml(confidence)}</p>
-            <p style="padding:12px;background:#f6eee7;border-radius:8px"><strong>Important:</strong> The value may change when nib material or markings cannot be confirmed. A clear close-up of marks such as 18K, 750, 14K or 585 will improve accuracy.</p>
-            <hr>
-            <p>${safeExplanation}</p>
-            <hr>
-            <p style="font-size:12px;color:#666">
-              This is an indicative valuation, not a formal authentication or guarantee.
-            </p>
-          </div>
+          <div style="margin:0;background:#f4f1e8;padding:24px 12px;font-family:Arial,sans-serif;color:#172033;">
+  <div style="max-width:640px;margin:auto;background:#ffffff;border:1px solid #d8cfb8;border-radius:14px;overflow:hidden;">
+    <div style="background:#0d2340;padding:26px;text-align:center;">
+      <div style="color:#d6ad55;font-size:28px;font-weight:bold;">PV</div>
+      <h1 style="margin:6px 0;color:#ffffff;">PenValue AI</h1>
+      <p style="margin:0;color:#d6ad55;letter-spacing:2px;">FOUNTAIN PEN VALUATION</p>
+    </div>
+    <div style="padding:26px;">
+      <p>Hello,</p>
+      <p>Thank you for using PenValue AI. Your fountain pen valuation is ready.</p>
+      <h2 style="color:#0d2340;">${escapeHtml(penName)}</h2>
+      <div style="background:#f7f4ec;border-left:5px solid #d6ad55;padding:16px;border-radius:6px;">
+        <p><strong>Estimated range:</strong> £${escapeHtml(low)} – £${escapeHtml(high)}</p>
+        <p><strong>Most likely value:</strong> £${escapeHtml(likely)}</p>
+        <p><strong>Confidence:</strong> ${escapeHtml(confidence)}</p>
+      </div>
+      <h3 style="color:#0d2340;margin-top:26px;">Valuation explanation</h3>
+      <div style="line-height:1.6;white-space:pre-wrap;">${safeExplanation}</div>
+      <p style="margin-top:26px;padding-top:18px;border-top:1px solid #dddddd;font-size:12px;color:#666666;">
+        This is an indicative valuation based on the submitted photographs and available market evidence. Condition and final identification may affect the selling price.
+      </p>
+      <p style="color:#0d2340;"><strong>PenValue AI</strong><br>Smart valuations for fountain-pen owners</p>
+    </div>
+  </div>
+</div>
         `
       })
     });
