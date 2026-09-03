@@ -43,7 +43,7 @@ export default async function handler(req, res) {
 
         return (
           session.payment_status === "paid" &&
-          session.payment_status === "paid" &&
+          
           session.amount_total === 499 &&
 session.currency === "gbp" &&
           paymentEmail === email
