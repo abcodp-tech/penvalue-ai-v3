@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     const stripeData = await stripeResponse.json();
 
     if (!stripeResponse.ok) {
-      return res.status(500).json({ error: "Could not check payment" });
+      return res.status(500).json({ error: stripeData.error?.message || "Could not check payment" });
     }
 
         const paidSessions = (stripeData.data || [])
