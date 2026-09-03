@@ -409,7 +409,28 @@ async function submitPen(){
     alert("Please add your name, email and at least one photo.");
     return;
   }
+    box.style.display="block";
+    box.innerHTML="<b>Checking your £4.99 payment...</b>";
 
+    try {
+      const paymentResponse=await fetch("/api/verify-payment",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({email:e})
+      });
+
+      const paymentData=await paymentResponse.json();
+
+      if(!paymentResponse.ok || !paymentData.paid){
+        box.style.display="none";
+        alert(paymentData.error || "Payment not found. Please pay £4.99 first using the same email address.");
+        return;
+      }
+    } catch(error) {
+      box.style.display="none";
+      alert("We could not check your payment. Please try again.");
+      return;
+    }
   box.style.display="block";
   box.innerHTML="<b>AI is examining your photos and researching market evidence…</b><br>This can take up to 2 minutes. Please keep this page open.";
 
