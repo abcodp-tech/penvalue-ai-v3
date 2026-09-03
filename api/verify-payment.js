@@ -43,6 +43,7 @@ export default async function handler(req, res) {
 
         return (
           session.payment_status === "paid" &&
+          session.payment_status === "paid" &&
           paymentEmail === email
         );
       })
