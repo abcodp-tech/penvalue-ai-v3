@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     }
 
     const stripeResponse = await fetch(
-      `https://api.stripe.com/v1/checkout/sessions?payment_link=${PAYMENT_LINK_ID}&limit=100`,
+      `https://api.stripe.com/v1/checkout/sessions?limit=100`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`
