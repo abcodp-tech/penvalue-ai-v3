@@ -178,7 +178,7 @@ For both marketplace listings, only state an exact model as fact when the eviden
         }]
       }]
     }, headers);
-    const sql = neon(process.env.DATABASE_URL);
+    
 
     await sql`
       INSERT INTO valuations (
