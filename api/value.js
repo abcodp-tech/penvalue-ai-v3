@@ -81,8 +81,10 @@ const sql = neon(process.env.DATABASE_URL);
 const previousValuations = await sql`
   SELECT brand, model, explanation
   FROM valuations
-  WHERE (${brand || null} IS NOT NULL AND LOWER(brand) = LOWER(${brand || null}))
-     OR (${model || null} IS NOT NULL AND LOWER(model) = LOWER(${model || null}))
+  WHERE
+    (${brand ?? ""} = "" OR LOWER(brand) = LOWER(${brand ?? ""}))
+    OR
+    (${model ?? ""} = "" OR LOWER(model) = LOWER(${model ?? ""}))
   ORDER BY id DESC
   LIMIT 5
 `;
