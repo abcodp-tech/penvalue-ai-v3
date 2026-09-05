@@ -517,17 +517,22 @@ box.appendChild(copyButton);
   }
 }
   function changeLanguage(lang){
-  const languages={
-    en:"English",
-    es:"Spanish",
-    fr:"French",
-    de:"German",
-    it:"Italian",
-    pt:"Portuguese"
-  };
   localStorage.setItem("penvalueLanguage",lang);
   document.documentElement.lang=lang;
-  alert("Language changed to "+languages[lang]+". Your valuation will be provided in "+languages[lang]+".");
+
+  if(lang==="es"){
+    document.querySelector(".hero h1").textContent="Obtén la valoración de tu pluma estilográfica";
+    document.querySelector(".hero p").textContent="Envíanos fotos claras y algunos detalles. Tu tasador revisará la pluma, estimará su valor de mercado y te enviará una valoración.";
+    document.getElementById("customerTab").textContent="Cliente";
+    document.getElementById("valuerTab").textContent="Panel del tasador";
+    document.querySelector("#customer .card h2").textContent="Envía tu pluma";
+    document.querySelector("#customer .card .note").textContent="Para obtener la mejor valoración, fotografía la pluma completa, el capuchón, el plumín y cualquier marca del cuerpo.";
+    document.querySelector(".drop").childNodes[0].textContent="📷 Añade hasta 8 fotos";
+  }
+
+  if(lang==="en"){
+    location.reload();
+  }
 }
 </script>
 
