@@ -82,9 +82,15 @@ const previousValuations = await sql`
   SELECT brand, model, explanation
   FROM valuations
   WHERE
-    (${brand ?? ""} = "" OR LOWER(brand) = LOWER(${brand ?? ""}))
+    (
+      CAST(${brand ?? ""} AS text) <> ''
+      AND LOWER(COALESCE(brand, '')) = LOWER(CAST(${brand ?? ""} AS text))
+    )
     OR
-    (${model ?? ""} = "" OR LOWER(model) = LOWER(${model ?? ""}))
+    (
+      CAST(${model ?? ""} AS text) <> ''
+      AND LOWER(COALESCE(model, '')) = LOWER(CAST(${model ?? ""} AS text))
+    )
   ORDER BY id DESC
   LIMIT 5
 `;
