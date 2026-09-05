@@ -516,6 +516,19 @@ box.appendChild(copyButton);
     box.innerHTML="<b>Something went wrong.</b><br>"+err.message;
   }
 }
+  function changeLanguage(lang){
+  const languages={
+    en:"English",
+    es:"Spanish",
+    fr:"French",
+    de:"German",
+    it:"Italian",
+    pt:"Portuguese"
+  };
+  localStorage.setItem("penvalueLanguage",lang);
+  document.documentElement.lang=lang;
+  alert("Language changed to "+languages[lang]+". Your valuation will be provided in "+languages[lang]+".");
+}
 </script>
 
 </body>
