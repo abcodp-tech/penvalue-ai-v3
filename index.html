@@ -46,6 +46,17 @@ footer{color:#d7deea!important}
 <section class="hero"><h1>Get your fountain pen valued</h1><p>Send us clear photos and a few details. Your valuer can review the pen, estimate its market value and send you a valuation.</p></section>
 
 <div class="tabs">
+  <div style="margin:18px 0;text-align:center">
+  <label for="language"><strong>🌍 Language</strong></label>
+  <select id="language" onchange="changeLanguage(this.value)" style="max-width:260px;margin-left:10px">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <option value="de">Deutsch</option>
+    <option value="it">Italiano</option>
+    <option value="pt">Português</option>
+  </select>
+</div>
 <button id="customerTab" class="active" onclick="show('customer')">Customer</button>
 <button id="valuerTab" class="light" onclick="show('valuer')">Valuer dashboard</button>
 </div>
