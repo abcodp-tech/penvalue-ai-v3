@@ -528,6 +528,47 @@ box.appendChild(copyButton);
     document.querySelector("#customer .card h2").textContent="Envía tu pluma";
     document.querySelector("#customer .card .note").textContent="Para obtener la mejor valoración, fotografía la pluma completa, el capuchón, el plumín y cualquier marca del cuerpo.";
     document.querySelector(".drop").childNodes[0].textContent="📷 Añade hasta 8 fotos";
+  document.querySelector('label[for="language"] strong').textContent="🌍 Idioma";
+
+document.getElementById("name").previousElementSibling.textContent="Tu nombre";
+document.getElementById("name").placeholder="Tu nombre";
+
+document.getElementById("email").previousElementSibling.textContent="Correo electrónico";
+
+document.getElementById("brand").previousElementSibling.textContent="Marca";
+document.getElementById("brand").placeholder="Si se conoce";
+
+document.getElementById("model").previousElementSibling.textContent="Modelo";
+document.getElementById("model").placeholder="Si se conoce";
+
+document.getElementById("source").previousElementSibling.textContent="¿Dónde la conseguiste?";
+document.getElementById("source").placeholder="Heredada, eBay, Vinted, etc.";
+
+document.getElementById("referenceUrl").previousElementSibling.textContent="Enlace de anuncio similar (opcional)";
+document.getElementById("referenceUrl").placeholder="Pega un enlace de eBay, Vinted o un distribuidor";
+
+document.getElementById("question").previousElementSibling.textContent="¿Qué quieres saber?";
+document.getElementById("question").options[0].text="¿Cuánto vale?";
+document.getElementById("question").options[1].text="¿Debería venderla?";
+document.getElementById("question").options[2].text="¿Es rara?";
+document.getElementById("question").options[3].text="¿Vale la pena repararla?";
+
+document.getElementById("notes").previousElementSibling.textContent="¿Algo más?";
+document.getElementById("notes").placeholder="Estado, marcas, caja/papeles, funcionamiento...";
+
+document.querySelector(".drop + .note").innerHTML=
+"<strong>📸 Para obtener la valoración más precisa, incluye:</strong><br>"+
+"1. Pluma completa con capuchón, junto a una regla<br>"+
+"2. Pluma completa sin capuchón, con el capuchón al lado<br>"+
+"3. Primer plano nítido de la parte superior del plumín<br>"+
+"4. Primer plano de la parte inferior del plumín y alimentador<br>"+
+"5. Cualquier marca del plumín: 14K, 18K, 585 o 750<br>"+
+"6. Marcas del cuerpo, banda del capuchón y modelo<br>"+
+"7. Pluma desenroscada mostrando el sistema de carga<br>"+
+"8. Caja original, accesorios y muestra de escritura";
+
+document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Pagar £4.99 de forma segura";
+document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar para valoración después del pago";
   }
 
   if(lang==="en"){
