@@ -569,6 +569,201 @@ document.querySelector(".drop + .note").innerHTML=
 
 document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Pagar £4.99 de forma segura";
 document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar para valoración después del pago";
+  if(lang==="fr"){
+  document.querySelector(".hero h1").textContent="Obtenez l’estimation de votre stylo-plume";
+  document.querySelector(".hero p").textContent="Envoyez-nous des photos claires et quelques détails. Votre évaluateur examinera le stylo, estimera sa valeur de marché et vous enverra une estimation.";
+  document.getElementById("customerTab").textContent="Client";
+  document.getElementById("valuerTab").textContent="Tableau de l’évaluateur";
+  document.querySelector("#customer .card h2").textContent="Envoyez votre stylo";
+  document.querySelector("#customer .card .note").textContent="Pour obtenir la meilleure estimation, photographiez le stylo entier, le capuchon, la plume et toutes les marques sur le corps.";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Ajoutez jusqu’à 8 photos";
+  document.querySelector('label[for="language"] strong').textContent="🌍 Langue";
+
+  document.getElementById("name").previousElementSibling.textContent="Votre nom";
+  document.getElementById("name").placeholder="Votre nom";
+  document.getElementById("email").previousElementSibling.textContent="Adresse e-mail";
+
+  document.getElementById("brand").previousElementSibling.textContent="Marque";
+  document.getElementById("brand").placeholder="Si connue";
+  document.getElementById("model").previousElementSibling.textContent="Modèle";
+  document.getElementById("model").placeholder="Si connu";
+
+  document.getElementById("source").previousElementSibling.textContent="Où l’avez-vous obtenu ?";
+  document.getElementById("source").placeholder="Héritage, eBay, Vinted, etc.";
+
+  document.getElementById("referenceUrl").previousElementSibling.textContent="Lien vers une annonce similaire (facultatif)";
+  document.getElementById("referenceUrl").placeholder="Collez un lien eBay, Vinted ou revendeur";
+
+  document.getElementById("question").previousElementSibling.textContent="Que souhaitez-vous savoir ?";
+  document.getElementById("question").options[0].text="Combien vaut-il ?";
+  document.getElementById("question").options[1].text="Devrais-je le vendre ?";
+  document.getElementById("question").options[2].text="Est-il rare ?";
+  document.getElementById("question").options[3].text="Vaut-il la peine d’être réparé ?";
+
+  document.getElementById("notes").previousElementSibling.textContent="Autre chose ?";
+  document.getElementById("notes").placeholder="État, marques, boîte/papiers, fonctionnement...";
+
+  document.querySelector(".drop + .note").innerHTML=
+  "<strong>📸 Pour obtenir l’estimation la plus précise, incluez :</strong><br>"+
+  "1. Stylo complet avec capuchon, à côté d’une règle<br>"+
+  "2. Stylo complet sans capuchon, avec le capuchon à côté<br>"+
+  "3. Gros plan net du dessus de la plume<br>"+
+  "4. Gros plan du dessous de la plume et du conduit<br>"+
+  "5. Toutes les marques sur la plume : 14K, 18K, 585 ou 750<br>"+
+  "6. Marques sur le corps, la bague du capuchon et le modèle<br>"+
+  "7. Stylo dévissé montrant le système de remplissage<br>"+
+  "8. Boîte d’origine, accessoires et échantillon d’écriture";
+
+  document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Payer £4.99 en toute sécurité";
+  document.querySelector('button[onclick="submitPen()"]').textContent="2. Envoyer pour estimation après paiement";
+}
+
+if(lang==="de"){
+  document.querySelector(".hero h1").textContent="Lassen Sie Ihren Füllfederhalter bewerten";
+  document.querySelector(".hero p").textContent="Senden Sie uns klare Fotos und einige Details. Ihr Bewerter prüft den Füllfederhalter, schätzt den Marktwert und sendet Ihnen eine Bewertung.";
+  document.getElementById("customerTab").textContent="Kunde";
+  document.getElementById("valuerTab").textContent="Bewerter-Dashboard";
+  document.querySelector("#customer .card h2").textContent="Füllfederhalter einreichen";
+  document.querySelector("#customer .card .note").textContent="Für die beste Bewertung fotografieren Sie den gesamten Füllfederhalter, die Kappe, die Feder und alle Markierungen am Schaft.";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Bis zu 8 Fotos hinzufügen";
+  document.querySelector('label[for="language"] strong').textContent="🌍 Sprache";
+
+  document.getElementById("name").previousElementSibling.textContent="Ihr Name";
+  document.getElementById("name").placeholder="Ihr Name";
+  document.getElementById("email").previousElementSibling.textContent="E-Mail-Adresse";
+
+  document.getElementById("brand").previousElementSibling.textContent="Marke";
+  document.getElementById("brand").placeholder="Falls bekannt";
+  document.getElementById("model").previousElementSibling.textContent="Modell";
+  document.getElementById("model").placeholder="Falls bekannt";
+
+  document.getElementById("source").previousElementSibling.textContent="Woher haben Sie ihn?";
+  document.getElementById("source").placeholder="Geerbt, eBay, Vinted usw.";
+
+  document.getElementById("referenceUrl").previousElementSibling.textContent="Link zu einem ähnlichen Angebot (optional)";
+  document.getElementById("referenceUrl").placeholder="eBay-, Vinted- oder Händler-Link einfügen";
+
+  document.getElementById("question").previousElementSibling.textContent="Was möchten Sie wissen?";
+  document.getElementById("question").options[0].text="Wie viel ist er wert?";
+  document.getElementById("question").options[1].text="Sollte ich ihn verkaufen?";
+  document.getElementById("question").options[2].text="Ist er selten?";
+  document.getElementById("question").options[3].text="Lohnt sich eine Reparatur?";
+
+  document.getElementById("notes").previousElementSibling.textContent="Noch etwas?";
+  document.getElementById("notes").placeholder="Zustand, Markierungen, Box/Papiere, Funktion...";
+
+  document.querySelector(".drop + .note").innerHTML=
+  "<strong>📸 Für die genaueste Bewertung bitte Folgendes aufnehmen:</strong><br>"+
+  "1. Kompletter Füllfederhalter mit Kappe neben einem Lineal<br>"+
+  "2. Kompletter Füllfederhalter ohne Kappe, Kappe daneben<br>"+
+  "3. Scharfes Nahfoto der Oberseite der Feder<br>"+
+  "4. Nahfoto der Unterseite der Feder und des Tintenleiters<br>"+
+  "5. Alle Feder-Markierungen: 14K, 18K, 585 oder 750<br>"+
+  "6. Markierungen am Schaft, Kappenring und Modell<br>"+
+  "7. Aufgeschraubter Füllfederhalter mit sichtbarem Füllsystem<br>"+
+  "8. Originalbox, Zubehör und Schriftprobe";
+
+  document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. £4.99 sicher bezahlen";
+  document.querySelector('button[onclick="submitPen()"]').textContent="2. Nach der Zahlung zur Bewertung senden";
+}
+
+if(lang==="it"){
+  document.querySelector(".hero h1").textContent="Ottieni la valutazione della tua penna stilografica";
+  document.querySelector(".hero p").textContent="Inviaci foto chiare e alcuni dettagli. Il valutatore esaminerà la penna, ne stimerà il valore di mercato e ti invierà una valutazione.";
+  document.getElementById("customerTab").textContent="Cliente";
+  document.getElementById("valuerTab").textContent="Pannello valutatore";
+  document.querySelector("#customer .card h2").textContent="Invia la tua penna";
+  document.querySelector("#customer .card .note").textContent="Per ottenere la migliore valutazione, fotografa la penna completa, il cappuccio, il pennino e qualsiasi marcatura sul fusto.";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Aggiungi fino a 8 foto";
+  document.querySelector('label[for="language"] strong').textContent="🌍 Lingua";
+
+  document.getElementById("name").previousElementSibling.textContent="Il tuo nome";
+  document.getElementById("name").placeholder="Il tuo nome";
+  document.getElementById("email").previousElementSibling.textContent="Indirizzo email";
+
+  document.getElementById("brand").previousElementSibling.textContent="Marca";
+  document.getElementById("brand").placeholder="Se conosciuta";
+  document.getElementById("model").previousElementSibling.textContent="Modello";
+  document.getElementById("model").placeholder="Se conosciuto";
+
+  document.getElementById("source").previousElementSibling.textContent="Dove l’hai trovata?";
+  document.getElementById("source").placeholder="Ereditata, eBay, Vinted, ecc.";
+
+  document.getElementById("referenceUrl").previousElementSibling.textContent="Link a un annuncio simile (facoltativo)";
+  document.getElementById("referenceUrl").placeholder="Incolla un link eBay, Vinted o di un rivenditore";
+
+  document.getElementById("question").previousElementSibling.textContent="Cosa vuoi sapere?";
+  document.getElementById("question").options[0].text="Quanto vale?";
+  document.getElementById("question").options[1].text="Dovrei venderla?";
+  document.getElementById("question").options[2].text="È rara?";
+  document.getElementById("question").options[3].text="Vale la pena ripararla?";
+
+  document.getElementById("notes").previousElementSibling.textContent="Altro?";
+  document.getElementById("notes").placeholder="Condizioni, marcature, scatola/documenti, funzionamento...";
+
+  document.querySelector(".drop + .note").innerHTML=
+  "<strong>📸 Per ottenere la valutazione più accurata, includi:</strong><br>"+
+  "1. Penna completa con cappuccio accanto a un righello<br>"+
+  "2. Penna completa senza cappuccio, con il cappuccio accanto<br>"+
+  "3. Primo piano nitido della parte superiore del pennino<br>"+
+  "4. Primo piano della parte inferiore del pennino e dell’alimentatore<br>"+
+  "5. Eventuali marcature sul pennino: 14K, 18K, 585 o 750<br>"+
+  "6. Marcature sul fusto, anello del cappuccio e modello<br>"+
+  "7. Penna svitata con il sistema di caricamento visibile<br>"+
+  "8. Scatola originale, accessori e prova di scrittura";
+
+  document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Paga £4.99 in sicurezza";
+  document.querySelector('button[onclick="submitPen()"]').textContent="2. Invia per la valutazione dopo il pagamento";
+}
+
+if(lang==="pt"){
+  document.querySelector(".hero h1").textContent="Obtenha a avaliação da sua caneta-tinteiro";
+  document.querySelector(".hero p").textContent="Envie-nos fotos nítidas e alguns detalhes. O avaliador irá analisar a caneta, estimar o valor de mercado e enviar-lhe uma avaliação.";
+  document.getElementById("customerTab").textContent="Cliente";
+  document.getElementById("valuerTab").textContent="Painel do avaliador";
+  document.querySelector("#customer .card h2").textContent="Envie a sua caneta";
+  document.querySelector("#customer .card .note").textContent="Para obter a melhor avaliação, fotografe a caneta completa, a tampa, o aparo e quaisquer marcações no corpo.";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Adicione até 8 fotos";
+  document.querySelector('label[for="language"] strong').textContent="🌍 Idioma";
+
+  document.getElementById("name").previousElementSibling.textContent="O seu nome";
+  document.getElementById("name").placeholder="O seu nome";
+  document.getElementById("email").previousElementSibling.textContent="Endereço de e-mail";
+
+  document.getElementById("brand").previousElementSibling.textContent="Marca";
+  document.getElementById("brand").placeholder="Se conhecida";
+  document.getElementById("model").previousElementSibling.textContent="Modelo";
+  document.getElementById("model").placeholder="Se conhecido";
+
+  document.getElementById("source").previousElementSibling.textContent="Onde a conseguiu?";
+  document.getElementById("source").placeholder="Herdada, eBay, Vinted, etc.";
+
+  document.getElementById("referenceUrl").previousElementSibling.textContent="Link de anúncio semelhante (opcional)";
+  document.getElementById("referenceUrl").placeholder="Cole um link do eBay, Vinted ou revendedor";
+
+  document.getElementById("question").previousElementSibling.textContent="O que quer saber?";
+  document.getElementById("question").options[0].text="Quanto vale?";
+  document.getElementById("question").options[1].text="Devo vendê-la?";
+  document.getElementById("question").options[2].text="É rara?";
+  document.getElementById("question").options[3].text="Vale a pena repará-la?";
+
+  document.getElementById("notes").previousElementSibling.textContent="Mais alguma coisa?";
+  document.getElementById("notes").placeholder="Estado, marcações, caixa/documentos, funcionamento...";
+
+  document.querySelector(".drop + .note").innerHTML=
+  "<strong>📸 Para obter a avaliação mais precisa, inclua:</strong><br>"+
+  "1. Caneta completa com tampa, ao lado de uma régua<br>"+
+  "2. Caneta completa sem tampa, com a tampa ao lado<br>"+
+  "3. Foto nítida da parte superior do aparo<br>"+
+  "4. Foto da parte inferior do aparo e alimentador<br>"+
+  "5. Quaisquer marcações no aparo: 14K, 18K, 585 ou 750<br>"+
+  "6. Marcações no corpo, anel da tampa e modelo<br>"+
+  "7. Caneta desenroscada mostrando o sistema de enchimento<br>"+
+  "8. Caixa original, acessórios e amostra de escrita";
+
+  document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Pagar £4.99 com segurança";
+  document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar para avaliação após o pagamento";
+}
   }
 
   if(lang==="en"){
