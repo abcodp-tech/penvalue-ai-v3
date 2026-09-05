@@ -76,7 +76,22 @@ Do not repeat a model name supplied by the user. The fingerprint must contain ne
         }))]
       }]
     }, headers);
+const sql = neon(process.env.DATABASE_URL);
 
+const previousValuations = await sql`
+  SELECT brand, model, explanation
+  FROM valuations
+  WHERE (${brand || null} IS NOT NULL AND LOWER(brand) = LOWER(${brand || null}))
+     OR (${model || null} IS NOT NULL AND LOWER(model) = LOWER(${model || null}))
+  ORDER BY id DESC
+  LIMIT 5
+`;
+
+const databaseHistory = previousValuations.length
+  ? previousValuations.map(v =>
+      `${v.brand || "Unknown"} | ${v.model || "Unknown"} | ${v.explanation || ""}`
+    ).join("\n")
+  : "No matching previous PenValue AI valuations found.";
     const valuation = await ask({
       model: "gpt-5.4",
       tools: [{ type: "web_search" }],
