@@ -412,7 +412,8 @@ async function submitPen(){
     box.style.display="block";
     box.innerHTML="<b>Checking your £4.99 payment...</b>";
 
-    try {
+    if(sessionStorage.getItem('valuerUnlocked')!=='yes'){
+  try {
       const paymentResponse=await fetch("/api/verify-payment",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
