@@ -84,15 +84,21 @@ const previousValuations = await sql`
   WHERE
     (
       CAST(${brand ?? ""} AS text) <> ''
-      AND LOWER(COALESCE(brand, '')) = LOWER(CAST(${brand ?? ""} AS text))
+      AND LOWER(COALESCE(brand, '')) LIKE
+          '%' || LOWER(CAST(${brand ?? ""} AS text)) || '%'
     )
     OR
     (
       CAST(${model ?? ""} AS text) <> ''
-      AND LOWER(COALESCE(model, '')) = LOWER(CAST(${model ?? ""} AS text))
+      AND (
+        LOWER(COALESCE(model, '')) LIKE
+            '%' || LOWER(CAST(${model ?? ""} AS text)) || '%'
+        OR LOWER(CAST(${model ?? ""} AS text)) LIKE
+            '%' || LOWER(COALESCE(model, '')) || '%'
+      )
     )
   ORDER BY id DESC
-  LIMIT 5
+  LIMIT 10
 `;
 
 const databaseHistory = previousValuations.length
