@@ -1,4 +1,4 @@
-9⁸function escapeHtml(value = "") {
+99⁸function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -63,7 +63,7 @@ const isSpanish = language === "es";
       <div style="background:#f7f4ec;border-left:5px solid #d6ad55;padding:16px;border-radius:6px;">
         <p><strong>${isSpanish ? "Rango estimado:" : "Estimated range:"}</strong> £${escapeHtml(low)} - £${escapeHtml(high)}</p>
         <p><strong>${isSpanish ? "Valor más probable:" : "Most likely value:"}</strong> £${escapeHtml(likely)}</p>
-        <p><strong>Confidence:</strong> ${escapeHtml(confidence)}</p>
+        <p><strong>${isSpanish ? "Confianza:" : "Confidence:"}</strong> ${escapeHtml(confidence)}%</p>
       </div>
       <h3 style="color:#0d2340;margin-top:26px;">Valuation explanation</h3>
       <div style="line-height:1.6;white-space:pre-wrap;">${safeExplanation}</div>
