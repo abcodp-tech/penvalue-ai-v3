@@ -101,7 +101,7 @@ const databaseHistory = previousValuations.length
     ).join("\n")
   : "No matching previous PenValue AI valuations found.";
     const valuation = await ask({
-      model: "gpt-5.4",
+      model: "gpt-5.6",
       tools: [{ type: "web_search" }],
       tool_choice: "required",
       include: ["web_search_call.action.sources"],
