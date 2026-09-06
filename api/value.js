@@ -205,8 +205,8 @@ const identifiedModel =
         full_result
       )
       VALUES (
-        ${brand || null},
-        ${model || null},
+        ${identifiedBrand},
+${identifiedModel},
         ${valuation},
         ${JSON.stringify({
           fingerprint,
