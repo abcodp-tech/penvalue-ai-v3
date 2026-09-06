@@ -70,7 +70,7 @@ const isSpanish = language === "es";
       <p style="margin-top:26px;padding-top:18px;border-top:1px solid #dddddd;font-size:12px;color:#666666;">
         ${isSpanish ? "Esta es una valoración orientativa basada en las fotos, la información proporcionada y la evidencia de mercado disponible. El estado y la autenticidad pueden afectar al valor final." : "This is an indicative valuation based on the photos, information provided and available market evidence. Condition and authenticity may affect the final value."}
       </p>
-      <p style="color:#0d2340;"><strong>PenValue AI</strong><br>Smart valuations for fountain-pen owners</p>
+      <p style="color:#0d2340;"><strong>PenValue AI</strong><br>${isSpanish ? "Valoraciones inteligentes para propietarios de plumas estilográficas" : "Smart valuations for fountain-pen owners"}</p>
     </div>
   </div>
 </div>
