@@ -68,7 +68,7 @@ const isSpanish = language === "es";
       <h3 style="color:#0d2340;margin-top:26px;">${isSpanish ? "Explicación de la valoración" : "Valuation explanation"}</h3>
       <div style="line-height:1.6;white-space:pre-wrap;">${safeExplanation}</div>
       <p style="margin-top:26px;padding-top:18px;border-top:1px solid #dddddd;font-size:12px;color:#666666;">
-        This is an indicative valuation based on the submitted photographs and available market evidence. Condition and final identification may affect the selling price.
+        ${isSpanish ? "Esta es una valoración orientativa basada en las fotos, la información proporcionada y la evidencia de mercado disponible. El estado y la autenticidad pueden afectar al valor final." : "This is an indicative valuation based on the photos, information provided and available market evidence. Condition and authenticity may affect the final value."}
       </p>
       <p style="color:#0d2340;"><strong>PenValue AI</strong><br>Smart valuations for fountain-pen owners</p>
     </div>
