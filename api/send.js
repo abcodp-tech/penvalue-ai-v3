@@ -65,7 +65,7 @@ const isSpanish = language === "es";
         <p><strong>${isSpanish ? "Valor más probable:" : "Most likely value:"}</strong> £${escapeHtml(likely)}</p>
         <p><strong>${isSpanish ? "Confianza:" : "Confidence:"}</strong> ${escapeHtml(confidence)}%</p>
       </div>
-      <h3 style="color:#0d2340;margin-top:26px;">Valuation explanation</h3>
+      <h3 style="color:#0d2340;margin-top:26px;">${isSpanish ? "Explicación de la valoración" : "Valuation explanation"}</h3>
       <div style="line-height:1.6;white-space:pre-wrap;">${safeExplanation}</div>
       <p style="margin-top:26px;padding-top:18px;border-top:1px solid #dddddd;font-size:12px;color:#666666;">
         This is an indicative valuation based on the submitted photographs and available market evidence. Condition and final identification may affect the selling price.
