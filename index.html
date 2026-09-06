@@ -414,7 +414,7 @@ async function sendValuation(){
         low:s.low,
         likely:s.mid,
         high:s.high,
-        confidence:s.confidence,
+        confidence:customerLanguageText(s.confidence,document.getElementById('language').value),
         explanation:customerLanguageText(s.explanation,document.getElementById("language").value)
       })
     });
