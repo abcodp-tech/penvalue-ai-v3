@@ -350,7 +350,18 @@ function openJob(idx){
   });
 }
 
+function customerLanguageText(text,lang){
+  if(lang==="es")return text
+    .replace(/Identified brand:/g,"Marca identificada:")
+    .replace(/Identified model:/g,"Modelo identificado:")
+    .replace(/Identification confidence:/g,"Confianza de identificación:")
+    .replace(/Low:/g,"Bajo:")
+    .replace(/Likely:/g,"Más probable:")
+    .replace(/High:/g,"Alto:");
+  return text;
+}
 
+async function sendValuation(){
 async function sendValuation(){
   if(current===null)return;
 
