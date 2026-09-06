@@ -122,7 +122,9 @@ Reference listing supplied: ${referenceUrl || "None"}
 If a reference listing is supplied, examine it only as possible supporting evidence. Never assume it matches the photographed pen. Compare the brand, logo, clip, nib, cap, barrel, markings and filling system. Reject the reference when those features conflict. Do not compare unrelated brands or models.
 PREVIOUS PENVALUE AI DATABASE HISTORY:
 ${databaseHistory}
-
+OUTPUT LANGUAGE:
+Write the entire customer valuation in ${language === "es" ? "Spanish" : language === "fr" ? "French" : language === "de" ? "German" : language === "it" ? "Italian" : language === "pt" ? "Portuguese" : "English"}.
+Keep the three machine-readable lines "Identified brand:", "Identified model:", and "Identification confidence:" in English, and keep "Low:", "Likely:", and "High:" in English so the PenValue AI dashboard can read them correctly.
 Use previous PenValue AI valuations only as supporting evidence. Compare them against the current photos and markings before relying on them. If they conflict with the current pen, ignore them.
 
 
