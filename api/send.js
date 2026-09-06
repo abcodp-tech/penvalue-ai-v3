@@ -1,4 +1,4 @@
-function escapeHtml(value = "") {
+⁸function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -47,7 +47,7 @@ const isSpanish = language === "es";
       body: JSON.stringify({
         from: "PenValue AI <onboarding@resend.dev>",
         to: [email],
-        subject: `Your PenValue AI valuation – ${penName}`,
+        subject: isSpanish ? `Tu valoración de PenValue AI - ${penName}` : `Your PenValue AI valuation - ${penName}`,
         html: `
           <div style="margin:0;background:#f4f1e8;padding:24px 12px;font-family:Arial,sans-serif;color:#172033;">
   <div style="max-width:640px;margin:auto;background:#ffffff;border:1px solid #d8cfb8;border-radius:14px;overflow:hidden;">
