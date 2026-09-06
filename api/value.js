@@ -41,7 +41,7 @@ export default async function handler(req, res) {
     };
 
     const fingerprint = await ask({
-      model: "gpt-5.4",
+      model: model: "gpt-5.6",
       input: [{
         role: "user",
         content: [{
