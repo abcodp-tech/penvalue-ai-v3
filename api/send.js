@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     const safeExplanation = escapeHtml(explanation)
   .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
   .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-
+const isSpanish = language === "es";
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
