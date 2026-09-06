@@ -57,7 +57,7 @@ const isSpanish = language === "es";
       <p style="margin:0;color:#d6ad55;letter-spacing:2px;">FOUNTAIN PEN VALUATION</p>
     </div>
     <div style="padding:26px;">
-      <p>Hello,</p>
+      <p>${isSpanish ? "Hola," : "Hello,"}</p>
       <p>Thank you for using PenValue AI. Your fountain pen valuation is ready.</p>
       <h2 style="color:#0d2340;">${escapeHtml(penName)}</h2>
       <div style="background:#f7f4ec;border-left:5px solid #d6ad55;padding:16px;border-radius:6px;">
