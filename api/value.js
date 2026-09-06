@@ -192,7 +192,11 @@ For both marketplace listings, only state an exact model as fact when the eviden
       }]
     }, headers);
     
+const identifiedBrand =
+  valuation.match(/Identified brand:\s*\**([^.\n*]+)/i)?.[1]?.trim() || brand || null;
 
+const identifiedModel =
+  valuation.match(/Identified model:\s*\**([^—\n*]+)/i)?.[1]?.trim() || model || null;
     await sql`
       INSERT INTO valuations (
         brand,
