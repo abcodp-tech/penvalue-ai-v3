@@ -394,6 +394,7 @@ async function sendValuation(){
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         email:s.email||s.customerEmail,
+        language:document.getElementById("language").value,
         brand:s.brand||'Fountain pen',
         model:s.model||'',
         low:s.low,
