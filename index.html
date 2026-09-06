@@ -340,9 +340,15 @@ function openJob(idx){
   document.getElementById('mid').value=likely?likely[1]:(s.mid||'');
   document.getElementById('high').value=high?high[1]:(s.high||'');
 
-  document.getElementById('explanation').value=text
-    .replace(/\*\*/g,'')
-    .replace(/^#{1,4}\s*/gm,'');
+  const lang=document.getElementById("language").value;
+
+document.getElementById('explanation').value=
+  customerLanguageText(
+    text
+      .replace(/\*\*/g,'')
+      .replace(/^#{1,4}\s*/gm,''),
+    lang
+  );
 
   window.scrollTo({
     top:document.getElementById('work').offsetTop-20,
