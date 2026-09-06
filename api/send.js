@@ -14,15 +14,16 @@ export default async function handler(req, res) {
 
   try {
     const {
-      email,
-      brand = "Fountain pen",
-      model = "",
-      low = "",
-      likely = "",
-      high = "",
-      confidence = "",
-      explanation = ""
-    } = req.body || {};
+  email,
+  brand = "Fountain pen",
+  model = "",
+  low = "",
+  likely = "",
+  high = "",
+  confidence = "",
+  explanation = "",
+  language = "en"
+} = req.body || {};
 
     if (!email || !email.includes("@")) {
       return res.status(400).json({ error: "A valid customer email is required." });
