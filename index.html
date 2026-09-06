@@ -412,7 +412,7 @@ async function sendValuation(){
         likely:s.mid,
         high:s.high,
         confidence:s.confidence,
-        explanation:s.explanation
+        explanation:customerLanguageText(s.explanation,document.getElementById("language").value)
       })
     });
 
