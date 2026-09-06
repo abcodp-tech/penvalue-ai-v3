@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { image, images, brand, model, referenceUrl, notes } = req.body;
+    const { image, images, brand, model, referenceUrl, notes, language = "en" } = req.body;
     const photos = (images || [image]).filter(Boolean).slice(0, 8);
 
     if (!photos.length) {
