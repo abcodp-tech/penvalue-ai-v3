@@ -220,7 +220,7 @@ export default async function handler(req, res) {
                   ${copy.explanation}
                 </h3>
 
-                <div style="line-height:1.6;white-space:pre-wrap;">
+                <div style="line-height:1.7;white-space:pre-wrap;font-size:16px;color:#172033;">
                   ${safeExplanation}
                 </div>
 
