@@ -358,7 +358,60 @@ document.getElementById('explanation').value=
     behavior:'smooth'
   });
 }
+function customerMessage(lang,key,id=""){
+  const messages={
+    en:{
+      success:`<b>Submitted successfully!</b><br>Your valuation reference is <b>${id}</b>. Your valuation will be emailed to you when complete.`,
+      missing:"Please add your name, email and at least one photo.",
+      payment:"Checking your £4.99 payment...",
+      unpaid:"Payment not found. Please pay £4.99 first using the same email address.",
+      paymentError:"We could not check your payment. Please try again.",
+      failed:"Something went wrong."
+    },
+    es:{
+      success:`<b>¡Enviado correctamente!</b><br>Tu referencia de valoración es <b>${id}</b>. Recibirás tu valoración por correo electrónico cuando esté completa.`,
+      missing:"Añade tu nombre, correo electrónico y al menos una foto.",
+      payment:"Comprobando tu pago de £4.99...",
+      unpaid:"No se ha encontrado el pago. Paga primero £4.99 utilizando la misma dirección de correo electrónico.",
+      paymentError:"No hemos podido comprobar tu pago. Inténtalo de nuevo.",
+      failed:"Algo ha salido mal."
+    },
+    fr:{
+      success:`<b>Envoi réussi !</b><br>Votre référence d’estimation est <b>${id}</b>. Votre estimation vous sera envoyée par e-mail lorsqu’elle sera terminée.`,
+      missing:"Ajoutez votre nom, votre adresse e-mail et au moins une photo.",
+      payment:"Vérification de votre paiement de £4.99...",
+      unpaid:"Paiement introuvable. Veuillez d’abord payer £4.99 avec la même adresse e-mail.",
+      paymentError:"Nous n’avons pas pu vérifier votre paiement. Veuillez réessayer.",
+      failed:"Une erreur s’est produite."
+    },
+    de:{
+      success:`<b>Erfolgreich eingereicht!</b><br>Ihre Bewertungsreferenz lautet <b>${id}</b>. Ihre Bewertung wird Ihnen nach Fertigstellung per E-Mail zugesandt.`,
+      missing:"Bitte geben Sie Ihren Namen, Ihre E-Mail-Adresse und mindestens ein Foto an.",
+      payment:"Ihre Zahlung von £4.99 wird überprüft...",
+      unpaid:"Zahlung nicht gefunden. Bitte zahlen Sie zuerst £4.99 mit derselben E-Mail-Adresse.",
+      paymentError:"Ihre Zahlung konnte nicht überprüft werden. Bitte versuchen Sie es erneut.",
+      failed:"Etwas ist schiefgelaufen."
+    },
+    it:{
+      success:`<b>Invio riuscito!</b><br>Il riferimento della tua valutazione è <b>${id}</b>. La valutazione ti verrà inviata via e-mail quando sarà completata.`,
+      missing:"Inserisci il tuo nome, l’indirizzo e-mail e almeno una foto.",
+      payment:"Verifica del pagamento di £4.99...",
+      unpaid:"Pagamento non trovato. Effettua prima il pagamento di £4.99 utilizzando lo stesso indirizzo e-mail.",
+      paymentError:"Non è stato possibile verificare il pagamento. Riprova.",
+      failed:"Si è verificato un problema."
+    },
+    pt:{
+      success:`<b>Enviado com sucesso!</b><br>A sua referência de avaliação é <b>${id}</b>. A avaliação será enviada por e-mail quando estiver concluída.`,
+      missing:"Adicione o seu nome, endereço de e-mail e pelo menos uma fotografia.",
+      payment:"A verificar o seu pagamento de £4.99...",
+      unpaid:"Pagamento não encontrado. Efetue primeiro o pagamento de £4.99 utilizando o mesmo endereço de e-mail.",
+      paymentError:"Não foi possível verificar o seu pagamento. Tente novamente.",
+      failed:"Ocorreu um problema."
+    }
+  };
 
+  return (messages[lang]||messages.en)[key];
+}
 function customerLanguageText(text,lang){
   if(lang==="es")return text
     .replace(/Identified brand:/g,"Marca identificada:")
