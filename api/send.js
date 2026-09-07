@@ -165,6 +165,7 @@ export default async function handler(req, res) {
 
     const safeExplanation = escapeHtml(customerExplanation)
   .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+        .replace(/\*\*PenValue AI\*\*[\s\S]*$/i, "")
   .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
   .replace(/\n\s*-\s+/g, "\n• ")
   .replace(/\n{2,}/g, "\n\n");
