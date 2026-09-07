@@ -629,7 +629,7 @@ copyButton.onclick=async()=>{
 box.appendChild(copyButton);
 
   }catch(err){
-    box.innerHTML="<b>Something went wrong.</b><br>"+err.message;
+    box.innerHTML="<b>"+customerMessage(document.getElementById("language").value,'failed')+"</b><br>"+err.message;
   }
 }
   function changeLanguage(lang){
