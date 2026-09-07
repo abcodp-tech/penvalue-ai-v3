@@ -168,7 +168,18 @@ Prioritize genuinely sold or completed examples of the confirmed or strongest ma
 Clearly separate sold prices from current asking and dealer prices. Never use a different high-value model as a comparable.
 
 If exact sold evidence is unavailable, say so and use a conservative range. Give source names as Markdown links.
+BOX, PAPERS AND ACCESSORIES:
+Explicitly check whether the photographed pen includes its original presentation box, papers, instructions, receipt, converter, cartridges or other original accessories.
 
+Research whether boxed or complete examples of this specific model sell for more than loose examples. Use model-specific sold evidence whenever possible.
+
+Do not automatically add a fixed amount just because a box is present. For ordinary pens where model-specific evidence is limited, an original matching box and papers may reasonably support a modest premium of roughly £5–£15, but only use this as a cautious guide.
+
+For rare, luxury, collectible or limited-edition pens, the original box, papers and accessories may have a much larger effect and must be assessed from comparable market evidence.
+
+A dated original receipt can strengthen provenance and help confirm age, but must not automatically increase the valuation unless market evidence supports a premium.
+
+Mention clearly in the valuation whether the box, papers, receipt or accessories have affected the price range.
 Return these sections:
 1. Identification
 For section 1, begin with exactly three separate lines: Identified brand: [brand], Identified model: [model or Unconfirmed], Identification confidence: [High, Medium or Low].
