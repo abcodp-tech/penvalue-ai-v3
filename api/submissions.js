@@ -24,6 +24,11 @@ export default async function handler(req, res) {
       ALTER TABLE submissions
       ADD COLUMN IF NOT EXISTS photo_data JSONB DEFAULT '[]'::jsonb
     `;
+
+    await sql`
+  ALTER TABLE submissions
+  ADD COLUMN IF NOT EXISTS language TEXT DEFAULT 'en'
+`;
     if (req.method === "GET") {
       const expectedToken = crypto
   .createHash("sha256")
