@@ -1,4 +1,4 @@
-import { neon } from "@neondatabase/serverless";
+.import { neon } from "@neondatabase/serverless";
 function getText(data) {
   return data.output_text || data.output?.flatMap(x => x.content || [])
     .filter(x => x.type === "output_text").map(x => x.text).join("\n") || "";
@@ -194,7 +194,7 @@ For section 3, use exactly three separate lines: Low: £[number], Likely: £[num
 9. Sources
 For section 5, use the heading "Why this valuation" and explain it using four short bullet points:
 - Identification evidence: the visible details supporting the brand and model.
-- Value positives: features that increase its value.
+- Value positives: features that increase its value, including any original box, papers, receipt or accessories when they genuinely add value.
 - Value reductions: condition problems, uncertainty or missing parts that reduce its value.
 - Market evidence: explain how sold and comparable listings support the price range.
 Finish with one short plain-English summary suitable for a customer. Clearly separate confirmed facts from uncertain details, and never invent evidence.
