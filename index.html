@@ -648,7 +648,8 @@ document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar p
 
   document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Payer £4.99 en toute sécurité";
   document.querySelector('button[onclick="submitPen()"]').textContent="2. Envoyer pour estimation après paiement";
-}
+document.getElementById("success").dataset.waiting="L’IA examine vos photos et recherche des données de marché…|Cela peut prendre entre 5 et 8 minutes. Veuillez garder cette page ouverte.";
+    }
 
 if(lang==="de"){
   document.querySelector(".hero h1").textContent="Lassen Sie Ihren Füllfederhalter bewerten";
