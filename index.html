@@ -547,7 +547,7 @@ async function submitPen(){
     return;
   }
     box.style.display="block";
-    box.innerHTML="<b>Checking your £4.99 payment...</b>";
+    box.innerHTML="<b>"+customerMessage(document.getElementById("language").value,'payment')+"</b>";
 
     if(sessionStorage.getItem('valuerUnlocked')!=='yes'){
   try {
