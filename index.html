@@ -543,7 +543,7 @@ async function submitPen(){
   const box=document.getElementById("success");
 
   if(!n||!e||photos.length===0){
-    alert("Please add your name, email and at least one photo.");
+    alert(customerMessage(document.getElementById("language").value,'missing'));
     return;
   }
     box.style.display="block";
