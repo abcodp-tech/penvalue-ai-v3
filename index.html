@@ -456,6 +456,9 @@ function customerLanguageText(text,lang){
     .replace(/Identified brand:/g,"Marca identificata:")
     .replace(/Identified model:/g,"Modello identificato:")
     .replace(/Identification confidence:/g,"Affidabilità identificazione:")
+    .replace(/Affidabilità identificazione:\s*High/g,"Affidabilità identificazione: Alta")
+.replace(/Affidabilità identificazione:\s*Medium/g,"Affidabilità identificazione: Media")
+.replace(/Affidabilità identificazione:\s*Low/g,"Affidabilità identificazione: Bassa")
     .replace(/\bLow:/g,"Valore minimo:")
     .replace(/\bLikely:/g,"Valore probabile:")
     .replace(/\bHigh:/g,"Valore massimo:");
