@@ -78,7 +78,7 @@ language
       const rows = await sql`
         INSERT INTO submissions (
           id, name, email, brand, model, source,
-                question, notes, photo_count, photo_data, ai_valuation, status
+                question, notes, photo_count, photo_data, ai_valuation, status language
         )
         VALUES (
           ${id}, ${name}, ${email}, ${brand || null},
