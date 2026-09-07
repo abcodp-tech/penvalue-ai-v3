@@ -295,6 +295,7 @@ let q=document.getElementById('queue');
       photos:row.photo_count,
       photoData:row.photo_data || [],
       aiValuation:row.ai_valuation,
+      language:row.language || "en",
       status:row.status,
       created:new Date(row.created_at).toLocaleString()
     }));
