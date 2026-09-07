@@ -149,8 +149,10 @@ export default async function handler(req, res) {
     const penName = `${brand} ${model}`.trim();
 
     const safeExplanation = escapeHtml(explanation)
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+  .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+  .replace(/\n\s*-\s+/g, "\n• ")
+  .replace(/\n{2,}/g, "\n\n");
 
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
