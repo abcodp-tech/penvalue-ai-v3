@@ -267,7 +267,7 @@ saveLocalSubmissions();
 }).catch(error=>console.error('Database save failed:',error));
 
 document.getElementById('success').style.display='block';
-document.getElementById('success').innerHTML='<b>Submitted!</b><br>Your valuation reference is <b>'+s.id+'</b>. In the full app, the customer would now receive an email confirmation.';
+document.getElementById('success').innerHTML='<b>Submitted successfully!</b><br>Your valuation reference is <b>'+s.id+'</b>. Your valuation will be emailed to you when complete.';
 
 document.getElementById('name').value='';
 document.getElementById('email').value='';
