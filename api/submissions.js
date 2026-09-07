@@ -92,6 +92,7 @@ language
           model = EXCLUDED.model,
           photo_data = EXCLUDED.photo_data,
           ai_valuation = EXCLUDED.ai_valuation,
+          language = EXCLUDED.language,
           status = EXCLUDED.status
         RETURNING *
       `;
