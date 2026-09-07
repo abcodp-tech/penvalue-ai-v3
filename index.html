@@ -343,7 +343,7 @@ function openJob(idx){
   document.getElementById('mid').value=likely?likely[1]:(s.mid||'');
   document.getElementById('high').value=high?high[1]:(s.high||'');
 
-  const lang=document.getElementById("language").value;
+  const lang=s.language || "en";
 
 document.getElementById('explanation').value=
   customerLanguageText(
