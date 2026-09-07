@@ -561,7 +561,7 @@ async function submitPen(){
 
       if(!paymentResponse.ok || !paymentData.paid){
         box.style.display="none";
-        alert(paymentData.error || "Payment not found. Please pay £4.99 first using the same email address.");
+        alert(paymentData.error || customerMessage(document.getElementById("language").value,'unpaid'));
         return;
       }
     } catch(error) {
