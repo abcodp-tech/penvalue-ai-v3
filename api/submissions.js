@@ -85,7 +85,7 @@ language
           ${model || null}, ${source || null},
           ${question || null}, ${notes || null},
                 ${Number(photoCount) || 0}, ${JSON.stringify(photoData || [])}::jsonb, ${aiValuation || null},
-          ${status || "Awaiting valuation"}
+          ${status || "Awaiting valuation"}, ${language || "en"}
         )
         ON CONFLICT (id) DO UPDATE SET
           brand = EXCLUDED.brand,
