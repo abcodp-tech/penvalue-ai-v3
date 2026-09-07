@@ -618,7 +618,7 @@ if(!document.getElementById("model").value && modelMatch){
 }
 if(confidenceMatch)document.getElementById("confidence").value=confidenceMatch[1][0].toUpperCase()+confidenceMatch[1].slice(1).toLowerCase();
     saveToDashboard(data.valuation, images);
-    box.innerHTML="<b>AI valuation</b><br><br>";
+    box.innerHTML="<b>"+customerMessage(document.getElementById("language").value,"valuationTitle")+"</b><br><br>";
     const result=document.createElement("div");
     result.style.whiteSpace="pre-wrap";
     result.innerHTML=(data.valuation||"No valuation returned.").replace(/^### (.*)$/gm,'<h3>$1</h3>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
