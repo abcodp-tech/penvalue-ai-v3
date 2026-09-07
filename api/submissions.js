@@ -1,4 +1,4 @@
-import { neon } from "@neondatabase/serverless";
+⁸import { neon } from "@neondatabase/serverless";
 import crypto from "node:crypto";
 export default async function handler(req, res) {
   const sql = neon(process.env.DATABASE_URL);
@@ -65,7 +65,8 @@ if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
         photoCount,
                 photoData,
         aiValuation,
-        status
+        status,
+language
       } = req.body || {};
 
       if (!id || !name || !email) {
