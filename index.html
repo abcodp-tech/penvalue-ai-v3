@@ -367,9 +367,9 @@ function customerLanguageText(text,lang){
     .replace(/Confianza de identificación:\s*High/g,"Confianza de identificación: Alta")
 .replace(/Confianza de identificación:\s*Medium/g,"Confianza de identificación: Media")
 .replace(/Confianza de identificación:\s*Low/g,"Confianza de identificación: Baja")
-    .replace(/Low:/g,"Bajo:")
-    .replace(/Likely:/g,"Más probable:")
-    .replace(/High:/g,"Alto:");
+    .replace(/Low:/g,"Mínimo:")
+.replace(/Likely:/g,"Valor más probable:")
+.replace(/High:/g,"Máximo:");
   return text;
 }
 
