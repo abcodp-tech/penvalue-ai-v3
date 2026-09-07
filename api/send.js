@@ -230,9 +230,10 @@ export default async function handler(req, res) {
                 </p>
 
                 <p style="color:#0d2340;">
-                  <strong>PenValue AI</strong><br>
-                  ${copy.tagline}
-                </p>
+  <strong>PenValue AI</strong><br>
+  ${copy.tagline}<br>
+  <strong>Contact:</strong> hello.penvalueai@gmail.com
+</p>
               </div>
 
             </div>
