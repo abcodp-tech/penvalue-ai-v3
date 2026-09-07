@@ -1,4 +1,4 @@
-.import { neon } from "@neondatabase/serverless";
+import { neon } from "@neondatabase/serverless";
 function getText(data) {
   return data.output_text || data.output?.flatMap(x => x.content || [])
     .filter(x => x.type === "output_text").map(x => x.text).join("\n") || "";
