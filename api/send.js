@@ -163,7 +163,7 @@ export default async function handler(req, res) {
         .replace(/\bLow:/g, "Mindestwert:")
     : explanation;
 
-    const safeExplanation = escapeHtml(explanation)
+    const safeExplanation = escapeHtml(customerExplanation)
   .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
   .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
   .replace(/\n\s*-\s+/g, "\n• ")
