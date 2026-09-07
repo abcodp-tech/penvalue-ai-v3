@@ -566,7 +566,7 @@ async function submitPen(){
       }
     } catch(error) {
       box.style.display="none";
-      alert("We could not check your payment. Please try again.");
+      alert(customerMessage(document.getElementById("language").value,'paymentError'));
       return;
     }
     }
