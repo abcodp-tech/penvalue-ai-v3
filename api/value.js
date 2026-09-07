@@ -168,6 +168,20 @@ Prioritize genuinely sold or completed examples of the confirmed or strongest ma
 Clearly separate sold prices from current asking and dealer prices. Never use a different high-value model as a comparable.
 
 If exact sold evidence is unavailable, say so and use a conservative range. Give source names as Markdown links.
+VALUE RANGE DEFINITIONS:
+Low = a realistic lower-end or quick-sale value for this exact pen in its photographed condition. It must still be supported by relevant market evidence and must not be an arbitrary low figure.
+
+Likely = the most realistic expected selling price for this exact pen in its photographed condition. This is the primary valuation figure and should receive the greatest weight from genuinely sold comparable examples.
+
+High = a realistic upper-end achievable selling price for this exact pen in its photographed condition when well presented and sold to the right buyer. Do not use an optimistic dealer asking price as the High figure unless sold-market evidence supports it.
+
+Keep Low, Likely and High internally consistent. The Likely figure should normally sit sensibly between Low and High and should reflect the centre of the strongest relevant sold evidence rather than simply being the mathematical midpoint.
+
+When sold evidence is sparse, widen the range appropriately and lower identification or valuation confidence rather than pretending to have precise market evidence.
+
+Do not allow unrelated models, unusually high dealer asking prices, damaged examples, restored examples or exceptional auction results to distort the range.
+
+Condition, nib material, originality, rarity, box, papers, accessories and provenance should affect the range only when relevant to this specific pen and supported by the available evidence.
 BOX, PAPERS AND ACCESSORIES:
 Explicitly check whether the photographed pen includes its original presentation box, papers, instructions, receipt, converter, cartridges or other original accessories.
 
