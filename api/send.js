@@ -148,6 +148,21 @@ export default async function handler(req, res) {
 
     const penName = `${brand} ${model}`.trim();
 
+    const customerExplanation =
+  language === "de"
+    ? explanation
+        .replace(/Identified brand:/g, "Identifizierte Marke:")
+        .replace(/Identified model:/g, "Identifiziertes Modell:")
+        .replace(/Identification confidence:/g, "Identifikationssicherheit:")
+        .replace(/\bUnconfirmed\b/g, "Nicht bestätigt")
+        .replace(/\bHigh\b/g, "Hoch")
+        .replace(/\bMedium\b/g, "Mittel")
+        .replace(/\bLow\b/g, "Niedrig")
+        .replace(/\bLikely:/g, "Wahrscheinlich:")
+        .replace(/\bHigh:/g, "Höchstwert:")
+        .replace(/\bLow:/g, "Mindestwert:")
+    : explanation;
+
     const safeExplanation = escapeHtml(explanation)
   .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
   .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
