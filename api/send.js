@@ -37,7 +37,107 @@ export default async function handler(req, res) {
     const safeExplanation = escapeHtml(explanation)
   .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
   .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-const isSpanish = language === "es";
+const t = {
+  en: {
+    subject: "Your PenValue AI valuation",
+    hello: "Hello,",
+    ready: "Thank you for using PenValue AI. Your valuation is ready.",
+    range: "Estimated range:",
+    likely: "Most likely value:",
+    confidence: "Confidence:",
+    explanation: "Valuation explanation",
+    disclaimer: "This is an indicative valuation based on the photos, information provided and available market evidence. Condition and authenticity may affect the final value.",
+    tagline: "Smart valuations for fountain-pen owners",
+    high: "High",
+    medium: "Medium",
+    low: "Low"
+  },
+  es: {
+    subject: "Tu valoración de PenValue AI",
+    hello: "Hola,",
+    ready: "Gracias por usar PenValue AI. Tu valoración está lista.",
+    range: "Rango estimado:",
+    likely: "Valor más probable:",
+    confidence: "Confianza:",
+    explanation: "Explicación de la valoración",
+    disclaimer: "Esta es una valoración orientativa basada en las fotos, la información proporcionada y la evidencia de mercado disponible. El estado y la autenticidad pueden afectar al valor final.",
+    tagline: "Valoraciones inteligentes para propietarios de plumas estilográficas",
+    high: "Alta",
+    medium: "Media",
+    low: "Baja"
+  },
+  fr: {
+    subject: "Votre estimation PenValue AI",
+    hello: "Bonjour,",
+    ready: "Merci d'avoir utilisé PenValue AI. Votre estimation est prête.",
+    range: "Fourchette estimée :",
+    likely: "Valeur la plus probable :",
+    confidence: "Niveau de confiance :",
+    explanation: "Explication de l'estimation",
+    disclaimer: "Cette estimation est indicative et repose sur les photos, les informations fournies et les données de marché disponibles. L'état et l'authenticité peuvent influencer la valeur finale.",
+    tagline: "Estimations intelligentes pour les propriétaires de stylos-plume",
+    high: "Élevée",
+    medium: "Moyenne",
+    low: "Faible"
+  },
+  de: {
+    subject: "Ihre PenValue AI Bewertung",
+    hello: "Hallo,",
+    ready: "Vielen Dank, dass Sie PenValue AI genutzt haben. Ihre Bewertung ist fertig.",
+    range: "Geschätzte Preisspanne:",
+    likely: "Wahrscheinlichster Wert:",
+    confidence: "Sicherheit:",
+    explanation: "Erläuterung der Bewertung",
+    disclaimer: "Diese Bewertung ist eine Orientierung auf Grundlage der Fotos, der bereitgestellten Informationen und verfügbarer Marktdaten. Zustand und Authentizität können den endgültigen Wert beeinflussen.",
+    tagline: "Intelligente Bewertungen für Füllfederhalter-Besitzer",
+    high: "Hoch",
+    medium: "Mittel",
+    low: "Niedrig"
+  },
+  it: {
+    subject: "La tua valutazione PenValue AI",
+    hello: "Ciao,",
+    ready: "Grazie per aver utilizzato PenValue AI. La tua valutazione è pronta.",
+    range: "Intervallo stimato:",
+    likely: "Valore più probabile:",
+    confidence: "Affidabilità:",
+    explanation: "Spiegazione della valutazione",
+    disclaimer: "Questa è una valutazione indicativa basata sulle foto, sulle informazioni fornite e sulle prove di mercato disponibili. Condizioni e autenticità possono influire sul valore finale.",
+    tagline: "Valutazioni intelligenti per i proprietari di penne stilografiche",
+    high: "Alta",
+    medium: "Media",
+    low: "Bassa"
+  },
+  pt: {
+    subject: "A sua avaliação PenValue AI",
+    hello: "Olá,",
+    ready: "Obrigado por usar o PenValue AI. A sua avaliação está pronta.",
+    range: "Intervalo estimado:",
+    likely: "Valor mais provável:",
+    confidence: "Confiança:",
+    explanation: "Explicação da avaliação",
+    disclaimer: "Esta é uma avaliação indicativa baseada nas fotografias, nas informações fornecidas e nas evidências de mercado disponíveis. O estado e a autenticidade podem afetar o valor final.",
+    tagline: "Avaliações inteligentes para proprietários de canetas-tinteiro",
+    high: "Alta",
+    medium: "Média",
+    low: "Baixa"
+  }
+}[language] || null;
+
+const copy = t || {
+  subject: "Your PenValue AI valuation",
+  hello: "Hello,",
+  ready: "Thank you for using PenValue AI. Your valuation is ready.",
+  range: "Estimated range:",
+  likely: "Most likely value:",
+  confidence: "Confidence:",
+  explanation: "Valuation explanation",
+  disclaimer: "This is an indicative valuation based on the photos, information provided and available market evidence. Condition and authenticity may affect the final value.",
+  tagline: "Smart valuations for fountain-pen owners",
+  high: "High",
+  medium: "Medium",
+  low: "Low"
+};
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
