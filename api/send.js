@@ -225,7 +225,13 @@ export default async function handler(req, res) {
                 <div style="line-height:1.7;white-space:pre-wrap;font-size:16px;color:#172033;">
                   ${safeExplanation}
                 </div>
-
+${extraPhotoRequest ? `
+<div style="margin-top:22px;padding:16px;border:1px solid #d4af37;border-radius:12px;background:#fffaf0;">
+  <h3 style="margin:0 0 8px;color:#0d2a4d;">Extra photos requested</h3>
+  <p style="margin:0 0 10px;">${escapeHtml(extraPhotoRequest)}</p>
+  <p style="margin:0;"><strong>You can send these extra photos for one free updated valuation.</strong></p>
+</div>
+` : ""}
                 <p style="margin-top:26px;padding-top:18px;border-top:1px solid #dddddd;font-size:12px;color:#666666;">
                   ${copy.disclaimer}
                 </p>
