@@ -234,6 +234,14 @@ ${extraPhotoRequest ? `
   <h3 style="margin:0 0 8px;color:#0d2a4d;">Extra photos requested</h3>
   <p style="margin:0 0 10px;">${escapeHtml(extraPhotoRequest)}</p>
   <p style="margin:0;"><strong>You can send these extra photos for one free updated valuation.</strong></p>
+<p style="margin:14px 0 0;">
+  <a href="${uploadUrl}" style="display:inline-block;background:#d4af37;color:#071a33;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:10px;">
+    Upload requested photos — FREE
+  </a>
+</p>
+<p style="margin:8px 0 0;font-size:12px;color:#666;">
+  This secure link expires 1 hour after this email is sent.
+</p>
 </div>
 ` : ""}
                 <p style="margin-top:26px;padding-top:18px;border-top:1px solid #dddddd;font-size:12px;color:#666666;">
