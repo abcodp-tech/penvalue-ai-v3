@@ -237,47 +237,7 @@ const followupToken=followupParams.get("token");
   }catch(error){
     console.error("Follow-up verification failed:",error);
   }
-} {
-  if(!followupExtra || !followupExpires || !followupToken) return;
 
-  try{
-    const response=await fetch("/api/verify-followup",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({
-        id:followupExtra,
-        expires:followupExpires,
-        token:followupToken
-      })
-    });
-
-    const data=await response.json();
-
-    if(response.ok && data.valid){
-      followupMode=true;
-      followupId=data.id;
-    const original=data.submission||{};
-followupOriginalPhotos=original.photo_data||[];
-document.getElementById("name").value=original.name||"";
-document.getElementById("email").value=original.email||"";
-document.getElementById("brand").value=original.brand||"";
-document.getElementById("model").value=original.model||"";
-document.getElementById("source").value=original.source||"";
-document.getElementById("notes").value=original.notes||"";
-
-if(original.language){
-  document.getElementById("language").value=original.language;
-}
-      const payButton=document.querySelector('button[onclick*="buy.stripe.com"]');
-const submitButton=document.querySelector('button[onclick="submitPen()"]');
-
-if(payButton) payButton.style.display="none";
-if(submitButton) submitButton.textContent="Submit extra photos for FREE";
-    }
-  }catch(error){
-    console.error("Follow-up verification failed");
-  }
-}
 
 checkFollowupLink();
   function saveLocalSubmissions(){
