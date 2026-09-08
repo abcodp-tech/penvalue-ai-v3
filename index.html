@@ -653,7 +653,9 @@ box.innerHTML=waiting ? "<b>"+waiting.replace("|","</b><br>")+"</b>" : "<b>AI is
 
   try{
     const images=await Promise.all(photos.map(smallPhoto));
-
+const allImages=followupMode
+  ? [...followupOriginalPhotos,...images]
+  : images;
     const r=await fetch("/api/value",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
