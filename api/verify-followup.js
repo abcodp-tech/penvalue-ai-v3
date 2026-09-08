@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     }
 
     const rows = await sql`
-  SELECT id, name, email, brand, model, source, question, notes, language
+  SELECT id, name, email, brand, model, source, question, notes, language, photo_data
   FROM submissions
   WHERE id = ${id}
   LIMIT 1
