@@ -264,7 +264,7 @@ return
 }
 
 let s={
-id:'PV-'+Date.now().toString().slice(-6),
+id:followupMode && followupId ? followupId : 'PV-'+Date.now().toString().slice(-6),
 name:n,
 email:e,
 brand:document.getElementById('brand').value,
