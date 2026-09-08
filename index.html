@@ -608,7 +608,7 @@ async function submitPen(){
     box.style.display="block";
     box.innerHTML="<b>"+customerMessage(document.getElementById("language").value,'payment')+"</b>";
 
-    if(sessionStorage.getItem('valuerUnlocked')!=='yes'){
+    if(sessionStorage.getItem('valuerUnlocked')!=='yes' && !followupMode){
   try {
       const paymentResponse=await fetch("/api/verify-payment",{
         method:"POST",
