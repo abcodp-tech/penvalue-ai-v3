@@ -159,7 +159,85 @@ let followupId="";
 const followupExtra=followupParams.get("extra");
 const followupExpires=followupParams.get("expires");
 const followupToken=followupParams.get("token");
-  async function checkFollowupLink(){
+ async function checkFollowupLink(){
+  if(!followupExtra || !followupExpires || !followupToken) return;
+
+  const payButton=document.querySelector('button[onclick*="buy.stripe.com"]');
+  const submitButton=document.querySelector('button[onclick="submitPen()"]');
+
+  try{
+    const response=await fetch("/api/verify-followup",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        id:followupExtra,
+        expires:followupExpires,
+        token:followupToken
+      })
+    });
+
+    const data=await response.json();
+
+    if(!response.ok || !data.valid){
+      console.error("Follow-up link rejected:",data);
+      return;
+    }
+
+    followupMode=true;
+    followupId=data.id;
+
+    const original=data.submission||{};
+    followupOriginalPhotos=Array.isArray(original.photo_data)
+      ? original.photo_data
+      : [];
+
+    document.getElementById("name").value=original.name||"";
+    document.getElementById("email").value=original.email||"";
+    document.getElementById("brand").value=original.brand||"";
+    document.getElementById("model").value=original.model||"";
+    document.getElementById("source").value=original.source||"";
+    document.getElementById("notes").value=original.notes||"";
+
+    if(original.language){
+      document.getElementById("language").value=original.language;
+    }
+
+    if(payButton){
+      payButton.style.display="none";
+    }
+
+    if(submitButton){
+      submitButton.textContent="Submit extra photos for FREE";
+      submitButton.style.width="100%";
+    }
+
+    const photoBox=document.getElementById("photos");
+    photoBox.innerHTML="";
+
+    followupOriginalPhotos.forEach(src=>{
+      const img=document.createElement("img");
+      img.src=src;
+      img.alt="Original valuation photo";
+      img.title="Original photo already included";
+      photoBox.appendChild(img);
+    });
+
+    const heading=document.querySelector("#customer .card h2");
+    if(heading){
+      heading.textContent="Upload your requested extra photos";
+    }
+
+    const intro=document.querySelector("#customer .card > .note");
+    if(intro){
+      intro.innerHTML=
+        "<b>Your original valuation has been loaded.</b><br>"+
+        "The photos below are your original photos. Add only the extra photographs requested in your valuation email. Your updated valuation is FREE.";
+    }
+
+  }catch(error){
+    console.error("Follow-up verification failed:",error);
+  }
+} {
   if(!followupExtra || !followupExpires || !followupToken) return;
 
   try{
