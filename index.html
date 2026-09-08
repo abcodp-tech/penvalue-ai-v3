@@ -535,7 +535,8 @@ async function sendValuation(){
         likely:s.mid,
         high:s.high,
         confidence:customerLanguageText(s.confidence,s.language || "en"),
-        explanation:customerLanguageText(s.explanation,s.language || "en")
+        explanation:customerLanguageText(s.explanation,s.language || "en"),
+        extraPhotoRequest:s.extraPhotoRequest
       })
     });
 
