@@ -179,9 +179,10 @@ const followupToken=followupParams.get("token");
     const data=await response.json();
 
     if(!response.ok || !data.valid){
-      console.error("Follow-up link rejected:",data);
-      return;
-    }
+  alert("FOLLOW-UP ERROR: " + (data.error || "Unknown error") + " | Status: " + response.status);
+  console.error("Follow-up link rejected:",data);
+  return;
+}
 
     followupMode=true;
     followupId=data.id;
