@@ -179,7 +179,7 @@ const followupToken=followupParams.get("token");
       followupMode=true;
       followupId=data.id;
     const original=data.submission||{};
-
+followupOriginalPhotos=original.photo_data||[];
 document.getElementById("name").value=original.name||"";
 document.getElementById("email").value=original.email||"";
 document.getElementById("brand").value=original.brand||"";
