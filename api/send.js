@@ -140,6 +140,7 @@ export default async function handler(req, res) {
 
     const copy = translations[language] || translations.en;
 const expires = Date.now() + 60 * 60 * 1000;
+    
     const confidenceText =
       confidence === "High"
         ? copy.high
