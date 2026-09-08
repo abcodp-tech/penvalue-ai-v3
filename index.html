@@ -493,6 +493,7 @@ async function sendValuation(){
   s.high=+document.getElementById('high').value;
   s.confidence=document.getElementById('confidence').value;
   s.explanation=document.getElementById('explanation').value;
+  s.extraPhotoRequest=document.getElementById('extraPhotoRequest').value.trim();
   s.status='Valuation complete';
 
   saveLocalSubmissions();
