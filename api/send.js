@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
