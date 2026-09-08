@@ -158,6 +158,32 @@ let followupId="";
 const followupExtra=followupParams.get("extra");
 const followupExpires=followupParams.get("expires");
 const followupToken=followupParams.get("token");
+  async function checkFollowupLink(){
+  if(!followupExtra || !followupExpires || !followupToken) return;
+
+  try{
+    const response=await fetch("/api/verify-followup",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        id:followupExtra,
+        expires:followupExpires,
+        token:followupToken
+      })
+    });
+
+    const data=await response.json();
+
+    if(response.ok && data.valid){
+      followupMode=true;
+      followupId=data.id;
+    }
+  }catch(error){
+    console.error("Follow-up verification failed");
+  }
+}
+
+checkFollowupLink();
   function saveLocalSubmissions(){
   const lightweight=submissions.map(({photoData,...submission})=>submission);
   localStorage.setItem('penvalue_submissions',JSON.stringify(lightweight));
