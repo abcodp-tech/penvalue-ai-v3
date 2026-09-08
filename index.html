@@ -152,7 +152,9 @@ footer{color:#d7deea!important}
 <script>
 document.querySelector("footer").textContent="PenValue AI provides indicative valuations based on submitted photographs and available market evidence.";
   let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
-function saveLocalSubmissions(){
+let followupMode=false;
+let followupId="";
+  function saveLocalSubmissions(){
   const lightweight=submissions.map(({photoData,...submission})=>submission);
   localStorage.setItem('penvalue_submissions',JSON.stringify(lightweight));
 }
