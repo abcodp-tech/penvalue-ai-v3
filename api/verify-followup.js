@@ -51,10 +51,25 @@ export default async function handler(req, res) {
       });
     }
 
-    return res.status(200).json({
-      valid: true,
-      id
-    });
+    const rows = await sql`
+  SELECT id, name, email, brand, model, source, question, notes, language
+  FROM submissions
+  WHERE id = ${id}
+  LIMIT 1
+`;
+
+if (!rows.length) {
+  return res.status(404).json({
+    valid: false,
+    error: "Original valuation could not be found."
+  });
+}
+
+return res.status(200).json({
+  valid: true,
+  id,
+  submission: rows[0]
+});
   } catch (error) {
     return res.status(500).json({
       valid: false,
