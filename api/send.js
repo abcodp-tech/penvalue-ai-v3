@@ -15,6 +15,7 @@ export default async function handler(req, res) {
   try {
     const {
       email,
+      id = "",
       brand = "Fountain pen",
       model = "",
       low = "",
