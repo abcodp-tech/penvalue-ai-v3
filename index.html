@@ -154,6 +154,10 @@ document.querySelector("footer").textContent="PenValue AI provides indicative va
   let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
 let followupMode=false;
 let followupId="";
+  const followupParams=new URLSearchParams(window.location.search);
+const followupExtra=followupParams.get("extra");
+const followupExpires=followupParams.get("expires");
+const followupToken=followupParams.get("token");
   function saveLocalSubmissions(){
   const lightweight=submissions.map(({photoData,...submission})=>submission);
   localStorage.setItem('penvalue_submissions',JSON.stringify(lightweight));
