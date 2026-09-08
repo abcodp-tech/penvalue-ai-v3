@@ -141,6 +141,7 @@ export default async function handler(req, res) {
     const copy = translations[language] || translations.en;
 const expires = Date.now() + 60 * 60 * 1000;
     const token = crypto.createHmac("sha256", process.env.RESEND_API_KEY).update(`${id}:${expires}`).digest("hex");
+    const uploadUrl = `https://penvalue-ai-v3.vercel.app/?extra=${encodeURIComponent(id)}&expires=${expires}&token=${token}`;
     const confidenceText =
       confidence === "High"
         ? copy.high
