@@ -71,9 +71,11 @@ return res.status(200).json({
   submission: rows[0]
 });
   } catch (error) {
-    return res.status(500).json({
-      valid: false,
-      error: "Follow-up verification failed."
-    });
-  }
+  console.error("VERIFY FOLLOW-UP ERROR:", error);
+
+  return res.status(500).json({
+    valid: false,
+    error: "Follow-up verification failed: " + (error?.message || String(error))
+  });
+}
 }
