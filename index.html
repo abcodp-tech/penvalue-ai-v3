@@ -177,7 +177,19 @@ const followupToken=followupParams.get("token");
     if(response.ok && data.valid){
       followupMode=true;
       followupId=data.id;
-    const payButton=document.querySelector('button[onclick*="buy.stripe.com"]');
+    const original=data.submission||{};
+
+document.getElementById("name").value=original.name||"";
+document.getElementById("email").value=original.email||"";
+document.getElementById("brand").value=original.brand||"";
+document.getElementById("model").value=original.model||"";
+document.getElementById("source").value=original.source||"";
+document.getElementById("notes").value=original.notes||"";
+
+if(original.language){
+  document.getElementById("language").value=original.language;
+}
+      const payButton=document.querySelector('button[onclick*="buy.stripe.com"]');
 const submitButton=document.querySelector('button[onclick="submitPen()"]');
 
 if(payButton) payButton.style.display="none";
