@@ -154,6 +154,7 @@ document.querySelector("footer").textContent="PenValue AI provides indicative va
   let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
 let followupMode=false;
 let followupId="";
+  let followupOriginalPhotos=[];
   const followupParams=new URLSearchParams(window.location.search);
 const followupExtra=followupParams.get("extra");
 const followupExpires=followupParams.get("expires");
