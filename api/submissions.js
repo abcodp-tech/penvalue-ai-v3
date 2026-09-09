@@ -83,14 +83,14 @@ language
       const rows = await sql`
         INSERT INTO submissions (
           id, name, email, brand, model, source,
-                question, notes, photo_count, photo_data, ai_valuation, status, language
+                question, notes, photo_count, photo_data, ai_valuation, status, followup_used, language
         )
         VALUES (
           ${id}, ${name}, ${email}, ${brand || null},
           ${model || null}, ${source || null},
           ${question || null}, ${notes || null},
                 ${Number(photoCount) || 0}, ${JSON.stringify(photoData || [])}::jsonb, ${aiValuation || null},
-          ${status || "Awaiting valuation"}, ${language || "en"}
+          ${status || "Awaiting valuation"}, ${followupUsed === true}, ${language || "en"}
         )
         ON CONFLICT (id) DO UPDATE SET
   name = EXCLUDED.name,
@@ -103,9 +103,11 @@ language
   photo_count = EXCLUDED.photo_count,
   photo_data = EXCLUDED.photo_data,
   ai_valuation = EXCLUDED.ai_valuation,
-  language = EXCLUDED.language,
-  status = EXCLUDED.status
-        RETURNING *
+ language = EXCLUDED.language,
+status = EXCLUDED.status,
+followup_used = submissions.followup_used OR EXCLUDED.followup_used
+ 
+  RETURNING *
       `;
 
       return res.status(200).json({ submission: rows[0] });
