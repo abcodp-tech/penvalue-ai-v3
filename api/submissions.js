@@ -1,4 +1,4 @@
-⁸import { neon } from "@neondatabase/serverless";
+import { neon } from "@neondatabase/serverless";
 import crypto from "node:crypto";
 export default async function handler(req, res) {
   const sql = neon(process.env.DATABASE_URL);
@@ -88,12 +88,18 @@ language
           ${status || "Awaiting valuation"}, ${language || "en"}
         )
         ON CONFLICT (id) DO UPDATE SET
-          brand = EXCLUDED.brand,
-          model = EXCLUDED.model,
-          photo_data = EXCLUDED.photo_data,
-          ai_valuation = EXCLUDED.ai_valuation,
-          language = EXCLUDED.language,
-          status = EXCLUDED.status
+  name = EXCLUDED.name,
+  email = EXCLUDED.email,
+  brand = EXCLUDED.brand,
+  model = EXCLUDED.model,
+  source = EXCLUDED.source,
+  question = EXCLUDED.question,
+  notes = EXCLUDED.notes,
+  photo_count = EXCLUDED.photo_count,
+  photo_data = EXCLUDED.photo_data,
+  ai_valuation = EXCLUDED.ai_valuation,
+  language = EXCLUDED.language,
+  status = EXCLUDED.status
         RETURNING *
       `;
 
