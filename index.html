@@ -606,7 +606,12 @@ async function sendValuation(){
 language:s.language || 'en'
   })
 }); 
-
+if(!saveResponse.ok){
+  const saveError = await saveResponse.text();
+  console.error('Neon save failed:', saveError);
+  alert('The valuation could not be saved securely. The email has NOT been sent. Please try again.');
+  return;
+}
   const sent=document.getElementById('sent');
   sent.style.display='block';
   sent.textContent='Sending valuation email...';
