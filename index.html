@@ -587,7 +587,7 @@ async function sendValuation(){
 
   saveLocalSubmissions();
 
-  await fetch('/api/submissions',{
+ const saveResponse=await fetch('/api/submissions',{
   method:'POST',
   headers:{'Content-Type':'application/json'},
   body:JSON.stringify({
@@ -605,7 +605,7 @@ async function sendValuation(){
     extraPhotoRequest:s.extraPhotoRequest,
     status:s.status
   })
-});
+}); 
 
   const sent=document.getElementById('sent');
   sent.style.display='block';
