@@ -70,6 +70,7 @@ if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
                 photoData,
         aiValuation,
         status,
+        followupUsed,
 language
       } = req.body || {};
 
