@@ -51,8 +51,23 @@ export default async function handler(req, res) {
       });
     }
 
-    const rows = await sql`
-  SELECT id, name, email, brand, model, source, question, notes, photo_data
+ await sql`
+  ALTER TABLE submissions
+  ADD COLUMN IF NOT EXISTS followup_used BOOLEAN DEFAULT FALSE
+`;
+
+const rows = await sql`
+  SELECT
+    id,
+    name,
+    email,
+    brand,
+    model,
+    source,
+    question,
+    notes,
+    photo_data,
+    followup_used
   FROM submissions
   WHERE id = ${id}
   LIMIT 1
@@ -65,10 +80,18 @@ if (!rows.length) {
   });
 }
 
+if (rows[0].followup_used) {
+  return res.status(409).json({
+    valid: false,
+    error: "This free follow-up valuation has already been used."
+  });
+}
+
 return res.status(200).json({
   valid: true,
   id,
   submission: rows[0]
+});
 });
   } catch (error) {
   console.error("VERIFY FOLLOW-UP ERROR:", error);
