@@ -29,6 +29,10 @@ export default async function handler(req, res) {
   ALTER TABLE submissions
   ADD COLUMN IF NOT EXISTS language TEXT DEFAULT 'en'
 `;
+    await sql`
+  ALTER TABLE submissions
+  ADD COLUMN IF NOT EXISTS followup_used BOOLEAN DEFAULT FALSE
+`;
     if (req.method === "GET") {
       const expectedToken = crypto
   .createHash("sha256")
