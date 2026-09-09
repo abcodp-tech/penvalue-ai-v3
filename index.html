@@ -332,6 +332,7 @@ notes:document.getElementById('notes').value,
 photos:Array.isArray(photoData) ? photoData.length : photos.length,
   photoData:photoData || [],
   aiValuation:aiValuation || '',
+  followupUsed:followupMode,
 status:'Awaiting valuation',
   language:document.getElementById("language").value,
 created:new Date().toLocaleString()
@@ -355,6 +356,7 @@ saveLocalSubmissions();
     photoCount:s.photos,
     photoData:s.photoData,
     aiValuation:s.aiValuation,
+    followupUsed:s.followupUsed,
     language:s.language,
     status:s.status
   })
