@@ -92,7 +92,7 @@ return res.status(200).json({
   id,
   submission: rows[0]
 });
-});
+
   } catch (error) {
   console.error("VERIFY FOLLOW-UP ERROR:", error);
 
