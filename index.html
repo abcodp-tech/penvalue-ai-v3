@@ -248,13 +248,18 @@ checkFollowupLink();
 const files=document.getElementById('files');
 
 files.onchange=()=>{
-photos=[...files.files].slice(0,8);
-document.getElementById('photos').innerHTML='';
-photos.forEach(f=>{
-let i=document.createElement('img');
-i.src=URL.createObjectURL(f);
-document.getElementById('photos').appendChild(i)
-})
+  const newPhotos=[...files.files];
+  photos=[...photos,...newPhotos].slice(0,8);
+
+  document.getElementById('photos').innerHTML='';
+
+  photos.forEach(f=>{
+    let i=document.createElement('img');
+    i.src=URL.createObjectURL(f);
+    document.getElementById('photos').appendChild(i);
+  });
+
+  files.value='';
 };
 
 function askForValuerPassword(){
