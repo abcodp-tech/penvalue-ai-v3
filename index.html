@@ -843,7 +843,7 @@ document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar p
   document.getElementById("valuerTab").textContent="Tableau de l’évaluateur";
   document.querySelector("#customer .card h2").textContent="Envoyez votre stylo";
   document.querySelector("#customer .card .note").textContent="Pour obtenir la meilleure estimation, photographiez le stylo entier, le capuchon, la plume et toutes les marques sur le corps.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Ajoutez jusqu’à 8 photos";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Ajoutez jusqu’à 12 photos";
   document.querySelector('label[for="language"] strong').textContent="🌍 Langue";
 
   document.getElementById("name").previousElementSibling.textContent="Votre nom";
@@ -872,14 +872,19 @@ document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar p
 
   document.querySelector(".drop + .note").innerHTML=
   "<strong>📸 Pour obtenir l’estimation la plus précise, incluez :</strong><br>"+
-  "1. Stylo complet avec capuchon, à côté d’une règle<br>"+
-  "2. Stylo complet sans capuchon, avec le capuchon à côté<br>"+
-  "3. Gros plan net du dessus de la plume<br>"+
-  "4. Gros plan du dessous de la plume et du conduit<br>"+
-  "5. Toutes les marques sur la plume : 14K, 18K, 585 ou 750<br>"+
-  "6. Marques sur le corps, la bague du capuchon et le modèle<br>"+
-  "7. Stylo dévissé montrant le système de remplissage<br>"+
-  "8. Boîte d’origine, accessoires et échantillon d’écriture";
+
+"1. Stylo ou porte-mine complet, capuchon ou mécanisme fermé, à côté d’une règle<br>"+
+"2. Stylo ou porte-mine ouvert ou déployé, avec le capuchon à côté si nécessaire<br>"+
+"3. Gros plan net de la plume, de la pointe du stylo-bille ou du mécanisme du porte-mine<br>"+
+"4. Stylos-plume : gros plan du dessous de la plume et du conduit<br>"+
+"5. Gros plan de toute marque sur la plume, comme 14K, 18K, 585 ou 750<br>"+
+"6. Photo nette du nom de la marque, du logo et des marquages du modèle<br>"+
+"7. Gros plan du corps, de la bague du capuchon, de l’agrafe et de tout numéro de série<br>"+
+"8. Stylo ouvert ou dévissé montrant la recharge, le système de remplissage ou le mécanisme interne<br>"+
+"9. Gros plan de tout poinçon, marque de métal précieux ou petite gravure<br>"+
+"10. Photo nette montrant les rayures, bosses, fissures, l’usure ou tout autre dommage<br>"+
+"11. Boîte d’origine, papiers, reçu et tous les accessoires<br>"+
+"12. Échantillon d’écriture et toute photo supplémentaire montrant l’état ou l’authenticité";
 
   document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Payer £4.99 en toute sécurité";
   document.querySelector('button[onclick="submitPen()"]').textContent="2. Envoyer pour estimation après paiement";
@@ -893,7 +898,7 @@ if(lang==="de"){
   document.getElementById("valuerTab").textContent="Bewerter-Dashboard";
   document.querySelector("#customer .card h2").textContent="Füllfederhalter einreichen";
   document.querySelector("#customer .card .note").textContent="Für die beste Bewertung fotografieren Sie den gesamten Füllfederhalter, die Kappe, die Feder und alle Markierungen am Schaft.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Bis zu 8 Fotos hinzufügen";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Bis zu 12 Fotos hinzufügen";
   document.querySelector('label[for="language"] strong').textContent="🌍 Sprache";
 
   document.getElementById("name").previousElementSibling.textContent="Ihr Name";
@@ -920,16 +925,19 @@ if(lang==="de"){
   document.getElementById("notes").previousElementSibling.textContent="Noch etwas?";
   document.getElementById("notes").placeholder="Zustand, Markierungen, Box/Papiere, Funktion...";
 
-  document.querySelector(".drop + .note").innerHTML=
-  "<strong>📸 Für die genaueste Bewertung bitte Folgendes aufnehmen:</strong><br>"+
-  "1. Kompletter Füllfederhalter mit Kappe neben einem Lineal<br>"+
-  "2. Kompletter Füllfederhalter ohne Kappe, Kappe daneben<br>"+
-  "3. Scharfes Nahfoto der Oberseite der Feder<br>"+
-  "4. Nahfoto der Unterseite der Feder und des Tintenleiters<br>"+
-  "5. Alle Feder-Markierungen: 14K, 18K, 585 oder 750<br>"+
-  "6. Markierungen am Schaft, Kappenring und Modell<br>"+
-  "7. Aufgeschraubter Füllfederhalter mit sichtbarem Füllsystem<br>"+
-  "8. Originalbox, Zubehör und Schriftprobe";
+ "<strong>📸 Für die genaueste Bewertung bitte Folgendes aufnehmen:</strong><br>"+
+"1. Kompletter Stift oder Druckbleistift mit geschlossener Kappe bzw. geschlossenem Mechanismus neben einem Lineal<br>"+
+"2. Stift oder Druckbleistift geöffnet bzw. ausgefahren, mit der Kappe daneben, falls vorhanden<br>"+
+"3. Scharfes Nahfoto der Feder, Kugelschreiberspitze oder des Druckbleistiftmechanismus<br>"+
+"4. Füllfederhalter: Nahfoto der Unterseite der Feder und des Tintenleiters<br>"+
+"5. Nahfoto aller Feder-Markierungen wie 14K, 18K, 585 oder 750<br>"+
+"6. Deutliches Foto von Markenname, Logo und Modellmarkierungen<br>"+
+"7. Nahfoto von Schaft, Kappenring, Clip und vorhandenen Seriennummern<br>"+
+"8. Geöffneter oder aufgeschraubter Stift mit sichtbarer Mine, Füllsystem oder internem Mechanismus<br>"+
+"9. Nahfoto von Punzen, Edelmetallmarkierungen oder kleinen Gravuren<br>"+
+"10. Deutliches Foto von Kratzern, Dellen, Rissen, Abnutzung oder anderen Schäden<br>"+
+"11. Originalbox, Papiere, Kaufbeleg und sämtliches Zubehör<br>"+
+"12. Schriftprobe sowie zusätzliche Fotos, die Zustand oder Echtheit besser zeigen";
 
   document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. £4.99 sicher bezahlen";
   document.querySelector('button[onclick="submitPen()"]').textContent="2. Nach der Zahlung zur Bewertung senden";
