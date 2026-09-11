@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head>saveToDashboard(data.valuation, allImages);
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PenValue AI — Fountain Pens, Ballpoints & Mechanical Pencils</title>
@@ -321,7 +321,7 @@ async function show(which){
   if(which==='valuer')await renderQueue();
 }
 
-function saveToDashboard(aiValuation, photoData){
+function saveToDashboard(aiValuation, photoData, submissionId){
 let n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim();
 
 if(!n||!e||photos.length===0){
@@ -756,7 +756,7 @@ if(!document.getElementById("model").value && modelMatch){
   document.getElementById("model").value=detectedModel;
 }
 if(confidenceMatch)document.getElementById("confidence").value=confidenceMatch[1][0].toUpperCase()+confidenceMatch[1].slice(1).toLowerCase();
-    saveToDashboard(data.valuation, allImages);
+  saveToDashboard(data.valuation, photoUrls);
     box.innerHTML="<b>"+customerMessage(document.getElementById("language").value,"valuationTitle")+"</b><br><br>";
     const result=document.createElement("div");
     result.style.whiteSpace="pre-wrap";
