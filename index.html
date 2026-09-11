@@ -70,19 +70,23 @@ footer{color:#d7deea!important}
 <h2>Submit your pen</h2>
 <p class="note">For the best valuation, photograph the whole pen, cap, nib and any barrel/imprint markings.</p>
 
-<label class="drop">📷 Add up to 8 photos
+<label class="drop">📷 Add up to 12 photos
 <input id="files" type="file" accept="image/*" multiple>
 <div class="photos" id="photos"></div>
 </label><div class="note" style="margin-top:14px;line-height:1.65">
 <strong>📸 For the most accurate valuation, include:</strong><br>
-1. Full pen capped, beside a ruler<br>
-2. Full pen uncapped, with the cap beside it<br>
-3. Sharp close-up of the top of the nib<br>
-4. Close-up of the nib underside and feed<br>
-5. Any nib hallmark: 14K, 18K, 585 or 750<br>
-6. Barrel, cap-band and model markings<br>
-7. Pen unscrewed to show the filling system<br>
-8. Original box, accessories and a writing sample
+1. Full pen/pencil with cap or mechanism closed, beside a ruler<br>
+2. Full pen/pencil open or extended, with cap beside it if applicable<br>
+3. Clear close-up of the nib, ballpoint tip or pencil mechanism<br>
+4. Fountain pens: close-up of the underside of the nib and feed<br>
+5. Close-up of any nib hallmark such as 14K, 18K, 585 or 750<br>
+6. Clear photo of the brand name, logo and model markings<br>
+7. Close-up of barrel, cap-band, clip and any serial numbers<br>
+8. Pen opened or unscrewed to show the refill, filling system or internal mechanism<br>
+9. Close-up of any hallmarks, precious-metal marks or other small engravings<br>
+10. Clear photo showing scratches, dents, cracks, wear or other damage<br>
+11. Original box, papers, receipt and any accessories<br>
+12. Writing sample, plus any extra photo that helps show condition or authenticity
 </div>
 
 <div class="grid" style="margin-top:14px">
@@ -249,7 +253,7 @@ const files=document.getElementById('files');
 
 files.onchange=()=>{
   const newPhotos=[...files.files];
-  photos=[...photos,...newPhotos].slice(0,8);
+  photos=[...photos,...newPhotos].slice(0,12);
 
   document.getElementById('photos').innerHTML='';
 
