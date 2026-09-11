@@ -788,7 +788,7 @@ box.appendChild(copyButton);
     document.getElementById("valuerTab").textContent="Panel del tasador";
     document.querySelector("#customer .card h2").textContent="Envía tu pluma";
     document.querySelector("#customer .card .note").textContent="Para obtener la mejor valoración, fotografía la pluma completa, el capuchón, el plumín y cualquier marca del cuerpo.";
-    document.querySelector(".drop").childNodes[0].textContent="📷 Añade hasta 8 fotos";
+   document.querySelector(".drop").childNodes[0].textContent="📷 Añade hasta 12 fotos";
   document.querySelector('label[for="language"] strong').textContent="🌍 Idioma";
 
 document.getElementById("name").previousElementSibling.textContent="Tu nombre";
@@ -819,14 +819,18 @@ document.getElementById("notes").placeholder="Estado, marcas, caja/papeles, func
 
 document.querySelector(".drop + .note").innerHTML=
 "<strong>📸 Para obtener la valoración más precisa, incluye:</strong><br>"+
-"1. Pluma completa con capuchón, junto a una regla<br>"+
-"2. Pluma completa sin capuchón, con el capuchón al lado<br>"+
-"3. Primer plano nítido de la parte superior del plumín<br>"+
-"4. Primer plano de la parte inferior del plumín y alimentador<br>"+
-"5. Cualquier marca del plumín: 14K, 18K, 585 o 750<br>"+
-"6. Marcas del cuerpo, banda del capuchón y modelo<br>"+
-"7. Pluma desenroscada mostrando el sistema de carga<br>"+
-"8. Caja original, accesorios y muestra de escritura";
+"1. Bolígrafo/pluma/lapicero completo con tapa o mecanismo cerrado, junto a una regla<br>"+
+"2. Bolígrafo/pluma/lapicero abierto o extendido, con la tapa al lado si corresponde<br>"+
+"3. Primer plano claro del plumín, punta del bolígrafo o mecanismo del portaminas<br>"+
+"4. Plumas estilográficas: primer plano de la parte inferior del plumín y el alimentador<br>"+
+"5. Primer plano de cualquier marca del plumín como 14K, 18K, 585 o 750<br>"+
+"6. Foto clara del nombre de la marca, logotipo y modelo<br>"+
+"7. Primer plano del cuerpo, banda del capuchón, clip y cualquier número de serie<br>"+
+"8. Bolígrafo/pluma abierto o desenroscado mostrando recambio, sistema de carga o mecanismo interno<br>"+
+"9. Primer plano de cualquier contraste, marca de metal precioso o pequeño grabado<br>"+
+"10. Foto clara de arañazos, abolladuras, grietas, desgaste u otros daños<br>"+
+"11. Caja original, papeles, recibo y cualquier accesorio<br>"+
+"12. Muestra de escritura y cualquier foto extra que ayude a mostrar el estado o la autenticidad";
 
 document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Pagar £4.99 de forma segura";
 document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar para valoración después del pago";
