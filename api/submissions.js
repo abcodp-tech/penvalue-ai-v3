@@ -49,10 +49,25 @@ const receivedToken = authCookie?.split("=")[1] || "";
 if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
   return res.status(401).json({ error: "Password required" });
 }
-      const rows = await sql`
-        SELECT * FROM submissions
-        ORDER BY created_at DESC
-      `;
+     const rows = await sql`
+  SELECT
+    id,
+    name,
+    email,
+    brand,
+    model,
+    source,
+    question,
+    notes,
+    photo_count,
+    ai_valuation,
+    status,
+    created_at,
+    language,
+    followup_used
+  FROM submissions
+  ORDER BY created_at DESC
+`;
       return res.status(200).json({ submissions: rows });
     }
 
