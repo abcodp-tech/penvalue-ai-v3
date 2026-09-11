@@ -394,7 +394,7 @@ let q=document.getElementById('queue');
       question:row.question,
       notes:row.notes,
       photos:row.photo_count,
-      photoData:row.photo_data || [],
+      photoData:[],
       aiValuation:row.ai_valuation,
       language:row.language || "en",
       status:row.status,
@@ -422,9 +422,20 @@ q.appendChild(d)
 })
 }
 
-function openJob(idx){
+async function openJob(idx){
   current=idx;
   const s=submissions[idx];
+  try{
+  const photoResponse=await fetch('/api/submissions?id='+encodeURIComponent(s.id));
+  const photoResult=await photoResponse.json();
+
+  if(photoResponse.ok && photoResult.submission){
+    s.photoData=photoResult.submission.photo_data || [];
+  }
+}catch(error){
+  console.error('Could not load submission photos:',error);
+}
+  
   const text=s.aiValuation||s.valuation||s.explanation||'';
 
   document.getElementById('work').style.display='block';
