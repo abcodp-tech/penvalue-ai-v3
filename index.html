@@ -951,7 +951,7 @@ if(lang==="it"){
   document.getElementById("valuerTab").textContent="Pannello valutatore";
   document.querySelector("#customer .card h2").textContent="Invia la tua penna";
   document.querySelector("#customer .card .note").textContent="Per ottenere la migliore valutazione, fotografa la penna completa, il cappuccio, il pennino e qualsiasi marcatura sul fusto.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Aggiungi fino a 8 foto";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Aggiungi fino a 12 foto";
   document.querySelector('label[for="language"] strong').textContent="🌍 Lingua";
 
   document.getElementById("name").previousElementSibling.textContent="Il tuo nome";
@@ -978,16 +978,20 @@ if(lang==="it"){
   document.getElementById("notes").previousElementSibling.textContent="Altro?";
   document.getElementById("notes").placeholder="Condizioni, marcature, scatola/documenti, funzionamento...";
 
-  document.querySelector(".drop + .note").innerHTML=
-  "<strong>📸 Per ottenere la valutazione più accurata, includi:</strong><br>"+
-  "1. Penna completa con cappuccio accanto a un righello<br>"+
-  "2. Penna completa senza cappuccio, con il cappuccio accanto<br>"+
-  "3. Primo piano nitido della parte superiore del pennino<br>"+
-  "4. Primo piano della parte inferiore del pennino e dell’alimentatore<br>"+
-  "5. Eventuali marcature sul pennino: 14K, 18K, 585 o 750<br>"+
-  "6. Marcature sul fusto, anello del cappuccio e modello<br>"+
-  "7. Penna svitata con il sistema di caricamento visibile<br>"+
-  "8. Scatola originale, accessori e prova di scrittura";
+document.querySelector(".drop + .note").innerHTML=
+"<strong>📸 Per ottenere la valutazione più accurata, includi:</strong><br>"+
+"1. Penna o portamine completo con cappuccio o meccanismo chiuso, accanto a un righello<br>"+
+"2. Penna o portamine aperto o esteso, con il cappuccio accanto se applicabile<br>"+
+"3. Primo piano nitido del pennino, della punta della penna a sfera o del meccanismo del portamine<br>"+
+"4. Penne stilografiche: primo piano della parte inferiore del pennino e dell’alimentatore<br>"+
+"5. Primo piano di eventuali marcature sul pennino come 14K, 18K, 585 o 750<br>"+
+"6. Foto chiara del nome del marchio, del logo e delle marcature del modello<br>"+
+"7. Primo piano del fusto, dell’anello del cappuccio, della clip e di eventuali numeri di serie<br>"+
+"8. Penna aperta o svitata per mostrare la ricarica, il sistema di caricamento o il meccanismo interno<br>"+
+"9. Primo piano di eventuali punzoni, marchi di metalli preziosi o piccole incisioni<br>"+
+"10. Foto chiara che mostri graffi, ammaccature, crepe, usura o altri danni<br>"+
+"11. Scatola originale, documenti, ricevuta ed eventuali accessori<br>"+
+"12. Prova di scrittura e qualsiasi foto aggiuntiva che aiuti a mostrare le condizioni o l’autenticità";
 
   document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Paga £4.99 in sicurezza";
   document.querySelector('button[onclick="submitPen()"]').textContent="2. Invia per la valutazione dopo il pagamento";
@@ -1001,7 +1005,7 @@ if(lang==="pt"){
   document.getElementById("valuerTab").textContent="Painel do avaliador";
   document.querySelector("#customer .card h2").textContent="Envie a sua caneta";
   document.querySelector("#customer .card .note").textContent="Para obter a melhor avaliação, fotografe a caneta completa, a tampa, o aparo e quaisquer marcações no corpo.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Adicione até 8 fotos";
+  document.querySelector(".drop").childNodes[0].textContent="📷 Adicione até 12 fotos";
   document.querySelector('label[for="language"] strong').textContent="🌍 Idioma";
 
   document.getElementById("name").previousElementSibling.textContent="O seu nome";
@@ -1029,16 +1033,19 @@ if(lang==="pt"){
   document.getElementById("notes").placeholder="Estado, marcações, caixa/documentos, funcionamento...";
 
   document.querySelector(".drop + .note").innerHTML=
-  "<strong>📸 Para obter a avaliação mais precisa, inclua:</strong><br>"+
-  "1. Caneta completa com tampa, ao lado de uma régua<br>"+
-  "2. Caneta completa sem tampa, com a tampa ao lado<br>"+
-  "3. Foto nítida da parte superior do aparo<br>"+
-  "4. Foto da parte inferior do aparo e alimentador<br>"+
-  "5. Quaisquer marcações no aparo: 14K, 18K, 585 ou 750<br>"+
-  "6. Marcações no corpo, anel da tampa e modelo<br>"+
-  "7. Caneta desenroscada mostrando o sistema de enchimento<br>"+
-  "8. Caixa original, acessórios e amostra de escrita";
-
+"<strong>📸 Para obter a avaliação mais precisa, inclua:</strong><br>"+
+"1. Caneta ou lapiseira completa com tampa ou mecanismo fechado, ao lado de uma régua<br>"+
+"2. Caneta ou lapiseira aberta ou estendida, com a tampa ao lado se aplicável<br>"+
+"3. Foto nítida em primeiro plano do aparo, ponta da esferográfica ou mecanismo da lapiseira<br>"+
+"4. Canetas-tinteiro: foto em primeiro plano da parte inferior do aparo e alimentador<br>"+
+"5. Foto em primeiro plano de quaisquer marcações no aparo, como 14K, 18K, 585 ou 750<br>"+
+"6. Foto nítida do nome da marca, logótipo e marcações do modelo<br>"+
+"7. Foto em primeiro plano do corpo, anel da tampa, clipe e quaisquer números de série<br>"+
+"8. Caneta aberta ou desenroscada mostrando a recarga, sistema de enchimento ou mecanismo interno<br>"+
+"9. Foto em primeiro plano de quaisquer punções, marcas de metais preciosos ou pequenas gravações<br>"+
+"10. Foto nítida mostrando riscos, amolgadelas, fissuras, desgaste ou outros danos<br>"+
+"11. Caixa original, documentos, recibo e quaisquer acessórios<br>"+
+"12. Amostra de escrita e qualquer foto adicional que ajude a mostrar o estado ou a autenticidade";
   document.querySelector('button[onclick*="buy.stripe.com"]').textContent="1. Pagar £4.99 com segurança";
   document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar para avaliação após o pagamento";
 document.getElementById("success").dataset.waiting="A IA está a analisar as suas fotos e a pesquisar dados de mercado…|Isto pode demorar entre 5 e 8 minutos. Por favor, mantenha esta página aberta.";
