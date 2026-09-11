@@ -49,6 +49,24 @@ const receivedToken = authCookie?.split("=")[1] || "";
 if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
   return res.status(401).json({ error: "Password required" });
 }
+      const submissionId = req.query?.id;
+
+if (submissionId) {
+  const photoRows = await sql`
+    SELECT *
+    FROM submissions
+    WHERE id = ${submissionId}
+    LIMIT 1
+  `;
+
+  if (!photoRows.length) {
+    return res.status(404).json({ error: "Submission not found" });
+  }
+
+  return res.status(200).json({
+    submission: photoRows[0]
+  });
+}
      const rows = await sql`
   SELECT
     id,
