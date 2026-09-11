@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>saveToDashboard(data.valuation, allImages);
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PenValue AI — Fountain Pens, Ballpoints & Mechanical Pencils</title>
@@ -718,13 +718,37 @@ async function submitPen(){
 box.innerHTML=waiting ? "<b>"+waiting.replace("|","</b><br>")+"</b>" : "<b>AI is examining your photos and researching market evidence…</b><br>This can take up to 5-8 minutes. Please keep this page open.";
 
   try{
-    const images=await Promise.all(photos.map(smallPhoto));
-const allImages=followupMode
+    const images=await Promise.all(photos.map(smallPhoto));const submissionId = followupMode && followupId
+  ? followupId
+  : 'PV-' + Date.now().toString().slice(-6);
+  const blobPhotos = await Promise.all(
+    images.map(async (photo, index) => {  
+const uploadResponse = await fetch("/api/upload-photo", {
+  method: "POST",
+    headers: {"Content-Type":"ap
+      plication/json"},
+  body: JSON.stringify({
+    submissionId: submissionId,
+    photo: photo,
+    photoNumber: index + 1
+      })
+    });
+      if (!uploadResponse.ok) {
+  throw new Error("Photo upload failed");
+}
+
+return await uploadResponse.json();
+  })
+);
+
+const photoUrls = blobPhotos.map(blob => blob.pathname);
+  const allImages=followupMode
   ? [...followupOriginalPhotos,...images]
   : images;
     const r=await fetch("/api/value",{
       method:"POST",
-      headers:{"Content-Type":"application/json"},
+     headers: {"Content-Type":"application/json"}, 
+     
       body:JSON.stringify({
         images:allImages,
         brand:document.getElementById("brand").value,
