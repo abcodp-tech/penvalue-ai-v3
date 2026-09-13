@@ -144,31 +144,47 @@
       });
     });
 
-    function sendReview() {
-      const reference = document.getElementById("reference").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const review = document.getElementById("review").value.trim();
-      const message = document.getElementById("message");
+  async function sendReview() {
+  const reference = document.getElementById("reference").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const review = document.getElementById("review").value.trim();
+  const message = document.getElementById("message");
 
-      if (!reference || !email || !selectedRating || !review) {
-        message.textContent =
-          "Please enter your valuation reference, email, star rating and review.";
-        return;
-      }
+  if (!reference || !email || !selectedRating || !review) {
+    message.textContent =
+      "Please enter your valuation reference, email, star rating and review.";
+    return;
+  }
 
-      window.location.href =
-        "mailto:hello.penvalueai@gmail.com" +
-        "?subject=" +
-        encodeURIComponent("PenValue AI Review - " + reference) +
-        "&body=" +
-        encodeURIComponent(
-          "Valuation reference: " + reference + "\n" +
-          "Email: " + email + "\n" +
-          "Rating: " + selectedRating + " out of 5 stars\n\n" +
-          "Review:\n" + review
-        );
+  message.textContent = "Sending your review...";
+
+  try {
+    const response = await fetch("/api/review", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: reference,
+        email: email,
+        rating: selectedRating,
+        review: review
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      message.textContent =
+        data.error || "Your review could not be saved.";
+      return;
     }
-  </script>
 
-</body>
-</html>
+    message.textContent =
+      "Thank you — your review has been saved.";
+
+  } catch (error) {
+    message.textContent =
+      "Your review could not be saved. Please try again.";
+  }
+}
