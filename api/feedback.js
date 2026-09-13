@@ -7,9 +7,14 @@ export default async function handler(req, res) {
 }
 
 try {
-  const params = req.method === "POST" ? req.body : req.query;
-  const { id, rating, expires, token } = params || {};
+const params =
+  req.method === "POST"
+    ? typeof req.body === "string"
+      ? Object.fromEntries(new URLSearchParams(req.body))
+      : req.body || {}
+    : req.query || {};
 
+const { id, rating, expires, token } = params;
     const ratingNumber = Number(rating);
     const expiryTime = Number(expires);
 
@@ -54,16 +59,23 @@ const feedbackText =
 
 const reviewConsent =
   req.method === "POST" && params.review_consent === "yes";
-   const rows = await sql`
-  UPDATE submissions
-  SET
-   rating = ${ratingNumber},
-feedback = ${feedbackText},
-review_consent = ${reviewConsent},
-feedback_created_at = NOW()
-  WHERE id = ${id}
-  RETURNING id
-`;
+  const rows = req.method === "POST"
+  ? await sql`
+      UPDATE submissions
+      SET
+        rating = ${ratingNumber},
+        feedback = ${feedbackText},
+        review_consent = ${reviewConsent},
+        feedback_created_at = NOW()
+      WHERE id = ${id}
+      RETURNING id
+    `
+  : await sql`
+      UPDATE submissions
+      SET rating = ${ratingNumber}
+      WHERE id = ${id}
+      RETURNING id
+    `;
 
     if (!rows.length) {
       return res.status(404).send("Valuation not found.");
