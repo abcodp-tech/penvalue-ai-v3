@@ -330,7 +330,7 @@ return
 }
 
 let s={
-id:followupMode && followupId ? followupId : 'PV-'+Date.now().toString().slice(-6),
+id:submissionId || (followupMode && followupId ? followupId : 'PV-'+Date.now().toString().slice(-6)),
 name:n,
 email:e,
 brand:document.getElementById('brand').value,
@@ -338,8 +338,8 @@ model:document.getElementById('model').value,
 source:document.getElementById('source').value,
 question:document.getElementById('question').value,
 notes:document.getElementById('notes').value,
-photos:Array.isArray(photoData) ? photoData.length : photos.length,
-  photoData:photoData || [],
+photos:Array.isArray(photoData) ? photoData.length + (followupMode ? followupOriginalPhotos.length : 0) : photos.length,
+ photoData:followupMode ? [...followupOriginalPhotos,...(photoData || [])] : (photoData || []),
   aiValuation:aiValuation || '',
   followupUsed:followupMode,
 status:'Awaiting valuation',
@@ -741,10 +741,9 @@ return await uploadResponse.json();
   })
 );
 
-const photoUrls = blobPhotos.map(blob => blob.pathname);
-  const allImages=followupMode
-  ? [...followupOriginalPhotos,...images]
-  : images;
+const allImages=followupMode
+  ? [...followupOriginalPhotos,...photoUrls]
+  : photoUrls;
     const r=await fetch("/api/value",{
       method:"POST",
      headers: {"Content-Type":"application/json"}, 
@@ -780,7 +779,7 @@ if(!document.getElementById("model").value && modelMatch){
   document.getElementById("model").value=detectedModel;
 }
 if(confidenceMatch)document.getElementById("confidence").value=confidenceMatch[1][0].toUpperCase()+confidenceMatch[1].slice(1).toLowerCase();
-  saveToDashboard(data.valuation, photoUrls);
+  saveToDashboard(data.valuation, photoUrls, submissionId);
     box.innerHTML="<b>"+customerMessage(document.getElementById("language").value,"valuationTitle")+"</b><br><br>";
     const result=document.createElement("div");
     result.style.whiteSpace="pre-wrap";
