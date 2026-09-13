@@ -53,10 +53,24 @@ if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
 
 if (submissionId) {
   const photoRows = await sql`
-    SELECT *
-    FROM submissions
-    WHERE id = ${submissionId}
-    LIMIT 1
+  SELECT
+  id,
+  name,
+  email,
+  brand,
+  model,
+  source,
+  question,
+  notes,
+  photo_count,
+  ai_valuation,
+  status,
+  created_at,
+  language,
+  followup_used
+FROM submissions
+WHERE id = ${submissionId}
+LIMIT 1
   `;
 
   if (!photoRows.length) {
