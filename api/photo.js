@@ -8,6 +8,9 @@ export default async function handler(req, res) {
 
   try {
     const pathname = req.query?.path;
+    const followupId = req.query?.id;
+const followupExpires = req.query?.expires;
+const followupToken = req.query?.token;
 
     if (!pathname) {
       return res.status(400).json({ error: "Photo path is required" });
@@ -24,7 +27,28 @@ export default async function handler(req, res) {
       .find(item => item.startsWith("penvalue_auth="));
 
     const receivedToken = authCookie?.split("=")[1] || "";
+const valuerAuthorized =
+  !!process.env.VALUER_PASSWORD &&
+  receivedToken === expectedToken;
 
+let followupAuthorized = false;
+
+if (
+  followupId &&
+  followupExpires &&
+  followupToken &&
+  process.env.FOLLOWUP_LINK_SECRET &&
+  pathname.startsWith(`penvalue/${followupId}/`) &&
+  Date.now() <= Number(followupExpires)
+) {
+  const expectedFollowupToken = crypto
+    .createHmac("sha256", process.env.FOLLOWUP_LINK_SECRET)
+    .update(`${followupId}:${followupExpires}`)
+    .digest("hex");
+
+  followupAuthorized =
+    String(followupToken) === expectedFollowupToken;
+}
     if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
       return res.status(401).json({ error: "Password required" });
     }
