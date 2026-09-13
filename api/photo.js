@@ -49,9 +49,9 @@ if (
   followupAuthorized =
     String(followupToken) === expectedFollowupToken;
 }
-    if (!process.env.VALUER_PASSWORD || receivedToken !== expectedToken) {
-      return res.status(401).json({ error: "Password required" });
-    }
+   if (!valuerAuthorized && !followupAuthorized) {
+  return res.status(401).json({ error: "Password or valid follow-up link required" });
+}
 
     if (!pathname.startsWith("penvalue/")) {
       return res.status(400).json({ error: "Invalid photo path" });
