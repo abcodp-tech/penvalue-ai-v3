@@ -35,7 +35,15 @@ const preparedPhotos = [];
         error: "Please add at least one photo"
       });
     }
+for (const photo of photos) {
+  if (photo.startsWith("penvalue/")) {
+    const result = await get(photo, { access: "private" });
 
+    if (!result || result.statusCode !== 200) {
+      throw new Error("Stored photo could not be loaded");
+    }
+  }
+}
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
