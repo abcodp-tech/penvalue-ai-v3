@@ -2,12 +2,13 @@ import crypto from "node:crypto";
 import { neon } from "@neondatabase/serverless";
 
 export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    return res.status(405).send("Method not allowed");
-  }
+ if (req.method !== "GET" && req.method !== "POST") {
+  return res.status(405).send("Method not allowed");
+}
 
-  try {
-    const { id, rating, expires, token } = req.query || {};
+try {
+  const params = req.method === "POST" ? req.body : req.query;
+  const { id, rating, expires, token } = params || {};
 
     const ratingNumber = Number(rating);
     const expiryTime = Number(expires);
@@ -48,12 +49,18 @@ export default async function handler(req, res) {
     }
 
     const sql = neon(process.env.DATABASE_URL);
+const feedbackText =
+  req.method === "POST" ? String(params.feedback || "").trim().slice(0, 1000) : "";
 
+const reviewConsent =
+  req.method === "POST" && params.review_consent === "yes";
    const rows = await sql`
   UPDATE submissions
   SET
-    rating = ${ratingNumber},
-    feedback_created_at = NOW()
+   rating = ${ratingNumber},
+feedback = ${feedbackText},
+review_consent = ${reviewConsent},
+feedback_created_at = NOW()
   WHERE id = ${id}
   RETURNING id
 `;
@@ -82,10 +89,43 @@ export default async function handler(req, res) {
               ${ratingNumber} out of 5 stars.
             </p>
 
-            <p>
-              Your feedback helps us improve our valuations.
-            </p>
+           <p style="margin-bottom:18px;">
+  Your feedback helps us improve our valuations.
+</p>
 
+${req.method === "GET" ? `
+<form method="POST" action="/api/feedback">
+
+  <input type="hidden" name="id" value="${id}">
+  <input type="hidden" name="rating" value="${ratingNumber}">
+  <input type="hidden" name="expires" value="${expires}">
+  <input type="hidden" name="token" value="${token}">
+
+  <textarea
+    name="feedback"
+    placeholder="Tell us what you thought about your valuation..."
+    maxlength="1000"
+    style="width:100%;min-height:110px;padding:12px;border-radius:10px;border:1px solid #d4af37;box-sizing:border-box;font-size:16px;"
+  ></textarea>
+
+  <label style="display:block;margin-top:14px;font-size:14px;text-align:left;">
+    <input type="checkbox" name="review_consent" value="yes">
+    I’m happy for PenValue AI to use my comments as a public review.
+  </label>
+
+  <button
+    type="submit"
+    style="margin-top:18px;background:#d4af37;color:#071a33;border:0;padding:12px 18px;border-radius:10px;font-weight:bold;cursor:pointer;"
+  >
+    Send feedback
+  </button>
+
+</form>
+` : `
+<p style="font-size:18px;margin-top:20px;">
+  Thank you — your feedback has been saved.
+</p>
+`}
             <a
               href="https://penvalueai.co.uk"
               style="display:inline-block;margin-top:18px;background:#d4af37;color:#071a33;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:10px;"
