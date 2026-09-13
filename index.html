@@ -221,7 +221,7 @@ const followupToken=followupParams.get("token");
 
     followupOriginalPhotos.forEach(src=>{
       const img=document.createElement("img");
-     img.src="/api/photo?path="+encodeURIComponent(src);
+   img.src="/api/photo?path="+encodeURIComponent(src)+"&id="+encodeURIComponent(followupId)+"&expires="+encodeURIComponent(followupExpires)+"&token="+encodeURIComponent(followupToken);
       img.alt="Original valuation photo";
       img.title="Original photo already included";
       photoBox.appendChild(img);
