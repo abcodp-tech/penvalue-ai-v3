@@ -725,7 +725,7 @@ box.innerHTML=waiting ? "<b>"+waiting.replace("|","</b><br>")+"</b>" : "<b>AI is
     images.map(async (photo, index) => {  
 const uploadResponse = await fetch("/api/upload-photo", {
   method: "POST",
-    headers: {"Content-Type":"ap
+   headers: {"Content-Type":"application/json"},
       plication/json"},
   body: JSON.stringify({
     submissionId: submissionId,
