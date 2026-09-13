@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Leave a Review — PenValue AI</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #071a33;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px 20px;
+    }
+
+    .card {
+      max-width: 620px;
+      margin: 40px auto;
+      background: #10233f;
+      border: 1px solid #d4af37;
+      border-radius: 18px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d4af37;
+      margin-top: 0;
+    }
+
+    .stars {
+      font-size: 42px;
+      margin: 24px 0;
+    }
+
+    .star {
+      cursor: pointer;
+      color: #777;
+      padding: 2px;
+    }
+
+    .star.selected {
+      color: #d4af37;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: white;
+      color: #071a33;
+      border: 1px solid #d4af37;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #d4af37;
+      color: #071a33;
+      border: 0;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Leave a review</h1>
+
+    <p>
+      Thank you for using PenValue AI.
+      We'd love to hear what you thought about your valuation.
+    </p>
+
+    <div class="stars" id="stars">
+      <span class="star" data-rating="1">★</span>
+      <span class="star" data-rating="2">★</span>
+      <span class="star" data-rating="3">★</span>
+      <span class="star" data-rating="4">★</span>
+      <span class="star" data-rating="5">★</span>
+    </div>
+
+    <input
+      id="reference"
+      type="text"
+      placeholder="Valuation reference, for example PV-123456"
+    >
+
+    <input
+      id="email"
+      type="email"
+      placeholder="Email address used for your valuation"
+    >
+
+    <textarea
+      id="review"
+      maxlength="1000"
+      placeholder="Tell us what you thought about PenValue AI..."
+    ></textarea>
+
+    <button type="button" onclick="sendReview()">
+      Send review
+    </button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    let selectedRating = 0;
+
+    const stars = document.querySelectorAll(".star");
+
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        selectedRating = Number(star.dataset.rating);
+
+        stars.forEach(item => {
+          item.classList.toggle(
+            "selected",
+            Number(item.dataset.rating) <= selectedRating
+          );
+        });
+      });
+    });
+
+    function sendReview() {
+      const reference = document.getElementById("reference").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const review = document.getElementById("review").value.trim();
+      const message = document.getElementById("message");
+
+      if (!reference || !email || !selectedRating || !review) {
+        message.textContent =
+          "Please enter your valuation reference, email, star rating and review.";
+        return;
+      }
+
+      window.location.href =
+        "mailto:hello.penvalueai@gmail.com" +
+        "?subject=" +
+        encodeURIComponent("PenValue AI Review - " + reference) +
+        "&body=" +
+        encodeURIComponent(
+          "Valuation reference: " + reference + "\n" +
+          "Email: " + email + "\n" +
+          "Rating: " + selectedRating + " out of 5 stars\n\n" +
+          "Review:\n" + review
+        );
+    }
+  </script>
+
+</body>
+</html>
