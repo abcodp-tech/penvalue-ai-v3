@@ -211,6 +211,10 @@ const expires = Date.now() + 60 * 60 * 1000;
                 </h2>
 
                 <div style="background:#f7f4ec;border-left:5px solid #d6ad55;padding:16px;border-radius:6px;">
+                <p style="margin-top:0;color:#0d2340;">
+  <strong>Estimated Second-Hand Market Value</strong><br>
+  This valuation estimates the likely value on the current second-hand market. It is not an insurance or replacement valuation.
+</p>
                   <p>
                     <strong>${copy.range}</strong>
                     £${escapeHtml(low)} - £${escapeHtml(high)}
