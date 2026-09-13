@@ -140,7 +140,7 @@ language
 status = EXCLUDED.status,
 followup_used = submissions.followup_used OR EXCLUDED.followup_used
  
-  RETURNING *
+ RETURNING id, status, followup_used
       `;
 
       return res.status(200).json({ submission: rows[0] });
