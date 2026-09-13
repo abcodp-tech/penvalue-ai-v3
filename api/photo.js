@@ -49,7 +49,7 @@ if (
   followupAuthorized =
     String(followupToken) === expectedFollowupToken;
 }
-   if (!valuerAuthorized && !followupAuthorized) {
+ if (!valuerAuthorized && !followupAuthorized) {
   return res.status(401).json({ error: "Password or valid follow-up link required" });
 }
 
