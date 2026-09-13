@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   try {
     const { image, images, brand, model, referenceUrl, notes, language = "en" } = req.body;
     const photos = (images || [image]).filter(Boolean).slice(0, 12);
-
+const preparedPhotos = [];
     if (!photos.length) {
       return res.status(400).json({
         error: "Please add at least one photo"
