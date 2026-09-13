@@ -142,6 +142,7 @@ export default async function handler(req, res) {
 const expires = Date.now() + 60 * 60 * 1000;
     const token = crypto.createHmac("sha256", process.env.FOLLOWUP_LINK_SECRET).update(`${id}:${expires}`).digest("hex");
     const uploadUrl = `https://penvalueai.co.uk/?extra=${encodeURIComponent(id)}&expires=${expires}&token=${token}`;
+    const feedbackExpires = Date.now() + 30 * 24 * 60 * 60 * 1000;
     const confidenceText =
       confidence === "High"
         ? copy.high
