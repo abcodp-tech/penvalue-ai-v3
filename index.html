@@ -112,7 +112,7 @@ footer{color:#d7deea!important}
 <button style="margin-top:10px" onclick="submitPen()">2. Submit for valuation after payment</button>
 <div class="success" id="success" style="margin-top:14px"></div>
   <div style="margin-top:16px;text-align:center;">
-  <button class="gold" onclick="window.location.href='mailto:hello.penvalueai@gmail.com?subject=PenValue%20AI%20Review'">
+<button class="gold" onclick="startReview()">
     Leave a review
   </button>
 </div>
@@ -1086,6 +1086,17 @@ document.getElementById("success").dataset.waiting="A IA está a analisar as sua
   if(lang==="en"){
     location.reload();
   }
+}
+  function startReview() {
+  const id = prompt("Enter your PenValue AI valuation reference (for example PV-123456):");
+  if (!id) return;
+
+  const email = prompt("Enter the email address used for your valuation:");
+  if (!email) return;
+
+  window.location.href =
+    "/review.html?id=" + encodeURIComponent(id.trim()) +
+    "&email=" + encodeURIComponent(email.trim());
 }
 </script>
 
