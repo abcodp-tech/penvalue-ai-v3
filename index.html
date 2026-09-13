@@ -221,7 +221,7 @@ const followupToken=followupParams.get("token");
 
     followupOriginalPhotos.forEach(src=>{
       const img=document.createElement("img");
-      img.src=src;
+     img.src="/api/photo?path="+encodeURIComponent(src);
       img.alt="Original valuation photo";
       img.title="Original photo already included";
       photoBox.appendChild(img);
@@ -726,7 +726,7 @@ box.innerHTML=waiting ? "<b>"+waiting.replace("|","</b><br>")+"</b>" : "<b>AI is
 const uploadResponse = await fetch("/api/upload-photo", {
   method: "POST",
    headers: {"Content-Type":"application/json"},
-      plication/json"},
+     
   body: JSON.stringify({
     submissionId: submissionId,
     photo: photo,
@@ -740,7 +740,7 @@ const uploadResponse = await fetch("/api/upload-photo", {
 return await uploadResponse.json();
   })
 );
-
+const photoUrls = blobPhotos.map(blob => blob.pathname);
 const allImages=followupMode
   ? [...followupOriginalPhotos,...photoUrls]
   : photoUrls;
