@@ -247,6 +247,15 @@ ${extraPhotoRequest ? `
                 <p style="margin-top:26px;padding-top:18px;border-top:1px solid #dddddd;font-size:12px;color:#666666;">
                   ${copy.disclaimer}
                 </p>
+                <div style="margin-top:24px;padding:18px;background:#f7f4ec;border:1px solid #d6ad55;border-radius:10px;text-align:center;">
+  <h3 style="margin:0 0 8px;color:#0d2340;">How did we do?</h3>
+  <p style="margin:0 0 12px;color:#172033;">
+    We'd love to know how useful and accurate you found your PenValue AI valuation.
+  </p>
+  <div style="font-size:28px;letter-spacing:4px;">
+    ⭐ ⭐ ⭐ ⭐ ⭐
+  </div>
+</div>
 
                 <p style="color:#0d2340;">
   <strong>PenValue AI</strong><br>
