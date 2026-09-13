@@ -128,7 +128,18 @@
 
   <script>
     let selectedRating = 0;
+const params = new URLSearchParams(window.location.search);
 
+const presetId = params.get("id");
+const presetEmail = params.get("email");
+
+if (presetId) {
+  document.getElementById("reference").value = presetId;
+}
+
+if (presetEmail) {
+  document.getElementById("email").value = presetEmail;
+}
     const stars = document.querySelectorAll(".star");
 
     stars.forEach(star => {
