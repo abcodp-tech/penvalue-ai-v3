@@ -144,7 +144,10 @@ const expires = Date.now() + 60 * 60 * 1000;
     const uploadUrl = `https://penvalueai.co.uk/?extra=${encodeURIComponent(id)}&expires=${expires}&token=${token}`;
     const feedbackExpires = Date.now() + 30 * 24 * 60 * 60 * 1000;
     const makeFeedbackUrl = (rating) => {
-    const confidenceText =
+      const feedbackToken = crypto.createHmac("sha256", process.env.FOLLOWUP_LINK_SECRET).update(`${id}:${rating}:${feedbackExpires}`).digest("hex");
+   return `https://penvalueai.co.uk/api/feedback?id=${encodeURIComponent(id)}&rating=${rating}&expires=${feedbackExpires}&token=${feedbackToken}`;
+      };
+      const confidenceText =
       confidence === "High"
         ? copy.high
         : confidence === "Medium"
@@ -254,9 +257,13 @@ ${extraPhotoRequest ? `
   <p style="margin:0 0 12px;color:#172033;">
     We'd love to know how useful and accurate you found your PenValue AI valuation.
   </p>
-  <div style="font-size:28px;letter-spacing:4px;">
-    ⭐ ⭐ ⭐ ⭐ ⭐
-  </div>
+ <div style="font-size:28px;letter-spacing:4px;">
+  <a href="${makeFeedbackUrl(1)}" style="text-decoration:none;">⭐</a>
+  <a href="${makeFeedbackUrl(2)}" style="text-decoration:none;">⭐</a>
+  <a href="${makeFeedbackUrl(3)}" style="text-decoration:none;">⭐</a>
+  <a href="${makeFeedbackUrl(4)}" style="text-decoration:none;">⭐</a>
+  <a href="${makeFeedbackUrl(5)}" style="text-decoration:none;">⭐</a>
+</div>
 </div>
 
                 <p style="color:#0d2340;">
