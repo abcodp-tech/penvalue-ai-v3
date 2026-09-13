@@ -42,7 +42,18 @@ for (const photo of photos) {
     if (!result || result.statusCode !== 200) {
       throw new Error("Stored photo could not be loaded");
     }
-  }
+      const chunks = [];
+for await (const chunk of result.stream) {
+  chunks.push(Buffer.from(chunk));
+}
+
+const base64 = Buffer.concat(chunks).toString("base64");
+preparedPhotos.push(
+  `data:${result.blob.contentType || "image/jpeg"};base64,${base64}`
+);
+} else {
+  preparedPhotos.push(photo);
+}
 }
     const headers = {
       "Content-Type": "application/json",
@@ -78,7 +89,7 @@ Never identify a model from a white dot, slim body or gold-coloured nib alone. I
 Do not browse, value the pen, suggest any model names, invent unreadable markings, or call the nib solid gold unless 14K, 18K, 585 or 750 is clearly visible.
 
 Do not repeat a model name supplied by the user. The fingerprint must contain neutral visual facts only.`
-        }, ...photos.map(photo => ({
+        },...preparedPhotos.map(photo => ({
           type: "input_image",
           image_url: photo,
           detail: "high"
