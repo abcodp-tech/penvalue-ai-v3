@@ -49,12 +49,14 @@ export default async function handler(req, res) {
 
     const sql = neon(process.env.DATABASE_URL);
 
-    const rows = await sql`
-      UPDATE submissions
-      SET rating = ${ratingNumber}
-      WHERE id = ${id}
-      RETURNING id
-    `;
+   const rows = await sql`
+  UPDATE submissions
+  SET
+    rating = ${ratingNumber},
+    feedback_created_at = NOW()
+  WHERE id = ${id}
+  RETURNING id
+`;
 
     if (!rows.length) {
       return res.status(404).send("Valuation not found.");
