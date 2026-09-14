@@ -180,7 +180,7 @@ const expires = Date.now() + 60 * 60 * 1000;
   .replace(/\n\s*-\s+/g, "\n• ")
   .replace(/\n{2,}/g, "\n\n");
 const formattedExplanation = safeExplanation
-  .replace(/(\d+\.\s+[^\n]+)/g, "\n\n<strong>$1</strong>")
+.replace(/(^|\n)([1-9]\.\s+[^\n]+)/g, "$1\n\n<strong>$2</strong>")
   .replace(/\n• /g, "<br>• ")
   .replace(/\n\n/g, "<br><br>")
   .replace(/^\s*<br><br>/, "");
