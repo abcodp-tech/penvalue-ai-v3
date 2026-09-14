@@ -240,7 +240,7 @@ const formattedExplanation = safeExplanation
                 </h3>
 
                 <div style="line-height:1.7;white-space:pre-wrap;font-size:16px;color:#172033;">
-                  ${safeExplanation}
+                ${formattedExplanation}
                 </div>
 ${extraPhotoRequest ? `
 <div style="margin-top:22px;padding:16px;border:1px solid #d4af37;border-radius:12px;background:#fffaf0;">
