@@ -63,6 +63,7 @@ if (submissionId) {
   question,
   notes,
   photo_count,
+  photo_data,
   ai_valuation,
   status,
   created_at,
