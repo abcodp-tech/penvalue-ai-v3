@@ -404,7 +404,8 @@ async function saveToDashboard(aiValuation, photoData, submissionId){
     throw error;
   }
 }
-let q=document.getElementById('queue');
+async function renderQueue(){
+  let q=document.getElementById('queue');
 
   try{
   const response=await fetch('/api/submissions');
