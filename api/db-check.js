@@ -2,21 +2,16 @@ import { neon } from "@neondatabase/serverless";
 
 export default async function handler(req, res) {
   try {
-    const databaseUrl = process.env.DATABASE_URL;
-    const parsedUrl = new URL(databaseUrl);
-    const sql = neon(databaseUrl);
+    const sql = neon(process.env.DATABASE_URL);
 
-    const rows = await sql`
-      SELECT id, created_at
+    const result = await sql`
+      SELECT
+        current_setting('neon.endpoint_id', true) AS endpoint_id,
+        COUNT(*)::int AS submission_count
       FROM submissions
-      ORDER BY created_at DESC
     `;
 
-    return res.status(200).json({
-      database_host: parsedUrl.hostname,
-      submission_count: rows.length,
-      submissions: rows
-    });
+    return res.status(200).json(result[0]);
   } catch (error) {
     return res.status(500).json({
       error: error.message
