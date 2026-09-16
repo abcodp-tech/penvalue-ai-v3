@@ -329,66 +329,81 @@ async function show(which){
   if(which==='valuer')await renderQueue();
 }
 
-function saveToDashboard(aiValuation, photoData, submissionId){
-let n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim();
 
-if(!n||!e||photos.length===0){
-alert('Please add your name, email and at least one photo.');
-return
+
+async function saveToDashboard(aiValuation, photoData, submissionId){
+  let n=document.getElementById('name').value.trim();
+  let e=document.getElementById('email').value.trim();
+
+  if(!n||!e||photos.length===0){
+    alert('Please add your name, email and at least one photo.');
+    return false;
+  }
+
+  let s={
+    id:submissionId || (followupMode && followupId ? followupId : 'PV-'+Date.now().toString().slice(-6)),
+    name:n,
+    email:e,
+    brand:document.getElementById('brand').value,
+    model:document.getElementById('model').value,
+    source:document.getElementById('source').value,
+    question:document.getElementById('question').value,
+    notes:document.getElementById('notes').value,
+    photos:Array.isArray(photoData) ? photoData.length + (followupMode ? followupOriginalPhotos.length : 0) : photos.length,
+    photoData:followupMode ? [...followupOriginalPhotos,...(photoData || [])] : (photoData || []),
+    aiValuation:aiValuation || '',
+    followupUsed:followupMode,
+    status:'Awaiting valuation',
+    language:document.getElementById("language").value,
+    created:new Date().toLocaleString()
+  };
+
+  try{
+    const saveResponse=await fetch('/api/submissions',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        id:s.id,
+        name:s.name,
+        email:s.email,
+        brand:s.brand,
+        model:s.model,
+        source:s.source,
+        question:s.question,
+        notes:s.notes,
+        photoCount:s.photos,
+        photoData:s.photoData,
+        aiValuation:s.aiValuation,
+        followupUsed:s.followupUsed,
+        language:s.language,
+        status:s.status
+      })
+    });
+
+    if(!saveResponse.ok){
+      const saveError=await saveResponse.text();
+      console.error('Database save failed:',saveError);
+      throw new Error('Your valuation was created, but it could not be saved securely. Please try submitting again.');
+    }
+
+    submissions.unshift(s);
+    saveLocalSubmissions();
+
+    document.getElementById('success').style.display='block';
+    document.getElementById('success').innerHTML=customerMessage(s.language,'success',s.id);
+
+    document.getElementById('name').value='';
+    document.getElementById('email').value='';
+    photos=[];
+    document.getElementById('photos').innerHTML='';
+
+    return true;
+
+  }catch(error){
+    console.error('Database save failed:',error);
+    throw error;
+  }
 }
-
-let s={
-id:submissionId || (followupMode && followupId ? followupId : 'PV-'+Date.now().toString().slice(-6)),
-name:n,
-email:e,
-brand:document.getElementById('brand').value,
-model:document.getElementById('model').value,
-source:document.getElementById('source').value,
-question:document.getElementById('question').value,
-notes:document.getElementById('notes').value,
-photos:Array.isArray(photoData) ? photoData.length + (followupMode ? followupOriginalPhotos.length : 0) : photos.length,
- photoData:followupMode ? [...followupOriginalPhotos,...(photoData || [])] : (photoData || []),
-  aiValuation:aiValuation || '',
-  followupUsed:followupMode,
-status:'Awaiting valuation',
-  language:document.getElementById("language").value,
-created:new Date().toLocaleString()
-};
-
-submissions.unshift(s);
-saveLocalSubmissions();
-
-  fetch('/api/submissions',{
-  method:'POST',
-  headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({
-    id:s.id,
-    name:s.name,
-    email:s.email,
-    brand:s.brand,
-    model:s.model,
-    source:s.source,
-    question:s.question,
-    notes:s.notes,
-    photoCount:s.photos,
-    photoData:s.photoData,
-    aiValuation:s.aiValuation,
-    followupUsed:s.followupUsed,
-    language:s.language,
-    status:s.status
-  })
-}).catch(error=>console.error('Database save failed:',error));
-
-document.getElementById('success').style.display='block';
-document.getElementById('success').innerHTML=customerMessage(s.language,'success',s.id);
-
-document.getElementById('name').value='';
-document.getElementById('email').value='';
-photos=[];
-document.getElementById('photos').innerHTML='';
-}
-
-async function renderQueue(){
 let q=document.getElementById('queue');
 
   try{
