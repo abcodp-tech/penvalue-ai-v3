@@ -6,10 +6,11 @@ export default async function handler(req, res) {
 
     const info = await sql`
       SELECT
-        current_database() AS database,
-        current_user AS user,
-        COUNT(*)::int AS submission_count
-      FROM submissions
+        current_database() AS database_name,
+        current_user AS database_user,
+        inet_server_addr() AS server_address,
+        inet_server_port() AS server_port,
+        (SELECT COUNT(*)::int FROM submissions) AS submission_count
     `;
 
     return res.status(200).json(info[0]);
