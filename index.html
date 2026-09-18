@@ -922,7 +922,7 @@ if(!document.getElementById("model").value && modelMatch){
   detectedModel=detectedModel.replace(/,.*/,"").trim();
   document.getElementById("model").value=detectedModel;
 }
-await saveToDashboard(data.valuation, photoUrls, submissionId);
+await saveToDashboard(data.valuation, allImages, submissionId);
 localStorage.removeItem("penvalue_pending_id");
 localStorage.removeItem("penvalue_pending_photos");
 sessionStorage.removeItem("penvalue_pending_id");
