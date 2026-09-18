@@ -703,7 +703,31 @@ if(!saveResponse.ok){
   c.getContext("2d").drawImage(img,0,0,c.width,c.height);
   return c.toDataURL("image/jpeg",0.80);
 }
+function startPayment(){
+  const name=document.getElementById("name").value.trim();
+  const email=document.getElementById("email").value.trim();
 
+  if(!name || !email || photos.length===0){
+    alert("Please add your name, email and photos before paying.");
+    return;
+  }
+
+  sessionStorage.setItem("penvalue_pending_form",JSON.stringify({
+    name:name,
+    email:email,
+    brand:document.getElementById("brand").value,
+    model:document.getElementById("model").value,
+    source:document.getElementById("source").value,
+    question:document.getElementById("question").value,
+    notes:document.getElementById("notes").value,
+    referenceUrl:document.getElementById("referenceUrl").value
+  }));
+
+  window.open(
+    "https://buy.stripe.com/00w9AV1NWbTQ89IdRq0co00",
+    "_blank"
+  );
+}
 async function submitPen(){
   const n=document.getElementById("name").value.trim();
   const e=document.getElementById("email").value.trim();
