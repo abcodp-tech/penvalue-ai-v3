@@ -711,7 +711,7 @@ if(!saveResponse.ok){
 
     const result=await response.json();
 
-    if(!response.ok)throw new Error(result.error||'Email failed');
+  if(!response.ok)throw new Error(result.error||'Email failed');
 
     sent.textContent='Valuation completed and emailed to the customer.';
   }catch(error){
