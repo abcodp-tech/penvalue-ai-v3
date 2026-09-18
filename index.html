@@ -174,7 +174,7 @@ const followupToken=followupParams.get("token");
  async function checkFollowupLink(){
   if(!followupExtra || !followupExpires || !followupToken) return;
 
-  const payButton=document.querySelector('button[onclick*="buy.stripe.com"]');
+  const payButton=document.querySelector('button[onclick="startPayment()"]
   const submitButton=document.querySelector('button[onclick="submitPen()"]');
 
   try{
