@@ -165,7 +165,7 @@ footer{color:#d7deea!important}
 document.querySelector("footer").textContent="PenValue AI provides indicative valuations based on submitted photographs and available market evidence.";
   let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
 let followupMode=false;
-  let pendingPhotoUrls=[];S
+  let pendingPhotoUrls=[];
 let followupId="";
   let followupOriginalPhotos=[];
   const followupParams=new URLSearchParams(window.location.search);
@@ -805,7 +805,7 @@ if(!pendingSave.ok){
   const box=document.getElementById("success");
   box.style.display="block";
 window.location.href = "https://buy.stripe.com/00w9AV1NWbTQ89IdRq0co00";
-
+}
 async function submitPen(){
   const n=document.getElementById("name").value.trim();
   const e=document.getElementById("email").value.trim();
