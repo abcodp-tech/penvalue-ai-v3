@@ -374,7 +374,7 @@ async function saveToDashboard(aiValuation, photoData, submissionId){
   let n=document.getElementById('name').value.trim();
   let e=document.getElementById('email').value.trim();
 
-  if(!n||!e||photos.length===0){
+ if(!n||!e||(photos.length===0 && pendingPhotoUrls.length===0 && !followupMode)){
     alert('Please add your name, email and at least one photo.');
     return false;
   }
@@ -858,26 +858,29 @@ async function submitPen(){
 box.innerHTML=waiting ? "<b>"+waiting.replace("|","</b><br>")+"</b>" : "<b>AI is examining your photos and researching market evidence…</b><br>This can take up to 5-8 minutes. Please keep this page open.";
 
   try{
-    const images=await Promise.all(photos.map(smallPhoto));const submissionId = followupMode && followupId
-  ? followupId
- const submissionId = followupMode && followupId
+   const images = await Promise.all(photos.map(smallPhoto));
+
+const submissionId = followupMode && followupId
   ? followupId
   : (pendingId || 'PV-' + Date.now().toString().slice(-6));
-const uploadResponse = await fetch("/api/upload-photo", {
-  method: "POST",
-   headers: {"Content-Type":"application/json"},
-     
-  body: JSON.stringify({
-    submissionId: submissionId,
-    photo: photo,
-    photoNumber: index + 1
+
+const blobPhotos = await Promise.all(
+  images.map(async (photo, index) => {
+    const uploadResponse = await fetch("/api/upload-photo", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        submissionId: submissionId,
+        photo: photo,
+        photoNumber: index + 1
       })
     });
-      if (!uploadResponse.ok) {
-  throw new Error("Photo upload failed");
-}
 
-return await uploadResponse.json();
+    if(!uploadResponse.ok){
+      throw new Error("Photo upload failed");
+    }
+
+    return await uploadResponse.json();
   })
 );
 const photoUrls = blobPhotos.map(blob => blob.pathname);
