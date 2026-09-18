@@ -731,7 +731,7 @@ if(!saveResponse.ok){
   c.getContext("2d").drawImage(img,0,0,c.width,c.height);
   return c.toDataURL("image/jpeg",0.80);
 }
-function startPayment(){
+async function startPayment(){
   const name=document.getElementById("name").value.trim();
   const email=document.getElementById("email").value.trim();
 
