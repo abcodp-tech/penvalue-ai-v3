@@ -253,6 +253,31 @@ const followupToken=followupParams.get("token");
  }
 
 checkFollowupLink();
+
+  function restorePendingForm(){
+  try{
+    const saved=sessionStorage.getItem("penvalue_pending_form");
+    if(!saved) return;
+
+    const form=JSON.parse(saved);
+
+    document.getElementById("name").value=form.name||"";
+    document.getElementById("email").value=form.email||"";
+    document.getElementById("brand").value=form.brand||"";
+    document.getElementById("model").value=form.model||"";
+    document.getElementById("source").value=form.source||"";
+    document.getElementById("notes").value=form.notes||"";
+    document.getElementById("referenceUrl").value=form.referenceUrl||"";
+
+    if(form.question){
+      document.getElementById("question").value=form.question;
+    }
+  }catch(error){
+    console.error("Could not restore pending form:",error);
+  }
+}
+
+restorePendingForm();
   function saveLocalSubmissions(){
   const lightweight=submissions.map(({photoData,...submission})=>submission);
   localStorage.setItem('penvalue_submissions',JSON.stringify(lightweight));
@@ -396,6 +421,10 @@ async function saveToDashboard(aiValuation, photoData, submissionId){
     document.getElementById('email').value='';
     photos=[];
     document.getElementById('photos').innerHTML='';
+document.getElementById('photos').innerHTML='';
+
+sessionStorage.removeItem("penvalue_pending_form");
+
 
     return true;
 
@@ -722,6 +751,20 @@ function startPayment(){
     notes:document.getElementById("notes").value,
     referenceUrl:document.getElementById("referenceUrl").value
   }));
+    }));
+
+  const box=document.getElementById("success");
+  box.style.display="block";
+  box.innerHTML=
+    "<b>Payment page opened in a new tab.</b><br><br>"+
+    "Complete your £4.99 payment there, then return to THIS PenValue AI tab. "+
+    "Your photos and details will remain here. Then press <b>2. Submit for valuation after payment</b>.";
+
+  window.open(
+    "https://buy.stripe.com/00w9AV1NWbTQ89IdRq0co00",
+    "_blank"
+  );
+}
 
   window.open(
     "https://buy.stripe.com/00w9AV1NWbTQ89IdRq0co00",
