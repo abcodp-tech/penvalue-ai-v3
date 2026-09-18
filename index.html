@@ -278,6 +278,20 @@ checkFollowupLink();
 }
 
 restorePendingForm();
+  const pendingId =
+  sessionStorage.getItem("penvalue_pending_id") ||
+  localStorage.getItem("penvalue_pending_id");
+
+const savedPendingPhotos = localStorage.getItem("penvalue_pending_photos");
+
+if(pendingId && savedPendingPhotos){
+  try{
+    pendingPhotoUrls = JSON.parse(savedPendingPhotos) || [];
+  }catch(error){
+    pendingPhotoUrls = [];
+    console.error("Could not restore pending photos:",error);
+  }
+}
   function saveLocalSubmissions(){
   const lightweight=submissions.map(({photoData,...submission})=>submission);
   localStorage.setItem('penvalue_submissions',JSON.stringify(lightweight));
@@ -811,7 +825,7 @@ async function submitPen(){
   const e=document.getElementById("email").value.trim();
   const box=document.getElementById("success");
 
-  if(!n||!e||photos.length===0){
+ if(!n||!e||(photos.length===0 && pendingPhotoUrls.length===0)){
     alert(customerMessage(document.getElementById("language").value,'missing'));
     return;
   }
