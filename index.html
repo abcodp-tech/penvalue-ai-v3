@@ -739,6 +739,9 @@ async function startPayment(){
     alert("Please add your name, email and photos before paying.");
     return;
   }
+  const submissionId = 'PV-' + Date.now().toString().slice(-6);
+localStorage.setItem("penvalue_pending_id", submissionId);
+sessionStorage.setItem("penvalue_pending_id", submissionId);
 
   sessionStorage.setItem("penvalue_pending_form",JSON.stringify({
     name:name,
@@ -750,21 +753,57 @@ async function startPayment(){
     notes:document.getElementById("notes").value,
     referenceUrl:document.getElementById("referenceUrl").value
   }));
-  
+  const images = await Promise.all(photos.map(smallPhoto));
 
+const blobPhotos = await Promise.all(
+  images.map(async (photo, index) => {
+    const uploadResponse = await fetch("/api/upload-photo", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        submissionId: submissionId,
+        photo: photo,
+        photoNumber: index + 1
+      })
+    });
+
+    if(!uploadResponse.ok){
+      throw new Error("Photo upload failed");
+    }
+
+    return await uploadResponse.json();
+  })
+);
+
+const photoUrls = blobPhotos.map(blob => blob.pathname);
+localStorage.setItem("penvalue_pending_photos", JSON.stringify(photoUrls));
+const pendingSave = await fetch("/api/submissions", {
+  method: "POST",
+  headers: {"Content-Type":"application/json"},
+  body: JSON.stringify({
+    id: submissionId,
+    name: name,
+    email: email,
+    brand: document.getElementById("brand").value,
+    model: document.getElementById("model").value,
+    source: document.getElementById("source").value,
+    question: document.getElementById("question").value,
+    notes: document.getElementById("notes").value,
+    photoCount: photoUrls.length,
+    photoData: photoUrls,
+    aiValuation: "",
+    followupUsed: false,
+    language: document.getElementById("language").value,
+    status: "Awaiting payment"
+  })
+});
+
+if(!pendingSave.ok){
+  throw new Error("Could not safely save your submission before payment.");
+}
   const box=document.getElementById("success");
   box.style.display="block";
-  box.innerHTML=
-    "<b>Payment page opened in a new tab.</b><br><br>"+
-    "Complete your £4.99 payment there, then return to THIS PenValue AI tab. "+
-    "Your photos and details will remain here. Then press <b>2. Submit for valuation after payment</b>.";
-
-  window.open(
-    "https://buy.stripe.com/00w9AV1NWbTQ89IdRq0co00",
-    "_blank"
-  );
-}
-
+window.location.href = "https://buy.stripe.com/00w9AV1NWbTQ89IdRq0co00";
 
 async function submitPen(){
   const n=document.getElementById("name").value.trim();
