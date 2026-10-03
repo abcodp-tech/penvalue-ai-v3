@@ -98,9 +98,9 @@ footer{color:#d7deea!important}
 <section class="hero"><h1>Get your fountain pen, ballpoint or mechanical pencil valued</h1><p>Send us clear photos and a few details. Your valuer can review the pen, estimate its market value and send you a valuation.</p></section>
 
 <div class="tabs">
-  <div style="margin:18px 0;text-align:center">
+ <div style="width:100%;margin:0">
   <label for="language"><strong>🌍 Language</strong></label>
-  <select id="language" onchange="changeLanguage(this.value)" style="max-width:260px;margin-left:10px">
+ <select id="language" onchange="changeLanguage(this.value)" style="width:100%;height:58px;margin-top:5px;border:1px solid #d4af37;border-radius:11px;background:#0b1d36;color:#fff;font-weight:800;font-size:16px;text-align:center">
     <option value="en">English</option>
     <option value="es">Español</option>
     <option value="fr">Français</option>
@@ -110,7 +110,7 @@ footer{color:#d7deea!important}
   </select>
 </div>
 <button id="customerTab" class="active" onclick="show('customer')">Customer</button>
-<button id="valuerTab" class="light" onclick="show('valuer')">Valuer dashboard</button>
+<button id="valuerTab" class="light" onclick="show('valuer')" style="display:none">Valuer dashboard</button>
 </div>
 
 <section id="customer">
