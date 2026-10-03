@@ -307,6 +307,13 @@ const payButton=document.querySelector('button[onclick="startPayment()"]');
  }
 
 checkFollowupLink();
+  const privateValuerMode = new URLSearchParams(window.location.search).get("valuer");
+
+if(privateValuerMode === "1"){
+  window.addEventListener("load", () => {
+    show("valuer");
+  });
+}
 
   function restorePendingForm(){
   try{
