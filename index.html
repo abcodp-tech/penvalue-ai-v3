@@ -158,11 +158,15 @@ src="/PenValue AI_ 12-Photo Fountain Pen Guide.png"
 <div class="full"><label>Anything else?</label><textarea id="notes" rows="3" placeholder="Condition, marks, box/papers, writing performance..."></textarea></div>
 </div>
 
-<button style="margin-top:14px" onclick="startPayment()">1. Pay £4.99 securely</button>
-<button style="margin-top:10px" onclick="submitPen()">2. Submit for valuation after payment</button>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+  <button style="width:100%;min-height:58px;margin:0;" onclick="startPayment()">1. Pay £4.99 securely</button>
+  <button style="width:100%;min-height:58px;margin:0;" onclick="submitPen()">2. Submit for valuation after payment</button>
+</div>
+
 <div class="success" id="success" style="margin-top:14px"></div>
-  <div style="margin-top:16px;text-align:center;">
-<button class="gold" onclick="startReview()">
+
+<div style="margin-top:12px;">
+  <button class="gold" onclick="startReview()" style="width:100%;min-height:58px;margin:0;">
     Leave a review
   </button>
 </div>
