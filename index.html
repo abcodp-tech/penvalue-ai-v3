@@ -15,14 +15,26 @@ main{max-width:920px;margin:auto;padding:24px 16px 50px}.hero{text-align:center;
 .tabs{display:flex;gap:8px;margin-bottom:16px}.tabs button{flex:1}.tabs button.active{background:#211d18;color:white}
 .card{background:#fffdf8;border:1px solid #ddd3c5;border-radius:18px;padding:20px;box-shadow:0 8px 28px #3b2b180c;margin-bottom:16px}
 button{border:0;border-radius:11px;padding:12px 16px;font-weight:800;background:#755337;color:white;cursor:pointer}button.light{background:#ebe3d7;color:#211d18}
-.drop{display:block;width:100%;border:2px dashed #d4af37;border-radius:16px;padding:24px;text-align:center;background:#d4af37!important;cursor:pointer;margin:18px 0;color:#071a33!important;font-weight:700;font-size:18px}.drop input{display:none}
 .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.photos img{width:100%;height:110px;object-fit:cover;border-radius:10px;border:1px solid #ddd3c5}
+.photo-slot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.photo-slot{min-width:0;min-height:220px;display:flex;flex-direction:column;align-items:stretch;gap:7px;padding:11px;background:#0b1d36!important;color:#fff!important;border:1px dashed #d4af37;border-radius:12px;text-align:left;font-size:13px;line-height:1.35}
+.photo-slot.is-complete{border-style:solid;background:#10233f!important}
+.photo-slot-number{color:#d4af37;font-size:17px;font-weight:900}
+.photo-slot-title{font-weight:850;font-size:14px}
+.photo-slot-detail{font-size:12px;color:#d7deea}
+.photo-slot-state{margin-top:auto;font-size:12px;color:#f1d778;font-weight:800}
+.photo-slot-action{font-size:13px;color:#f1d778;font-weight:900}
+.photo-slot-image{display:block;width:100%;height:180px;border-radius:8px;border:1px solid #d4af37}
+.photo-slot-example{object-fit:contain;background:#f4f0e8;padding:4px}
+.photo-slot-preview{object-fit:cover}
+@media(min-width:700px){.photo-slot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:900px){.photo-slot-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:12px;font-weight:800;color:#70675d}input,select,textarea{width:100%;margin-top:5px;padding:11px;border:1px solid #d8cebf;border-radius:10px;font:inherit;background:white}
 .full{grid-column:1/-1}.note{font-size:12px;color:#756c62;line-height:1.5}.success{background:#e8f1e9;border:1px solid #bfd1c1;border-radius:12px;padding:14px;display:none}
 .queue{display:grid;gap:10px}.job{border:1px solid #ddd3c5;border-radius:13px;padding:14px;background:white;display:flex;justify-content:space-between;gap:12px;align-items:center}.job small{color:#756c62}.status{font-size:11px;font-weight:900;padding:6px 8px;border-radius:99px;background:#d4af37;color:#071a33}
 .result{display:none;background:#f1eadf;border-radius:14px;padding:16px}.price{font-size:38px;font-weight:900}.muted{color:#756c62}
 footer{text-align:center;color:#756c62;font-size:12px;padding:20px}
-@media(max-width:650px){.grid{grid-template-columns:1fr}.photos{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:31px}.job{align-items:flex-start;flex-direction:column}}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.photos{grid-template-columns:repeat(2,1fr)}.photo-slot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.photo-slot{min-height:220px}.photo-slot-image{height:190px}.hero h1{font-size:31px}.job{align-items:flex-start;flex-direction:column}}
 .brand-logo{width:58px;height:58px;border-radius:14px;object-fit:cover;margin-right:10px}
   .logo{display:none}
     /* PenValue AI navy & gold theme */
@@ -40,54 +52,6 @@ input,select,textarea{background:#0b1d36!important;color:#fff!important;border:1
 .note{color:#d7deea!important}
 footer{color:#d7deea!important}
     @media(max-width:650px){.tabs{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;align-items:stretch!important}.tabs>div{grid-column:1/-1!important;margin:10px 0 4px!important}.tabs button{width:100%!important;min-width:0!important;padding:14px 8px!important;font-size:16px!important;line-height:1.2!important;min-height:58px!important}}
- /* PenValue AI photo guide */
-.photo-guide-card{
-  background:#0b1d36;
-  border:1px solid #d4af37;
-  border-radius:12px;
-  padding:10px;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.photo-guide-card img{
-  width:100%;
-  aspect-ratio:4/3;
-  object-fit:cover;
-  border-radius:8px;
-  background:#071a33;
-}
-
-.photo-guide-card strong{
-  color:#d4af37;
-  font-size:15px;
-}
-
-.photo-guide-card span{
-  color:#d7deea;
-  font-size:12px;
-  line-height:1.4;
-}
-
-@media(max-width:650px){
-  .photo-guide > div{
-    grid-template-columns:1fr 1fr!important;
-    gap:8px!important;
-  }
-
-  .photo-guide-card{
-    padding:7px;
-  }
-
-  .photo-guide-card strong{
-    font-size:13px;
-  }
-
-  .photo-guide-card span{
-    font-size:11px;
-  }
-}
     .result, .result *{color:#d7deea!important;}
   .success,.success *{background:#10233f!important;color:#d7deea!important;border-color:#d4af37!important;}
   </style>
@@ -117,28 +81,13 @@ footer{color:#d7deea!important}
 <section id="customer">
 <div class="card">
 <h2>Submit your pen</h2>
-<p class="note">For the best valuation, photograph the whole pen, cap, nib and any barrel/imprint markings.</p>
+<p class="note" id="customer-summary">For the best valuation, photograph the whole pen, cap, nib and any barrel/imprint markings.</p>
 
-<label class="drop">📷 Add up to 12 photos
-<input id="files" type="file" accept="image/*" multiple>
-<div class="photos" id="photos"></div>
-</label>
-
-<div class="note" style="margin-top:14px;line-height:1.65">
-  <strong>📸 Photo guide</strong><br>
-  Follow the example photos below for the clearest and most accurate valuation.<br>
-  Never force a pen to unscrew or come apart. If a part does not open easily, leave it as it is.<br>
-  If there are no markings in the position shown, simply photograph the area clearly.
-</div>
-<!-- PenValue AI 12-photo visual guide -->
-<div class="photo-guide" style="margin-top:18px">
-  <img
-src="/PenValue AI_ 12-Photo Fountain Pen Guide.png"
-    alt="PenValue AI 12-photo guide showing the recommended photographs for an accurate pen valuation"
-   style="width:100%;max-width:700px;height:auto;display:block;margin:0 auto;border:1px solid #d4af37;border-radius:14px;"
-  >
-</div>
-<!-- End photo guide -->
+<p class="note" id="photo-slot-intro">All slots are optional; send at least one photo. Skip anything that does not apply or is not present. Never force a pen open or remove a part.</p>
+<div class="photo-slot-grid" id="photo-slot-grid" aria-label="Optional photo upload slots"></div>
+<input id="slot-file" type="file" accept="image/*" capture="environment" hidden>
+<div class="note" id="photo-slot-help" style="margin-top:10px">Tap a slot to add or take that photo. Before submitting, tap it again to change your selection.</div>
+<div class="photos" id="original-photos" aria-label="Original photos for this follow-up"></div>
 <div class="grid" style="margin-top:14px">
 <div><label>Your name</label><input id="name" placeholder="Your name"></div>
 <div><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div>
@@ -217,7 +166,7 @@ src="/PenValue AI_ 12-Photo Fountain Pen Guide.png"
 
 <script>
 document.querySelector("footer").textContent="PenValue AI provides indicative valuations based on submitted photographs and available market evidence.";
-  let photos=[],submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
+  let photos=Array(12).fill(null),submissions=JSON.parse(localStorage.getItem('penvalue_submissions')||'[]'),current=null;
 let followupMode=false;
   let pendingPhotoUrls=[];
 let followupId="";
@@ -278,7 +227,7 @@ const payButton=document.querySelector('button[onclick="startPayment()"]');
       submitButton.style.width="100%";
     }
 
-    const photoBox=document.getElementById("photos");
+    const photoBox=document.getElementById("original-photos");
     photoBox.innerHTML="";
 
     followupOriginalPhotos.forEach(src=>{
@@ -357,22 +306,90 @@ if(pendingId && savedPendingPhotos){
   const lightweight=submissions.map(({photoData,...submission})=>submission);
   localStorage.setItem('penvalue_submissions',JSON.stringify(lightweight));
 }
-const files=document.getElementById('files');
-
-files.onchange=()=>{
-  const newPhotos=[...files.files];
-  photos=[...photos,...newPhotos].slice(0,12);
-
-  document.getElementById('photos').innerHTML='';
-
-  photos.forEach(f=>{
-    let i=document.createElement('img');
-    i.src=URL.createObjectURL(f);
-    document.getElementById('photos').appendChild(i);
-  });
-
-  files.value='';
+// Copy is assigned by the page's existing six-language changeLanguage() branches.
+let PHOTO_SLOT_GUIDANCE = [
+  ['Full pen — capped','Beside a ruler'],
+  ['Full pen — uncapped','Cap beside it, if applicable'],
+  ['Nib, tip or pencil mechanism','Close-up'],
+  ['Nib underside and feed','Fountain pens only'],
+  ['Hallmark or size marking','If present'],
+  ['Brand, logo and model','Readable close-up'],
+  ['Barrel, cap band or serial','If marked'],
+  ['Refill or filling system','Only if accessible without force'],
+  ['Other hallmarks or engravings','If present'],
+  ['Wear or damage','Scratches, dents or cracks'],
+  ['Under the Clip',''],
+  ['Box & Paperwork','If available; include accessories']
+];
+let PHOTO_SLOT_COPY = {empty:'📷 + Add photo',selected:'Photo added — tap to change',uploaded:'Photo uploaded',pending:'Upload pending',duplicate:'That photo is already in another slot.',readError:'Could not read that photo. Please choose it again.',emptyAria:'Add or take photo',selectedAria:'Photo selected; tap to replace',uploadedAria:'Photo uploaded',gridAria:'Photo upload slots',previewAria:'Preview for photo'};
+function setPhotoSlotLanguage(guidance,copy){PHOTO_SLOT_GUIDANCE=guidance;PHOTO_SLOT_COPY=copy;}
+const PHOTO_SLOT_LANGUAGES={
+  es:{intro:'Todos los espacios son opcionales; envía al menos una foto. Deja vacíos los que no correspondan o no estén presentes. Nunca fuerces la apertura de la pluma ni retires piezas.',help:'Toca un espacio para añadir o tomar esa foto. Antes de enviar, tócalo de nuevo para cambiarla.',guidance:[['Pluma completa — cerrada','Junto a una regla'],['Pluma completa — abierta','Tapa al lado, si corresponde'],['Plumín, punta o mecanismo','Primer plano'],['Parte inferior del plumín y alimentador','Solo plumas estilográficas'],['Punzón o medida','Si está presente'],['Marca, logotipo y modelo','Detalle legible'],['Cuerpo, anillo o número de serie','Si está marcado'],['Recambio o sistema de carga','Solo si es accesible sin forzar'],['Otros punzones o grabados','Si los hay'],['Desgaste o daños','Arañazos, golpes o grietas'],['Debajo del clip',''],['Caja y documentos','Si están disponibles; incluye accesorios']],copy:{empty:'📷 + Añadir foto',selected:'Foto añadida — toca para cambiar',uploaded:'Foto subida',pending:'Subida pendiente',duplicate:'Esa foto ya está en otro espacio.',readError:'No se pudo leer la foto. Vuelve a elegirla.',emptyAria:'Añadir o hacer foto',selectedAria:'Foto seleccionada; toca para sustituir',uploadedAria:'Foto subida',gridAria:'Espacios para subir fotos',previewAria:'Vista previa de la foto',originalsAria:'Fotos originales de este seguimiento'}},
+  fr:{intro:'Tous les emplacements sont facultatifs ; envoyez au moins une photo. Laissez vides ceux qui ne s’appliquent pas ou sont absents. Ne forcez jamais l’ouverture et ne retirez aucune pièce.',help:'Touchez un emplacement pour ajouter ou prendre cette photo. Avant l’envoi, touchez-le à nouveau pour la changer.',guidance:[['Stylo complet — fermé','À côté d’une règle'],['Stylo complet — ouvert','Capuchon à côté si nécessaire'],['Plume, pointe ou mécanisme','Gros plan'],['Dessous de la plume et conduit','Stylos-plume uniquement'],['Poinçon ou indication de taille','Si présent'],['Marque, logo et modèle','Détail lisible'],['Corps, bague ou numéro de série','Si marqué'],['Recharge ou système de remplissage','Seulement si accessible sans forcer'],['Autres poinçons ou gravures','Le cas échéant'],['Usure ou dommages','Rayures, bosses ou fissures'],['Sous l’agrafe',''],['Boîte et documents','Si disponibles ; accessoires inclus']],copy:{empty:'📷 + Ajouter une photo',selected:'Photo ajoutée — toucher pour changer',uploaded:'Photo envoyée',pending:'Envoi en attente',duplicate:'Cette photo se trouve déjà dans un autre emplacement.',readError:'Impossible de lire cette photo. Veuillez la choisir à nouveau.',emptyAria:'Ajouter ou prendre la photo',selectedAria:'Photo choisie ; toucher pour remplacer',uploadedAria:'Photo envoyée',gridAria:'Emplacements de photos',previewAria:'Aperçu de la photo',originalsAria:'Photos d’origine pour ce suivi'}},
+  de:{intro:'Alle Plätze sind optional; senden Sie mindestens ein Foto. Nicht zutreffende oder nicht vorhandene Details können leer bleiben. Öffnen Sie den Stift niemals mit Gewalt und entfernen Sie keine Teile.',help:'Tippen Sie auf einen Platz, um das Foto hinzuzufügen oder aufzunehmen. Vor dem Senden können Sie ihn erneut antippen, um das Foto zu ändern.',guidance:[['Stift komplett — geschlossen','Neben einem Lineal'],['Stift komplett — geöffnet','Kappe bei Bedarf daneben'],['Feder, Spitze oder Mechanik','Nahaufnahme'],['Federunterseite und Tintenleiter','Nur Füllfederhalter'],['Punze oder Größenangabe','Falls vorhanden'],['Marke, Logo und Modell','Gut lesbares Detail'],['Schaft, Kappenring oder Seriennummer','Falls markiert'],['Mine oder Füllsystem','Nur wenn ohne Kraft zugänglich'],['Weitere Punzen oder Gravuren','Falls vorhanden'],['Gebrauchsspuren oder Schäden','Kratzer, Dellen oder Risse'],['Unter dem Clip',''],['Box und Unterlagen','Falls vorhanden; Zubehör dazu']],copy:{empty:'📷 + Foto hinzufügen',selected:'Foto hinzugefügt — zum Ändern tippen',uploaded:'Foto hochgeladen',pending:'Upload ausstehend',duplicate:'Dieses Foto ist bereits einem anderen Platz zugeordnet.',readError:'Das Foto konnte nicht gelesen werden. Bitte wählen Sie es erneut aus.',emptyAria:'Foto hinzufügen oder aufnehmen',selectedAria:'Foto ausgewählt; zum Ersetzen tippen',uploadedAria:'Foto hochgeladen',gridAria:'Fotoplätze',previewAria:'Vorschau für Foto',originalsAria:'Originalfotos für diese Rückfrage'}},
+  it:{intro:'Tutti gli spazi sono facoltativi; invia almeno una foto. Lascia vuoti quelli non pertinenti o non presenti. Non forzare mai l’apertura della penna e non rimuovere parti.',help:'Tocca uno spazio per aggiungere o scattare quella foto. Prima dell’invio, toccalo di nuovo per cambiarla.',guidance:[['Penna completa — chiusa','Accanto a un righello'],['Penna completa — aperta','Cappuccio accanto, se necessario'],['Pennino, punta o meccanismo','Primo piano'],['Parte inferiore del pennino e conduttore','Solo penne stilografiche'],['Punzone o misura','Se presente'],['Marca, logo e modello','Dettaglio leggibile'],['Corpo, anello o numero di serie','Se presente'],['Ricarica o sistema di caricamento','Solo se accessibile senza forzare'],['Altri punzoni o incisioni','Se presenti'],['Usura o danni','Graffi, ammaccature o crepe'],['Sotto la clip',''],['Scatola e documenti','Se disponibili; includi gli accessori']],copy:{empty:'📷 + Aggiungi foto',selected:'Foto aggiunta — tocca per cambiare',uploaded:'Foto caricata',pending:'Caricamento in attesa',duplicate:'Questa foto è già presente in un altro spazio.',readError:'Impossibile leggere la foto. Selezionala di nuovo.',emptyAria:'Aggiungi o scatta foto',selectedAria:'Foto selezionata; tocca per sostituire',uploadedAria:'Foto caricata',gridAria:'Spazi per le foto',previewAria:'Anteprima della foto',originalsAria:'Foto originali per questa richiesta'}},
+  pt:{intro:'Todos os espaços são opcionais; envie pelo menos uma foto. Deixe vazios os que não se aplicam ou não existem. Nunca force a abertura da caneta nem remova peças.',help:'Toque num espaço para adicionar ou tirar essa foto. Antes de enviar, toque novamente para a alterar.',guidance:[['Caneta completa — fechada','Junto a uma régua'],['Caneta completa — aberta','Tampa ao lado, se aplicável'],['Aparo, ponta ou mecanismo','Grande plano'],['Parte inferior do aparo e alimentador','Apenas canetas de tinta permanente'],['Punção ou indicação de tamanho','Se existir'],['Marca, logótipo e modelo','Detalhe legível'],['Corpo, anel ou número de série','Se estiver marcado'],['Recarga ou sistema de enchimento','Só se acessível sem forçar'],['Outros punções ou gravações','Se existirem'],['Desgaste ou danos','Riscos, mossas ou fissuras'],['Por baixo do clipe',''],['Caixa e documentos','Se disponíveis; inclua acessórios']],copy:{empty:'📷 + Adicionar foto',selected:'Foto adicionada — toque para alterar',uploaded:'Foto carregada',pending:'Carregamento pendente',duplicate:'Esta foto já está noutro espaço.',readError:'Não foi possível ler a foto. Selecione-a novamente.',emptyAria:'Adicionar ou tirar foto',selectedAria:'Foto selecionada; toque para substituir',uploadedAria:'Foto carregada',gridAria:'Espaços para fotografias',previewAria:'Pré-visualização da foto',originalsAria:'Fotos originais desta avaliação'} }
 };
+function applyPhotoSlotLanguage(lang){
+  const copy=PHOTO_SLOT_LANGUAGES[lang];if(!copy)return;
+  document.getElementById('photo-slot-intro').textContent=copy.intro;
+  document.getElementById('photo-slot-help').textContent=copy.help;
+  document.getElementById('original-photos').setAttribute('aria-label',copy.copy.originalsAria);
+  setPhotoSlotLanguage(copy.guidance,copy.copy);
+  renderPhotoSlots();
+}
+const files=document.getElementById('slot-file');
+const photoSlotGrid=document.getElementById('photo-slot-grid');
+let selectedPhotoSlot=null;
+let photoPreviewUrls=Array(12).fill(null);
+let photoSelectionPending=Promise.resolve();
+function getSelectedPhotoSlots(){return photos.map((file,index)=>file?{file,slot:index+1}:null).filter(Boolean);}
+async function photoDigest(file){
+  const digest=await crypto.subtle.digest('SHA-256',await file.arrayBuffer());
+  return Array.from(new Uint8Array(digest),byte=>byte.toString(16).padStart(2,'0')).join('');
+}
+async function uniqueSelectedPhotos(selected){
+  const seen=new Set(),unique=[];
+  for(const file of selected){const id=await photoDigest(file);if(!seen.has(id)){seen.add(id);unique.push(file);}}
+  return unique;
+}
+function renderPhotoSlots(){
+  photoSlotGrid.innerHTML='';
+  photoSlotGrid.setAttribute('aria-label',PHOTO_SLOT_COPY.gridAria);
+  PHOTO_SLOT_GUIDANCE.forEach(([title,detail],index)=>{
+    const slotNumber=index+1,file=photos[index];
+    const card=document.createElement('button');card.type='button';card.className='photo-slot'+(file?' is-complete':'');
+    card.dataset.photoSlot=String(slotNumber);
+    card.setAttribute('aria-label',slotNumber+' '+title+(detail?' — '+detail:'')+'. '+(file?PHOTO_SLOT_COPY.selectedAria:PHOTO_SLOT_COPY.emptyAria));
+    card.innerHTML='<span class="photo-slot-number">'+slotNumber+(file?' ✓':'')+'</span><span class="photo-slot-title">'+title+'</span>'+(detail?'<span class="photo-slot-detail">'+detail+'</span>':'')+'<span class="photo-slot-state">'+(file?PHOTO_SLOT_COPY.selected:'<span class="photo-slot-action">'+PHOTO_SLOT_COPY.empty+'</span>')+'</span>';
+    const img=document.createElement('img');img.className='photo-slot-image';img.alt='';
+    if(file){img.className+=' photo-slot-preview';img.src=photoPreviewUrls[index];}
+    else{img.className+=' photo-slot-example';img.src='photo-examples/slot-'+String(slotNumber).padStart(2,'0')+'.webp';img.loading='lazy';img.decoding='async';}
+    card.appendChild(img);card.onclick=()=>choosePhotoSlot(slotNumber);photoSlotGrid.appendChild(card);
+  });
+}
+function choosePhotoSlot(slot){
+  if(!Number.isInteger(slot)||slot<1||slot>12)return;
+  selectedPhotoSlot=slot;files.value='';files.click();
+}
+async function selectPhotoForSlot(slot,file){
+  if(!Number.isInteger(slot)||slot<1||slot>12)return false;
+  const index=slot-1,otherFiles=photos.filter((existing,i)=>existing&&i!==index);
+  const unique=await uniqueSelectedPhotos([...otherFiles,file]);
+  if(unique.length!==otherFiles.length+1){alert(PHOTO_SLOT_COPY.duplicate);return false;}
+  if(photoPreviewUrls[index])URL.revokeObjectURL(photoPreviewUrls[index]);
+  photos[index]=file;photoPreviewUrls[index]=URL.createObjectURL(file);renderPhotoSlots();return true;
+}
+function resetPhotoSlots(){
+  photoPreviewUrls.forEach(url=>{if(url)URL.revokeObjectURL(url);});
+  photos=Array(12).fill(null);photoPreviewUrls=Array(12).fill(null);renderPhotoSlots();
+}
+files.onchange=()=>{
+  const file=files.files?.[0],slot=selectedPhotoSlot;files.value='';selectedPhotoSlot=null;
+  if(!file||!slot)return;
+  photoSelectionPending=photoSelectionPending.then(()=>selectPhotoForSlot(slot,file)).catch(()=>alert(PHOTO_SLOT_COPY.readError));
+};
+renderPhotoSlots();
 
 function askForValuerPassword(){
   return new Promise(resolve=>{
@@ -435,7 +452,7 @@ async function saveToDashboard(aiValuation, photoData, submissionId){
   let n=document.getElementById('name').value.trim();
   let e=document.getElementById('email').value.trim();
 
- if(!n||!e||(photos.length===0 && pendingPhotoUrls.length===0 && !followupMode)){
+ if(!n||!e||(!photos.some(Boolean) && pendingPhotoUrls.length===0 && !followupMode)){
     alert('Please add your name, email and at least one photo.');
     return false;
   }
@@ -449,7 +466,7 @@ async function saveToDashboard(aiValuation, photoData, submissionId){
     source:document.getElementById('source').value,
     question:document.getElementById('question').value,
     notes:document.getElementById('notes').value,
-    photos:Array.isArray(photoData) ? photoData.length + (followupMode ? followupOriginalPhotos.length : 0) : photos.length,
+    photos:Array.isArray(photoData) ? photoData.length + (followupMode ? followupOriginalPhotos.length : 0) : getSelectedPhotoSlots().length,
     photoData:followupMode ? [...followupOriginalPhotos,...(photoData || [])] : (photoData || []),
     aiValuation:aiValuation || '',
     followupUsed:followupMode,
@@ -494,9 +511,7 @@ async function saveToDashboard(aiValuation, photoData, submissionId){
 
     document.getElementById('name').value='';
     document.getElementById('email').value='';
-    photos=[];
-    document.getElementById('photos').innerHTML='';
-document.getElementById('photos').innerHTML='';
+    resetPhotoSlots();
 
 sessionStorage.removeItem("penvalue_pending_form");
 
@@ -808,10 +823,12 @@ if(!saveResponse.ok){
   return c.toDataURL("image/jpeg",0.80);
 }
 async function startPayment(){
+  await photoSelectionPending;
   const name=document.getElementById("name").value.trim();
   const email=document.getElementById("email").value.trim();
 
-  if(!name || !email || photos.length===0){
+  const selectedSlots=getSelectedPhotoSlots();
+  if(!name || !email || selectedSlots.length===0){
     alert("Please add your name, email and photos before paying.");
     return;
   }
@@ -829,7 +846,7 @@ sessionStorage.setItem("penvalue_pending_id", submissionId);
     notes:document.getElementById("notes").value,
     referenceUrl:document.getElementById("referenceUrl").value
   }));
-  const images = await Promise.all(photos.map(smallPhoto));
+  const images = await Promise.all(selectedSlots.map(item=>smallPhoto(item.file)));
 
 const blobPhotos = await Promise.all(
   images.map(async (photo, index) => {
@@ -839,7 +856,7 @@ const blobPhotos = await Promise.all(
       body: JSON.stringify({
         submissionId: submissionId,
         photo: photo,
-        photoNumber: index + 1
+        photoNumber: selectedSlots[index].slot
       })
     });
 
@@ -882,11 +899,13 @@ if(!pendingSave.ok){
 window.location.href = "https://buy.stripe.com/00w9AV1NWbTQ89IdRq0co00";
 }
 async function submitPen(){
+  await photoSelectionPending;
   const n=document.getElementById("name").value.trim();
   const e=document.getElementById("email").value.trim();
   const box=document.getElementById("success");
 
- if(!n||!e||(photos.length===0 && pendingPhotoUrls.length===0)){
+ const selectedSlots=getSelectedPhotoSlots();
+ if(!n||!e||(selectedSlots.length===0 && pendingPhotoUrls.length===0)){
     alert(customerMessage(document.getElementById("language").value,'missing'));
     return;
   }
@@ -919,21 +938,21 @@ async function submitPen(){
 box.innerHTML=waiting ? "<b>"+waiting.replace("|","</b><br>")+"</b>" : "<b>AI is examining your photos and researching market evidence…</b><br>This can take up to 5-8 minutes. Please keep this page open.";
 
   try{
-   const images = await Promise.all(photos.map(smallPhoto));
+   const images = await Promise.all(selectedSlots.map(item=>smallPhoto(item.file)));
 
 const submissionId = followupMode && followupId
   ? followupId
   : (pendingId || 'PV-' + Date.now().toString().slice(-6));
 
 const blobPhotos = await Promise.all(
-  images.map(async (photo, index) => {
+   images.map(async (photo, index) => {
     const uploadResponse = await fetch("/api/upload-photo", {
       method: "POST",
       headers: {"Content-Type":"application/json"},
       body: JSON.stringify({
         submissionId: submissionId,
         photo: photo,
-        photoNumber: index + 1
+         photoNumber: selectedSlots[index].slot
       })
     });
 
@@ -1012,6 +1031,7 @@ box.appendChild(copyButton);
   function changeLanguage(lang){
   localStorage.setItem("penvalueLanguage",lang);
   document.documentElement.lang=lang;
+  applyPhotoSlotLanguage(lang);
 
   if(lang==="es"){
     document.querySelector(".hero h1").textContent="Obtén la valoración de tu pluma estilográfica, bolígrafo o portaminas";
@@ -1019,8 +1039,8 @@ box.appendChild(copyButton);
     document.getElementById("customerTab").textContent="Cliente";
     document.getElementById("valuerTab").textContent="Panel del tasador";
     document.querySelector("#customer .card h2").textContent="Envía tu pluma";
-    document.querySelector("#customer .card .note").textContent="Para obtener la mejor valoración, fotografía la pluma completa, el capuchón, el plumín y cualquier marca del cuerpo.";
-   document.querySelector(".drop").childNodes[0].textContent="📷 Añade hasta 12 fotos";
+    document.getElementById("customer-summary").textContent="Para obtener la mejor valoración, fotografía la pluma completa, el capuchón, el plumín y cualquier marca del cuerpo.";
+  // Photo-slot copy is applied by applyPhotoSlotLanguage(lang).
   document.querySelector('label[for="language"] strong').textContent="🌍 Idioma";
 
 document.getElementById("name").previousElementSibling.textContent="Tu nombre";
@@ -1049,20 +1069,6 @@ document.getElementById("question").options[3].text="¿Vale la pena repararla?";
 document.getElementById("notes").previousElementSibling.textContent="¿Algo más?";
 document.getElementById("notes").placeholder="Estado, marcas, caja/papeles, funcionamiento...";
 
-document.querySelector(".drop + .note").innerHTML=
-"<strong>📸 Para obtener la valoración más precisa, incluye:</strong><br>"+
-"1. Bolígrafo/pluma/lapicero completo con tapa o mecanismo cerrado, junto a una regla<br>"+
-"2. Bolígrafo/pluma/lapicero abierto o extendido, con la tapa al lado si corresponde<br>"+
-"3. Primer plano claro del plumín, punta del bolígrafo o mecanismo del portaminas<br>"+
-"4. Plumas estilográficas: primer plano de la parte inferior del plumín y el alimentador<br>"+
-"5. Primer plano de cualquier marca del plumín como 14K, 18K, 585 o 750<br>"+
-"6. Foto clara del nombre de la marca, logotipo y modelo<br>"+
-"7. Primer plano del cuerpo, banda del capuchón, clip y cualquier número de serie<br>"+
-"8. Bolígrafo/pluma abierto o desenroscado mostrando recambio, sistema de carga o mecanismo interno<br>"+
-"9. Primer plano de cualquier contraste, marca de metal precioso o pequeño grabado<br>"+
-"10. Foto clara de arañazos, abolladuras, grietas, desgaste u otros daños<br>"+
-"11. Caja original, papeles, recibo y cualquier accesorio<br>"+
-"12. Muestra de escritura y cualquier foto extra que ayude a mostrar el estado o la autenticidad";
 
 document.querySelector('button[onclick="startPayment()"]').textContent="1. Pagar £4.99 de forma segura";
 document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar para valoración después del pago";
@@ -1074,8 +1080,8 @@ document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar p
   document.getElementById("customerTab").textContent="Client";
   document.getElementById("valuerTab").textContent="Tableau de l’évaluateur";
   document.querySelector("#customer .card h2").textContent="Envoyez votre stylo";
-  document.querySelector("#customer .card .note").textContent="Pour obtenir la meilleure estimation, photographiez le stylo entier, le capuchon, la plume et toutes les marques sur le corps.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Ajoutez jusqu’à 12 photos";
+  document.getElementById("customer-summary").textContent="Pour obtenir la meilleure estimation, photographiez le stylo entier, le capuchon, la plume et toutes les marques sur le corps.";
+  // Photo-slot copy is applied by applyPhotoSlotLanguage(lang).
   document.querySelector('label[for="language"] strong').textContent="🌍 Langue";
 
   document.getElementById("name").previousElementSibling.textContent="Votre nom";
@@ -1102,21 +1108,6 @@ document.querySelector('button[onclick="submitPen()"]').textContent="2. Enviar p
   document.getElementById("notes").previousElementSibling.textContent="Autre chose ?";
   document.getElementById("notes").placeholder="État, marques, boîte/papiers, fonctionnement...";
 
-  document.querySelector(".drop + .note").innerHTML=
-  "<strong>📸 Pour obtenir l’estimation la plus précise, incluez :</strong><br>"+
-
-"1. Stylo ou porte-mine complet, capuchon ou mécanisme fermé, à côté d’une règle<br>"+
-"2. Stylo ou porte-mine ouvert ou déployé, avec le capuchon à côté si nécessaire<br>"+
-"3. Gros plan net de la plume, de la pointe du stylo-bille ou du mécanisme du porte-mine<br>"+
-"4. Stylos-plume : gros plan du dessous de la plume et du conduit<br>"+
-"5. Gros plan de toute marque sur la plume, comme 14K, 18K, 585 ou 750<br>"+
-"6. Photo nette du nom de la marque, du logo et des marquages du modèle<br>"+
-"7. Gros plan du corps, de la bague du capuchon, de l’agrafe et de tout numéro de série<br>"+
-"8. Stylo ouvert ou dévissé montrant la recharge, le système de remplissage ou le mécanisme interne<br>"+
-"9. Gros plan de tout poinçon, marque de métal précieux ou petite gravure<br>"+
-"10. Photo nette montrant les rayures, bosses, fissures, l’usure ou tout autre dommage<br>"+
-"11. Boîte d’origine, papiers, reçu et tous les accessoires<br>"+
-"12. Échantillon d’écriture et toute photo supplémentaire montrant l’état ou l’authenticité";
 
  
 document.querySelector('button[onclick="startPayment()"]').textContent="1. Payer £4.99 en toute sécurité";
@@ -1129,8 +1120,8 @@ if(lang==="de"){
   document.getElementById("customerTab").textContent="Kunde";
   document.getElementById("valuerTab").textContent="Bewerter-Dashboard";
   document.querySelector("#customer .card h2").textContent="Füllfederhalter einreichen";
-  document.querySelector("#customer .card .note").textContent="Für die beste Bewertung fotografieren Sie den gesamten Füllfederhalter, die Kappe, die Feder und alle Markierungen am Schaft.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Bis zu 12 Fotos hinzufügen";
+  document.getElementById("customer-summary").textContent="Für die beste Bewertung fotografieren Sie den gesamten Füllfederhalter, die Kappe, die Feder und alle Markierungen am Schaft.";
+  // Photo-slot copy is applied by applyPhotoSlotLanguage(lang).
   document.querySelector('label[for="language"] strong').textContent="🌍 Sprache";
 
   document.getElementById("name").previousElementSibling.textContent="Ihr Name";
@@ -1157,20 +1148,6 @@ if(lang==="de"){
   document.getElementById("notes").previousElementSibling.textContent="Noch etwas?";
   document.getElementById("notes").placeholder="Zustand, Markierungen, Box/Papiere, Funktion...";
   
-document.querySelector(".drop + .note").innerHTML=
- "<strong>📸 Für die genaueste Bewertung bitte Folgendes aufnehmen:</strong><br>"+
-"1. Kompletter Stift oder Druckbleistift mit geschlossener Kappe bzw. geschlossenem Mechanismus neben einem Lineal<br>"+
-"2. Stift oder Druckbleistift geöffnet bzw. ausgefahren, mit der Kappe daneben, falls vorhanden<br>"+
-"3. Scharfes Nahfoto der Feder, Kugelschreiberspitze oder des Druckbleistiftmechanismus<br>"+
-"4. Füllfederhalter: Nahfoto der Unterseite der Feder und des Tintenleiters<br>"+
-"5. Nahfoto aller Feder-Markierungen wie 14K, 18K, 585 oder 750<br>"+
-"6. Deutliches Foto von Markenname, Logo und Modellmarkierungen<br>"+
-"7. Nahfoto von Schaft, Kappenring, Clip und vorhandenen Seriennummern<br>"+
-"8. Geöffneter oder aufgeschraubter Stift mit sichtbarer Mine, Füllsystem oder internem Mechanismus<br>"+
-"9. Nahfoto von Punzen, Edelmetallmarkierungen oder kleinen Gravuren<br>"+
-"10. Deutliches Foto von Kratzern, Dellen, Rissen, Abnutzung oder anderen Schäden<br>"+
-"11. Originalbox, Papiere, Kaufbeleg und sämtliches Zubehör<br>"+
-"12. Schriftprobe sowie zusätzliche Fotos, die Zustand oder Echtheit besser zeigen";
 
  
  document.querySelector('button[onclick="startPayment()"]').textContent="1. £4.99 sicher bezahlen";
@@ -1183,8 +1160,8 @@ if(lang==="it"){
   document.getElementById("customerTab").textContent="Cliente";
   document.getElementById("valuerTab").textContent="Pannello valutatore";
   document.querySelector("#customer .card h2").textContent="Invia la tua penna";
-  document.querySelector("#customer .card .note").textContent="Per ottenere la migliore valutazione, fotografa la penna completa, il cappuccio, il pennino e qualsiasi marcatura sul fusto.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Aggiungi fino a 12 foto";
+   document.getElementById("customer-summary").textContent="Per ottenere la migliore valutazione, fotografa la penna completa, il cappuccio, il pennino e qualsiasi marcatura sul fusto.";
+  // Photo-slot copy is applied by applyPhotoSlotLanguage(lang).
   document.querySelector('label[for="language"] strong').textContent="🌍 Lingua";
 
   document.getElementById("name").previousElementSibling.textContent="Il tuo nome";
@@ -1211,20 +1188,6 @@ if(lang==="it"){
   document.getElementById("notes").previousElementSibling.textContent="Altro?";
   document.getElementById("notes").placeholder="Condizioni, marcature, scatola/documenti, funzionamento...";
 
-document.querySelector(".drop + .note").innerHTML=
-"<strong>📸 Per ottenere la valutazione più accurata, includi:</strong><br>"+
-"1. Penna o portamine completo con cappuccio o meccanismo chiuso, accanto a un righello<br>"+
-"2. Penna o portamine aperto o esteso, con il cappuccio accanto se applicabile<br>"+
-"3. Primo piano nitido del pennino, della punta della penna a sfera o del meccanismo del portamine<br>"+
-"4. Penne stilografiche: primo piano della parte inferiore del pennino e dell’alimentatore<br>"+
-"5. Primo piano di eventuali marcature sul pennino come 14K, 18K, 585 o 750<br>"+
-"6. Foto chiara del nome del marchio, del logo e delle marcature del modello<br>"+
-"7. Primo piano del fusto, dell’anello del cappuccio, della clip e di eventuali numeri di serie<br>"+
-"8. Penna aperta o svitata per mostrare la ricarica, il sistema di caricamento o il meccanismo interno<br>"+
-"9. Primo piano di eventuali punzoni, marchi di metalli preziosi o piccole incisioni<br>"+
-"10. Foto chiara che mostri graffi, ammaccature, crepe, usura o altri danni<br>"+
-"11. Scatola originale, documenti, ricevuta ed eventuali accessori<br>"+
-"12. Prova di scrittura e qualsiasi foto aggiuntiva che aiuti a mostrare le condizioni o l’autenticità";
 
   
  document.querySelector('button[onclick="startPayment()"]').textContent="1. Paga £4.99 in sicurezza";
@@ -1237,8 +1200,8 @@ if(lang==="pt"){
   document.getElementById("customerTab").textContent="Cliente";
   document.getElementById("valuerTab").textContent="Painel do avaliador";
   document.querySelector("#customer .card h2").textContent="Envie a sua caneta";
-  document.querySelector("#customer .card .note").textContent="Para obter a melhor avaliação, fotografe a caneta completa, a tampa, o aparo e quaisquer marcações no corpo.";
-  document.querySelector(".drop").childNodes[0].textContent="📷 Adicione até 12 fotos";
+   document.getElementById("customer-summary").textContent="Para obter a melhor avaliação, fotografe a caneta completa, a tampa, o aparo e quaisquer marcações no corpo.";
+  // Photo-slot copy is applied by applyPhotoSlotLanguage(lang).
   document.querySelector('label[for="language"] strong').textContent="🌍 Idioma";
 
   document.getElementById("name").previousElementSibling.textContent="O seu nome";
@@ -1265,20 +1228,6 @@ if(lang==="pt"){
   document.getElementById("notes").previousElementSibling.textContent="Mais alguma coisa?";
   document.getElementById("notes").placeholder="Estado, marcações, caixa/documentos, funcionamento...";
 
-  document.querySelector(".drop + .note").innerHTML=
-"<strong>📸 Para obter a avaliação mais precisa, inclua:</strong><br>"+
-"1. Caneta ou lapiseira completa com tampa ou mecanismo fechado, ao lado de uma régua<br>"+
-"2. Caneta ou lapiseira aberta ou estendida, com a tampa ao lado se aplicável<br>"+
-"3. Foto nítida em primeiro plano do aparo, ponta da esferográfica ou mecanismo da lapiseira<br>"+
-"4. Canetas-tinteiro: foto em primeiro plano da parte inferior do aparo e alimentador<br>"+
-"5. Foto em primeiro plano de quaisquer marcações no aparo, como 14K, 18K, 585 ou 750<br>"+
-"6. Foto nítida do nome da marca, logótipo e marcações do modelo<br>"+
-"7. Foto em primeiro plano do corpo, anel da tampa, clipe e quaisquer números de série<br>"+
-"8. Caneta aberta ou desenroscada mostrando a recarga, sistema de enchimento ou mecanismo interno<br>"+
-"9. Foto em primeiro plano de quaisquer punções, marcas de metais preciosos ou pequenas gravações<br>"+
-"10. Foto nítida mostrando riscos, amolgadelas, fissuras, desgaste ou outros danos<br>"+
-"11. Caixa original, documentos, recibo e quaisquer acessórios<br>"+
-"12. Amostra de escrita e qualquer foto adicional que ajude a mostrar o estado ou a autenticidade";
  
 document.querySelector('button[onclick="startPayment()"]').textContent="1. Pagar £4.99 com segurança";
 document.getElementById("success").dataset.waiting="A IA está a analisar as suas fotos e a pesquisar dados de mercado…|Isto pode demorar entre 5 e 8 minutos. Por favor, mantenha esta página aberta.";
